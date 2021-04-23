@@ -13,6 +13,7 @@ import { Sidebar } from './SideBar'
 export const ProfileScreen = () => {
 
 
+
     const { uid } = useSelector(state => state.auth);
 
 
@@ -26,6 +27,8 @@ export const ProfileScreen = () => {
         phone2,
         rfc,
         nationality,
+        postalCode,
+        city,
     } = useSelector(state => state.user);
 
     const [formValues, handleInputChange] = useForm(
@@ -39,8 +42,11 @@ export const ProfileScreen = () => {
             phone2U: phone2,
             rfcU: rfc,
             nationalityU: nationality,
+            postalCodeU: postalCode,
+            cityU: city,
 
         });
+
 
     const {
         nameU,
@@ -52,6 +58,8 @@ export const ProfileScreen = () => {
         phone2U,
         rfcU,
         nationalityU,
+        postalCodeU,
+        cityU,
     } = formValues;
 
 
@@ -78,6 +86,8 @@ export const ProfileScreen = () => {
             phone2: phone2U,
             rfc: rfcU,
             nationality: nationalityU,
+            postalCode: postalCodeU,
+            city: cityU,
 
         }, (error) => {
             if (error) {
@@ -103,19 +113,20 @@ export const ProfileScreen = () => {
             <hr />
             <div>
                 <h1>Perfil</h1>
-                <UpdateUser />
-                <hr />
-                <h2>Datos personales</h2>
                 <Link
                     to="/profile"
                     className="link"
                 >
                     Reload Data
                 </Link>
+                <UpdateUser />
+                <hr />
+                <h2>Datos personales</h2>
                 <form onSubmit={handleSubmit}>
+                    <label>Todos tus nombres</label>
                     <input
                         type="text"
-                        placeholder="Name"
+                        placeholder="Todos tus nombres"
                         name="nameU"
                         autoComplete="off"
                         value={nameU}
@@ -123,9 +134,10 @@ export const ProfileScreen = () => {
                         disabled={active}
                     />
                     <br />
+                    <label>Apellido Paterno, Apellido Materno</label>
                     <input
                         type="text"
-                        placeholder="Full Name"
+                        placeholder="Apellido Paterno, Apellido Materno"
                         name="fullNameU"
                         autoComplete="off"
                         value={fullNameU}
@@ -134,6 +146,7 @@ export const ProfileScreen = () => {
 
                     />
                     <br />
+                    <label>Fecha de nacimiento</label>
                     <input
                         type="date"
                         name="birthdayU"
@@ -143,24 +156,49 @@ export const ProfileScreen = () => {
 
                     />
                     <br />
+                    <label>Edad</label>
                     <input
                         type="text"
                         name="ageU"
+                        placeholder="Edad"
                         value={ageU}
                         onChange={handleInputChange}
                         disabled={active}
 
                     />
                     <br />
+                    <p>Sexo</p>
+                    <label>Hombre</label>
                     <input
-                        type="number"
+                        type="radio"
                         name="sexU"
-                        value={sexU}
+                        value="1"
                         onChange={handleInputChange}
                         disabled={active}
+                        checked={sexU === '1'}
+                    />
+                    <label>Mujer</label>
+                    <input
+                        type="radio"
+                        name="sexU"
+                        value="2"
+                        onChange={handleInputChange}
+                        disabled={active}
+                        checked={sexU === '2'}
+
+                    />
+                    <label>Otro</label>
+                    <input
+                        type="radio"
+                        name="sexU"
+                        value="3"
+                        onChange={handleInputChange}
+                        disabled={active}
+                        checked={sexU === '3'}
 
                     />
                     <br />
+                    <label>Teléfono Móvil</label>
                     <input
                         type="text"
                         name="phone1U"
@@ -170,6 +208,7 @@ export const ProfileScreen = () => {
 
                     />
                     <br />
+                    <label>Teléfono Fijo</label>
                     <input
                         type="text"
                         name="phone2U"
@@ -178,6 +217,7 @@ export const ProfileScreen = () => {
                         disabled={active}
                     />
                     <br />
+                    <label>RFC</label>
                     <input
                         type="text"
                         name="rfcU"
@@ -186,31 +226,54 @@ export const ProfileScreen = () => {
                         disabled={active}
                     />
                     <br />
+                    <p>Nacionalidad</p>
+                    <label>Mexicano</label>
+                    <input
+                        type="radio"
+                        name="nationalityU"
+                        value="1"
+                        onChange={handleInputChange}
+                        disabled={active}
+                        checked={nationalityU === '1'}
+
+                    />
+                    <label>Extranjero</label>
+                    <input
+                        type="radio"
+                        name="nationalityU"
+                        value="2"
+                        onChange={handleInputChange}
+                        disabled={active}
+                        checked={nationalityU === '2'}
+                    />
+                    <br />
+                    <h2>Ubicación</h2>
+                    <label>Ciudad</label>
                     <input
                         type="text"
-                        name="nationalityU"
-                        value={nationalityU}
+                        name="cityU"
+                        value={cityU}
                         onChange={handleInputChange}
                         disabled={active}
                     />
                     <br />
+                    <label>Código Postal</label>
+                    <input
+                        type="text"
+                        name="postalCodeU"
+                        value={postalCodeU}
+                        onChange={handleInputChange}
+                        disabled={active}
+                    />
 
                     {
                         buttonSave &&
-                        <button
-                            type="submit"
-                        >
-                            Save
-                        </button>
+                        <button type="submit">Save</button>
                     }
                 </form>
                 {
                     buttonEdit &&
-                    <button
-                        onClick={handleActive}
-                    >
-                        Edit
-                    </button>
+                    <button onClick={handleActive}>Edit</button>
                 }
 
 
