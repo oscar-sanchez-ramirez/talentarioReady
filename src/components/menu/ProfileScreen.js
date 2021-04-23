@@ -29,6 +29,7 @@ export const ProfileScreen = () => {
         nationality,
         postalCode,
         city,
+        country,
     } = useSelector(state => state.user);
 
     const [formValues, handleInputChange] = useForm(
@@ -44,6 +45,7 @@ export const ProfileScreen = () => {
             nationalityU: nationality,
             postalCodeU: postalCode,
             cityU: city,
+            countryU : country,
 
         });
 
@@ -60,6 +62,7 @@ export const ProfileScreen = () => {
         nationalityU,
         postalCodeU,
         cityU,
+        countryU,
     } = formValues;
 
 
@@ -88,6 +91,7 @@ export const ProfileScreen = () => {
             nationality: nationalityU,
             postalCode: postalCodeU,
             city: cityU,
+            country: countryU,
 
         }, (error) => {
             if (error) {
@@ -248,6 +252,47 @@ export const ProfileScreen = () => {
                     />
                     <br />
                     <h2>Ubicación</h2>
+                    <label>Estado</label>
+                    <select 
+                    name="countryU"
+                    value={countryU}
+                    onChange={handleInputChange}
+                    disabled={active}
+                    >
+                        <option value="1">AGUASCALIENTES</option>
+                        <option value="2">BAJA CALIFORNIA</option>
+                        <option value="3">BAJA CALIFORNIA SUR</option>
+                        <option value="4">CHIHUAHUA</option>
+                        <option value="5">CHIAPAS</option>
+                        <option value="6">CAMPECHE</option>
+                        <option value="7">CIUDAD DE MEXICO</option>
+                        <option value="8">COAHUILA</option>
+                        <option value="9">COLIMA</option>
+                        <option value="10">DURANGO</option>
+                        <option value="11">GUERRERO</option>
+                        <option value="12">GUANAJUATO</option>
+                        <option value="13">HIDALGO</option>
+                        <option value="14">JALISCO</option>
+                        <option value="15">MICHOACAN</option>
+                        <option value="16">ESTADO DE MEXICO</option>
+                        <option value="17">MORELOS</option>
+                        <option value="18">NAYARIT</option>
+                        <option value="19">NUEVO LEON</option>
+                        <option value="20">OAXACA</option>
+                        <option value="21">PUEBLA</option>
+                        <option value="22">QUINTANA ROO</option>
+                        <option value="23">QUERETARO</option>
+                        <option value="24">SINALOA</option>
+                        <option value="25">SAN LUIS POTOSI</option>
+                        <option value="26">SONORA</option>
+                        <option value="27">TABASCOO</option>
+                        <option value="28">TLAXCALA</option>
+                        <option value="29">TAMAULIPAS</option>
+                        <option value="30">VERACRUZ</option>
+                        <option value="31">YUCATAN</option>
+                        <option value="32">ZACATECAS</option>
+                    </select>
+                    <br />
                     <label>Ciudad</label>
                     <input
                         type="text"
@@ -268,12 +313,12 @@ export const ProfileScreen = () => {
 
                     {
                         buttonSave &&
-                        <button type="submit">Save</button>
+                        <button type="submit">Guardar</button>
                     }
                 </form>
                 {
                     buttonEdit &&
-                    <button onClick={handleActive}>Edit</button>
+                    <button onClick={handleActive}>Editar</button>
                 }
 
 

@@ -65,11 +65,7 @@ export const UpdateUser = () => {
                 <br />
                 {
                     button &&
-                    <button
-                        type="submit"
-                    >
-                        Save
-                </button>
+                    <button type="submit">Guardar</button>
                 }
             </form>
             {
