@@ -9,8 +9,6 @@ export const UpdateDescribe = () => {
             <h2>Describete</h2>
  
 
-            <br />
-            <br />
         </div>
     )
 }
