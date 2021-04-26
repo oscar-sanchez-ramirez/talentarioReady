@@ -9,10 +9,6 @@ export const UpdateDescribe = () => {
             <h2>Describete</h2>
  
 
-
-            <br />
-            <br />
-            <br />
             <br />
             <br />
         </div>
