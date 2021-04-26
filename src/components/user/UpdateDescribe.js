@@ -8,7 +8,7 @@ export const UpdateDescribe = () => {
             <hr />
             <h2>Describete</h2>
  
-
+        <h2>Hola</h2>
         </div>
     )
 }
