@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { db } from '../../firebase/firebase-config';
 import { useForm } from '../../hooks/useForm';
 import { UpdateUser } from '../user/UpdateUser';
+import { UpdateStudies } from '../user/UpdateStudies';
 import { Sidebar } from './SideBar'
 
 export const ProfileScreen = () => {
@@ -31,6 +32,8 @@ export const ProfileScreen = () => {
         city,
         country,
     } = useSelector(state => state.user);
+
+    
 
     const [formValues, handleInputChange] = useForm(
         {
@@ -77,7 +80,7 @@ export const ProfileScreen = () => {
         setButtonEdit(false);
     }
 
-    const handleSubmit = (e) => {
+     const handleSubmit = (e) => {
         e.preventDefault();
         db.ref('users/' + uid).update({
             name: nameU.trim(),
@@ -106,6 +109,7 @@ export const ProfileScreen = () => {
                 Swal.fire('Success', 'Data saved successfully!', 'success');
             }
         });
+
     }
 
 
@@ -320,9 +324,17 @@ export const ProfileScreen = () => {
                     buttonEdit &&
                     <button onClick={handleActive}>Editar</button>
                 }
-
-
+               <hr />
+               <UpdateStudies />  
+               <hr /> 
+               <Link
+                    to="/describe"
+                    className="link"
+                >
+                  Describete
+                </Link>
             </div>
         </>
     )
 }
+

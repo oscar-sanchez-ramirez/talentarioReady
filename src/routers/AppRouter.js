@@ -17,6 +17,7 @@ import { PublicRoute } from './PublicRoute';
 import { HomeScreen } from '../components/menu/HomeScreen';
 import { ProfileScreen } from '../components/menu/ProfileScreen';
 import { userNew } from '../actions/user';
+import { UpdateDescribe } from '../components/user/UpdateDescribe'
 
 export const AppRouter = () => {
 
@@ -126,6 +127,13 @@ export const AppRouter = () => {
                         path="/profile"
                         component={ProfileScreen}
                     />
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/describe"
+                        component={UpdateDescribe}
+                    />
+                    
 
 
                     <Redirect to="/auth/login" />
