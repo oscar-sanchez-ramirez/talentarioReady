@@ -12,16 +12,17 @@ export const Sidebar = () => {
 
     const hanleLogout = () => {
         dispatch(startLogout())
+        window.location.reload();
     }
 
 
 
     return (
-        <aside className="">
+        <>
 
             <div className="">
                 <h3>{name}</h3>
-                <img src={photoURL} alt={name} width={50} />
+                <img src={photoURL} alt={name} width="50" />
                 <br />
                 <button
                     className=""
@@ -46,6 +47,6 @@ export const Sidebar = () => {
                 </Link>
 
             </div>
-        </aside>
+        </>
     )
 }

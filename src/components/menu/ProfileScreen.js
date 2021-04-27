@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 
@@ -33,7 +33,7 @@ export const ProfileScreen = () => {
         country,
     } = useSelector(state => state.user);
 
-    
+
 
     const [formValues, handleInputChange] = useForm(
         {
@@ -48,7 +48,7 @@ export const ProfileScreen = () => {
             nationalityU: nationality,
             postalCodeU: postalCode,
             cityU: city,
-            countryU : country,
+            countryU: country,
 
         });
 
@@ -80,11 +80,11 @@ export const ProfileScreen = () => {
         setButtonEdit(false);
     }
 
-     const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         db.ref('users/' + uid).update({
-            name: nameU.trim(),
-            fullName: fullNameU.trim(),
+            name: nameU,
+            fullName: fullNameU,
             birthday: birthdayU,
             age: ageU,
             sex: sexU,
@@ -113,6 +113,16 @@ export const ProfileScreen = () => {
     }
 
 
+    useEffect(() => {
+        if(formValues.nameU === undefined){
+
+            document.querySelector('#reload').click();
+            
+        }
+        
+    }, [formValues])
+
+
 
 
     return (
@@ -122,6 +132,7 @@ export const ProfileScreen = () => {
             <div>
                 <h1>Perfil</h1>
                 <Link
+                    id="reload"
                     to="/profile"
                     className="link"
                 >
@@ -257,11 +268,11 @@ export const ProfileScreen = () => {
                     <br />
                     <h2>Ubicación</h2>
                     <label>Estado</label>
-                    <select 
-                    name="countryU"
-                    value={countryU}
-                    onChange={handleInputChange}
-                    disabled={active}
+                    <select
+                        name="countryU"
+                        value={countryU}
+                        onChange={handleInputChange}
+                        disabled={active}
                     >
                         <option value="1">AGUASCALIENTES</option>
                         <option value="2">BAJA CALIFORNIA</option>
@@ -324,15 +335,21 @@ export const ProfileScreen = () => {
                     buttonEdit &&
                     <button onClick={handleActive}>Editar</button>
                 }
-               <hr />
-               <UpdateStudies />  
-               <hr /> 
-               <Link
+                <hr />
+                <UpdateStudies />
+                <hr />
+                <Link
                     to="/describe"
                     className="link"
                 >
-                  Describete
+                    Describete
                 </Link>
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
             </div>
         </>
     )
