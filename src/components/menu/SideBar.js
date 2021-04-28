@@ -11,8 +11,8 @@ export const Sidebar = () => {
     const { name, photoURL } = useSelector(state => state.auth)
 
     const hanleLogout = () => {
-        dispatch(startLogout())
         window.location.reload();
+        dispatch(startLogout())
     }
 
 
