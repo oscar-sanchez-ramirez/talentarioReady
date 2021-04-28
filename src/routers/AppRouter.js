@@ -18,6 +18,7 @@ import { HomeScreen } from '../components/menu/HomeScreen';
 import { ProfileScreen } from '../components/menu/ProfileScreen';
 import { userNew } from '../actions/user';
 import { UpdateDescribe } from '../components/user/UpdateDescribe'
+import { CalendarScreen } from '../components/menu/CalendarScreen';
 
 export const AppRouter = () => {
 
@@ -104,7 +105,6 @@ export const AppRouter = () => {
         )
     }
 
-
     return (
         <Router>
             <div>
@@ -123,6 +123,13 @@ export const AppRouter = () => {
                     />
 
                     <PrivateRoute
+                        exact
+                        isAuthenticated={isLoggedIn}
+                        path="/calendar"
+                        component={CalendarScreen}
+                    />
+
+                    <PrivateRoute
                         isAuthenticated={isLoggedIn}
                         path="/profile"
                         component={ProfileScreen}
@@ -133,7 +140,7 @@ export const AppRouter = () => {
                         path="/describe"
                         component={UpdateDescribe}
                     />
-                    
+
 
 
                     <Redirect to="/auth/login" />

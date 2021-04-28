@@ -40,6 +40,13 @@ export const Sidebar = () => {
                 </Link>
                 <br />
                 <Link
+                    to="/calendar"
+                    className="link"
+                >
+                    Calendario
+                </Link>
+                <br />
+                <Link
                     to="/profile"
                     className="link"
                 >
