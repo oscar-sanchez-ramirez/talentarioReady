@@ -1,92 +1,81 @@
-import React, { useEffect } from 'react'
-// import { useFetch } from '../../hooks/useFetch'
-import { Sidebar } from './SideBar'
+import React, { useEffect, useState } from 'react'
 import { db } from '../../firebase/firebase-config';
+import { useFetch } from '../../hooks/useFetch'
+import { Sidebar } from './SideBar'
 
 export const HomeScreen = () => {
 
-    // const state = useFetch(`https://us-central1-talentario-a3d9a.cloudfunctions.net/api/user/t0mH5L55oBgsWa6raawwBNu6U3k2`,
-    //     {
-    //         mode: 'cors',
-    //         headers: {
-    //         	'Access-Control-Allow-Origin': '*',
-    //     	}
-    //     });
-    // console.log(state)
 
-    const jobsData = () => {
+    const state = useFetch(`https://us-central1-talentario-a3d9a.cloudfunctions.net/api/jobOffers`);
+    const { data, loading } = state;
 
-        const starCountRef = db.ref('jobOffers');
-        starCountRef.on('value', (snapshot) => {
-            const data = snapshot.val();
+    // console.log(data)
 
-            // console.log(data)
+    const [objJob, setobjJob] = useState(data);
+    console.log(objJob)
 
-            for (const item in data) {
+    const ofertas = (data) => {
+        const offf = [];
+        data &&
+            Object.keys(data).map(iterador => {
+                
+            return offf.push({ uid: iterador, cargo: data[iterador].positionName, salario: data[iterador].salary, localidad: data[iterador].location })
+            
+            })
+        setobjJob(offf)
 
-                const list = document.querySelector('#jobFs');
-
-                const starCountRef = db.ref('users/' + data[item].companyId);
-                starCountRef.on('value', (snapshot) => {
-                    const dataI = snapshot.val();
-                    // console.log(dataI)
-
-                    const imageUrl = document.createElement('img');
-                    const imageUrlItem = dataI.imageUrl;
-                    imageUrl.style.width = '50px'
-                    imageUrl.src = imageUrlItem;
-                    list.append(imageUrl);
-
-                    const name = document.createElement('p');
-                    const nameItem = dataI.name;
-                    name.innerHTML = nameItem;
-                    list.append(name);
-
-                    const positionName = document.createElement('p');
-                    const positionNameItem = data[item].positionName;
-                    positionName.innerHTML = positionNameItem;
-                    list.append(positionName);
-
-                    const salary = document.createElement('p');
-                    const salaryItem = data[item].salary;
-                    salary.innerHTML = salaryItem;
-                    list.append(salary);
-
-                    const location = document.createElement('p');
-                    const locationItem = data[item].location;
-                    location.innerHTML = locationItem;
-                    list.append(location);
-
-                    const linea = document.createElement('hr');
-                    list.append(linea);
-
-
-                });
-
-            }
-
-        });
-
-        return starCountRef;
+        return offf;
 
     }
 
+
+    const handleInputChange = (e) => {
+        const offer = ofertas(data);
+        const eliminarDiacriticos = (texto) => {
+            return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        }
+        const search = e.target.value;
+        const getOffersByPositionName = (positionName) => offer.filter(jobPosition => eliminarDiacriticos(jobPosition.cargo.toLowerCase()).includes(eliminarDiacriticos(positionName.toLowerCase())));
+        setobjJob(getOffersByPositionName(search));
+    }
+
     useEffect(() => {
+        ofertas(data)
+    }, [data])
 
-        jobsData();
-
-    }, [])
 
 
 
     return (
-        <>
+        <div>
             <Sidebar />
             <hr />
-            <div>
-                <h1>Ofertas de trabajo</h1>
-            </div>
-            <div id="jobFs"></div>
-        </>
+
+            <h1>Ofertas de trabajo</h1>
+
+            <input
+                type='text'
+                name="search"
+                placeholder="Buscador..."
+                onChange={handleInputChange}
+                style={{ marginBottom: '20px' }}
+            />
+
+            { loading ? 'espere..' :
+                (<div id="jobFs">
+                    {objJob &&
+                        objJob.map(iterador => (
+                            <div key={iterador.uid}>
+                                <p>{iterador.cargo}</p>
+                                <p>{iterador.salario}</p>
+                                <p>{iterador.localidad}</p>
+                                <hr />
+                            </div>
+                        ))
+                    }
+                </div>
+                )
+            }
+        </div>
     )
 }

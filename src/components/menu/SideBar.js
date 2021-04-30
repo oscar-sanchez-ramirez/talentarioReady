@@ -18,7 +18,7 @@ export const Sidebar = () => {
 
 
     return (
-        <>
+        <div>
 
             <div className="">
                 <h3>{name}</h3>
@@ -36,7 +36,7 @@ export const Sidebar = () => {
                     to="/"
                     className="link"
                 >
-                    Home
+                    Ofertar de trabajo
                 </Link>
                 <br />
                 <Link
@@ -54,6 +54,6 @@ export const Sidebar = () => {
                 </Link>
 
             </div>
-        </>
+        </div>
     )
 }

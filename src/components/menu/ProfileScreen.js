@@ -126,7 +126,7 @@ export const ProfileScreen = () => {
 
 
     return (
-        <>
+        <div>
             <Sidebar />
             <hr />
             <div>
@@ -351,7 +351,7 @@ export const ProfileScreen = () => {
                 <br />
                 <br />
             </div>
-        </>
+        </div>
     )
 }
 

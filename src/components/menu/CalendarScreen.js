@@ -1,26 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+
+
 import { Sidebar } from '../menu/SideBar'
-import DatePicker from "react-datepicker";
+import Swal from 'sweetalert2';
 
 
-import "react-datepicker/dist/react-datepicker.css";
 
 export const CalendarScreen = () => {
 
 
-    const [startDate, setStartDate] = useState(new Date());
-
-    useEffect(() => {
-        document.querySelector('#calendar').click();
-    }, [])
-
+    const handleDateClick = (dateClickInfo) => {
+        Swal.fire('Fecha', dateClickInfo.dateStr, 'info',)
+    }
 
     return (
         <div>
             <Sidebar />
+            <hr />
             <h2>Calendario</h2>
             <br />
-            <DatePicker selected={startDate} onChange={date => setStartDate(date)} id="calendar"/>
+            <div style={ {padding: '100px', width: '50%'} }>
+            <FullCalendar
+                plugins={[dayGridPlugin, interactionPlugin]}
+                initialView="dayGridMonth"
+                dateClick={handleDateClick}
+                selectable={true}
+                locales="es"
+                buttonText={{today: 'Hoy'}}
+                              
+            />
+            </div>
         </div>
     )
 }
