@@ -40,6 +40,13 @@ export const Sidebar = () => {
                 </Link>
                 <br />
                 <Link
+                    to="/favorite"
+                    className="link"
+                >
+                    Favoritos
+                </Link>
+                <br />
+                <Link
                     to="/calendar"
                     className="link"
                 >

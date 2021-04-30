@@ -19,6 +19,7 @@ import { ProfileScreen } from '../components/menu/ProfileScreen';
 import { userNew } from '../actions/user';
 import { UpdateDescribe } from '../components/user/UpdateDescribe'
 import { CalendarScreen } from '../components/menu/CalendarScreen';
+import { FavoriteScreen } from '../components/menu/FavoriteScreen'
 
 export const AppRouter = () => {
 
@@ -123,7 +124,13 @@ export const AppRouter = () => {
                     />
 
                     <PrivateRoute
-                        exact
+                        isAuthenticated={isLoggedIn}
+                        path="/favorite"
+                        component={FavoriteScreen}
+                    />
+
+
+                    <PrivateRoute
                         isAuthenticated={isLoggedIn}
                         path="/calendar"
                         component={CalendarScreen}

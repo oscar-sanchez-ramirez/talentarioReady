@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { db } from '../../firebase/firebase-config';
 import { useFetch } from '../../hooks/useFetch'
+import { Datosjob } from '../Job/Datosjob';
 import { Sidebar } from './SideBar'
 
 export const HomeScreen = () => {
@@ -8,19 +8,17 @@ export const HomeScreen = () => {
 
     const state = useFetch(`https://us-central1-talentario-a3d9a.cloudfunctions.net/api/jobOffers`);
     const { data, loading } = state;
-
     // console.log(data)
 
     const [objJob, setobjJob] = useState(data);
-    console.log(objJob)
+    // console.log(objJob)
 
     const ofertas = (data) => {
         const offf = [];
         data &&
             Object.keys(data).map(iterador => {
-                
-            return offf.push({ uid: iterador, cargo: data[iterador].positionName, salario: data[iterador].salary, localidad: data[iterador].location })
-            
+
+                return offf.push({ uid: iterador, companyId: data[iterador].companyId, cargo: data[iterador].positionName, salario: data[iterador].salary, localidad: data[iterador].location })
             })
         setobjJob(offf)
 
@@ -39,9 +37,15 @@ export const HomeScreen = () => {
         setobjJob(getOffersByPositionName(search));
     }
 
+
+
+    
+
     useEffect(() => {
-        ofertas(data)
+      ofertas(data)
+      
     }, [data])
+
 
 
 
@@ -61,11 +65,12 @@ export const HomeScreen = () => {
                 style={{ marginBottom: '20px' }}
             />
 
-            { loading ? 'espere..' :
+            { loading ? <p>cargando...</p> :
                 (<div id="jobFs">
                     {objJob &&
                         objJob.map(iterador => (
                             <div key={iterador.uid}>
+                                <Datosjob companyId={ iterador.companyId }/>
                                 <p>{iterador.cargo}</p>
                                 <p>{iterador.salario}</p>
                                 <p>{iterador.localidad}</p>
