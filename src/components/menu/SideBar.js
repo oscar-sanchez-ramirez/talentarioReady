@@ -57,7 +57,7 @@ export const Sidebar = () => {
                     to="/profile"
                     className="link"
                 >
-                    Profile
+                    Perfil
                 </Link>
 
             </div>

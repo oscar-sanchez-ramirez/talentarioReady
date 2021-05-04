@@ -20,6 +20,7 @@ import { userNew } from '../actions/user';
 import { UpdateDescribe } from '../components/user/UpdateDescribe'
 import { CalendarScreen } from '../components/menu/CalendarScreen';
 import { FavoriteScreen } from '../components/menu/FavoriteScreen'
+import { CalculateTest } from '../components/user/CalculateTest'
 
 export const AppRouter = () => {
 
@@ -146,6 +147,12 @@ export const AppRouter = () => {
                         isAuthenticated={isLoggedIn}
                         path="/describe"
                         component={UpdateDescribe}
+                    />
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/test"
+                        component={CalculateTest}
                     />
 
 

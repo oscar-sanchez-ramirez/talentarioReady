@@ -344,6 +344,13 @@ export const ProfileScreen = () => {
                 >
                     Describete
                 </Link>
+                <hr />
+                <Link
+                    to="/test"
+                    className="link"
+                >
+                    Evaluación de habilidades
+                </Link>
 
                 <br />
                 <br />

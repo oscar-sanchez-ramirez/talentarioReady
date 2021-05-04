@@ -2,44 +2,75 @@ import { types } from '../types/types';
 
 /*
 {
-    "isCompany": true,
-    "name": "test",
-    "fullName": "test OSR",
-    "birthday": "test",
-    "age": "test",
-    "sex": 1,
-    "phone1": "test",
-    "phone2": "test",
-    "rfc": "test",
-    "nationality": 2,
-    "state": 2,
-    "city": "test",
-    "postalCode": "test",
-    "country": 0,
-    "migrationStatus": 0,
-    "noStudiesNeeded": true,
-    "secundaria": true,
-    "bachillerato": true,
-    "licenciatura": true,
-    "licStatus": 2,
-    "licCareer":"",
-    "licIndustry": 2,
-    "maestria": true,
-    "maesDropdown": 2,
-    "doctorado": true,
-    "docDropdown": 2,
-    "urlVideo": "test",
-    "urlCurriculum": "test",
-    "experienceDescription": "test",
-    "plan": 2,
-    "position": "test",
-    "proofAdress": "test",
-    "socialReason": "test",
-    "hdaUrl": "test",
-    "actaConsUrl": "Fede rules",
-    "sitFiscalUrl": "test",
-    "domFiscUrl": "test",
-    "ineUrl": "test"
+   * "isCompany": false,
+   * "name": "test",
+   * "fullName": "test OSR",
+   * "birthday": "test",
+   * "age": "test",
+   * "sex": 1,
+   * "phone1": "test",
+   * "phone2": "test",
+   * "rfc": "test",
+   * "nationality": 2,
+   * "state": 2,
+   * "city": "test",
+   * "postalCode": "test",
+   * "country": 0,
+   * "migrationStatus": 0,
+   * "noStudiesNeeded": true,
+   * "secundaria": true,
+   * "bachillerato": true,
+   * "licenciatura": true,
+   * "licStatus": 2,
+   * "licCareer":"",
+   * "licIndustry": 2,
+   * "maestria": true,
+   * "maesDropdown": 2,
+   * "doctorado": true,
+   * "docDropdown": 2,
+   * "urlVideo": "test",
+   * "urlCurriculum": "test",
+   * "experienceDescription": "test",
+   * "plan": 2,
+   * "position": "test",
+   * "proofAdress": "test",
+   * "socialReason": "test",
+   * "hdaUrl": "test",
+   * "actaConsUrl": "Fede rules",
+   * "sitFiscalUrl": "test",
+   * "domFiscUrl": "test",
+   * "ineUrl": "test"
+   + "adaptability": 1
+   + "applications":
+   + "assertiveCommunication":
+   + "belongingSense":
+   + "collaboration"
+   + "conflictManagement"
+   + "creativityInnovation"
+   + "dateTimeTest"
+   + "emotionalIntelligence"
+   + "empathy"
+   + "entrepreneurshipInitiative"
+   + "focus"
+   + "frustrationTolerance"
+   + "id"
+   + "imageUrl"
+   + "improvisation"
+   + "leadership"
+   + "negotiation"
+   + "observation"
+   + "problemSolving
+   + "procrastinationControl"
+   + "rationalIntelligence"
+   + "reliability"
+   + "resilience"
+   + "scheduledDates"
+   + "selfConfidence"
+   + "selfEsteem"
+   + "selfRecognition"
+   + "teamWork"
+   + "victimizationControl"
+
     }
     */
 
