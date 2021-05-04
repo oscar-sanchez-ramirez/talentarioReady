@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react"
 
-export const useFetch = (url) => {
+export const useFetchOut = (url) => {
 
     const isMounted = useRef(true);
-    const [state, setState] = useState({ data: null, loading: true, error: null });
+    const [state, setState] = useState({ data: null, loading: true });
 
     useEffect(() => {
 
@@ -15,26 +15,17 @@ export const useFetch = (url) => {
     useEffect(() => {
 
         fetch(url)
-            .then( resp => resp.json())
+            .then(resp => resp.json())
             .then(data => {
 
                 if (isMounted.current) {
 
                     setState({
                         loading: false,
-                        data: data,
-                        error: null
+                        data: data
                     })
 
                 }
-
-            }).catch( reject => {
-
-                setState({
-                    loading: false,
-                    data: null,
-                    error: reject
-                })
 
             })
 
