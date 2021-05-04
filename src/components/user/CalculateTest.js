@@ -1,8 +1,9 @@
 import React from 'react'
+import {Sidebar} from '../menu/SideBar'
 
 export const CalculateTest = () => {
 
-    var url = 'https://us-central1-talentario-a3d9a.cloudfunctions.net/api/calculateTestResults/';
+    var url = 'https://us-central1-talentario-a3d9a.cloudfunctions.net/api/calculateTestResults';
     var data = {
 
         selfRecognition: 6,
@@ -36,22 +37,25 @@ export const CalculateTest = () => {
         empathy: 7
     };
 
-    
+
 
     fetch(url, {
         method: 'POST',
-        body: JSON.stringify(data), // JSON.stringify(data)
+        body:  JSON.stringify(data), // JSON.stringify(data)
         headers: {
-            'Accept': 'application/x-www-form-urlencoded',
-        }
-    }).then(res => res )
-    .then( data => console.log(data) )
-    .catch( console.log )
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+    }).then(response => response)
+        .then(body => { console.log(body) })
+        .catch(console.log)
 
 
 
     return (
         <div>
+             <Sidebar />
+            <hr />
             <h5>Test</h5>
         </div>
     )

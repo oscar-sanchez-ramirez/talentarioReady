@@ -70,7 +70,6 @@ import { types } from '../types/types';
    + "selfRecognition"
    + "teamWork"
    + "victimizationControl"
-
     }
     */
 
