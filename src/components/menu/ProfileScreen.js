@@ -33,13 +33,29 @@ export const ProfileScreen = () => {
         country,
     } = useSelector(state => state.user);
 
+  
+    const birthdayT = birthday && birthday.replaceAll("/", "-");
+
+    const calcularEdad = (fecha) => {
+        var hoy = new Date();
+        var cumpleanos = new Date(fecha);
+        var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+        var m = hoy.getMonth() - cumpleanos.getMonth();
+    
+        if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+            edad--;
+        }
+    
+        return edad;
+    }
+
 
 
     const [formValues, handleInputChange] = useForm(
         {
             nameU: name,
             fullNameU: fullName,
-            birthdayU: birthday,
+            birthdayU: birthdayT,
             ageU: age,
             sexU: sex,
             phone1U: phone1,
@@ -57,7 +73,6 @@ export const ProfileScreen = () => {
         nameU,
         fullNameU,
         birthdayU,
-        ageU,
         sexU,
         phone1U,
         phone2U,
@@ -85,8 +100,8 @@ export const ProfileScreen = () => {
         db.ref('users/' + uid).update({
             name: nameU,
             fullName: fullNameU,
-            birthday: birthdayU,
-            age: ageU,
+            birthday: birthdayU.replaceAll("-", "/"),
+            age: calcularEdad(birthdayU),
             sex: sexU,
             phone1: phone1U,
             phone2: phone2U,
@@ -176,7 +191,8 @@ export const ProfileScreen = () => {
                     />
                     <br />
                     <label>Edad</label>
-                    <input
+                    <p>{age}</p>
+                    {/* <input
                         type="text"
                         name="ageU"
                         placeholder="Edad"
@@ -184,7 +200,7 @@ export const ProfileScreen = () => {
                         onChange={handleInputChange}
                         disabled={active}
 
-                    />
+                    /> */}
                     <br />
                     <p>Sexo</p>
                     <label>Hombre</label>

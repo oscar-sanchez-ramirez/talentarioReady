@@ -9,6 +9,9 @@ export const Sidebar = () => {
 
     const dispatch = useDispatch();
     const { name, photoURL } = useSelector(state => state.auth)
+    const { isCompany } = useSelector(state => state.user)
+
+
 
     const hanleLogout = () => {
         window.location.reload();
@@ -18,6 +21,7 @@ export const Sidebar = () => {
 
 
     return (
+
         <div>
 
             <div className="">
@@ -31,36 +35,73 @@ export const Sidebar = () => {
                     Logout
                 </button>
             </div>
-            <div>
-                <Link
-                    to="/"
-                    className="link"
-                >
-                    Ofertar de trabajo
+            {
+                !isCompany ? (
+                    <div>
+                        <Link
+                            to="/"
+                            className="link"
+                        >
+                            Ofertar de trabajo
                 </Link>
-                <br />
-                <Link
-                    to="/favorite"
-                    className="link"
-                >
-                    Favoritos
+                        <br />
+                        <Link
+                            to="/favorite"
+                            className="link"
+                        >
+                            Favoritos
                 </Link>
-                <br />
-                <Link
-                    to="/calendar"
-                    className="link"
-                >
-                    Calendario
+                        <br />
+                        <Link
+                            to="/calendar"
+                            className="link"
+                        >
+                            Calendario
                 </Link>
-                <br />
-                <Link
-                    to="/profile"
-                    className="link"
-                >
-                    Perfil
+                        <br />
+                        <Link
+                            to="/profile"
+                            className="link"
+                        >
+                            Perfil
                 </Link>
 
-            </div>
+                    </div>
+                ) : (
+                    <div>
+                        <Link
+                            to="/"
+                            className="link"
+                        >
+                            Ofertar de trabajo
+                </Link>
+                <br />
+                        <Link
+                            to="/applicant"
+                            className="link"
+                        >
+                            Aplicantes Favoritos
+                </Link>
+                        <br />
+                        <Link
+                            to="/calendar"
+                            className="link"
+                        >
+                            Calendario
+                </Link>
+                        <br />
+                        <Link
+                            to="/profile"
+                            className="link"
+                        >
+                            Perfil
+                </Link>
+
+                    </div>
+                )
+            }
+
         </div>
+
     )
 }

@@ -21,6 +21,7 @@ import { UpdateDescribe } from '../components/user/UpdateDescribe'
 import { CalendarScreen } from '../components/menu/CalendarScreen';
 import { FavoriteScreen } from '../components/menu/FavoriteScreen'
 import { CalculateTest } from '../components/user/CalculateTest'
+import { FavApplicant } from '../components/company/FavApplicant';
 
 export const AppRouter = () => {
 
@@ -106,7 +107,6 @@ export const AppRouter = () => {
             <h1>Wait...</h1>
         )
     }
-
     return (
         <Router>
             <div>
@@ -153,6 +153,12 @@ export const AppRouter = () => {
                         isAuthenticated={isLoggedIn}
                         path="/test"
                         component={CalculateTest}
+                    />
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/applicant"
+                        component={FavApplicant}
                     />
 
 
