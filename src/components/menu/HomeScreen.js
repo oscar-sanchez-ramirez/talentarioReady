@@ -51,7 +51,7 @@ export const HomeScreen = () => {
     const { isCompany } = useSelector(state => state.user)
 
 
-
+    
     return (
         <div>
 

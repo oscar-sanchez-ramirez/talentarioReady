@@ -19,7 +19,6 @@ export const Sidebar = () => {
     }
 
 
-
     return (
 
         <div>
@@ -91,7 +90,7 @@ export const Sidebar = () => {
                 </Link>
                         <br />
                         <Link
-                            to="/profile"
+                            to="/perfil"
                             className="link"
                         >
                             Perfil

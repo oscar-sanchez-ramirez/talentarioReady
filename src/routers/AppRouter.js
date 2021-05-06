@@ -22,6 +22,7 @@ import { CalendarScreen } from '../components/menu/CalendarScreen';
 import { FavoriteScreen } from '../components/menu/FavoriteScreen'
 import { CalculateTest } from '../components/user/CalculateTest'
 import { FavApplicant } from '../components/company/FavApplicant';
+import { CompanyProfile } from '../components/company/CompanyProfile';
 
 export const AppRouter = () => {
 
@@ -160,6 +161,13 @@ export const AppRouter = () => {
                         path="/applicant"
                         component={FavApplicant}
                     />
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/perfil"
+                        component={CompanyProfile}
+                    />
+    
 
 
 
