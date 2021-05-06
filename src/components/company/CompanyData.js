@@ -1,39 +1,35 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { db } from '../../firebase/firebase-config';
 import { useForm } from '../../hooks/useForm'
-import { CompanyData } from './CompanyData';
 
-export const RepresentativeData = () => {
+export const CompanyData = () => {
 
-    const { name, fullName, position } = useSelector(state => state.user)
+    const { phone1, phone2, socialReason } = useSelector(state => state.user)
     const { uid } = useSelector(state => state.auth)
 
     const [formValues, handleInputChange] = useForm(
         {
-            nameU: name,
-            fullNameU: fullName,
-            positionU: position,
-            
+            phone1U: phone1,
+            phone2U: phone2,
+            socialReasonU: socialReason,
         });
 
-    const { nameU, fullNameU, positionU } = formValues;
+    const { phone1U, phone2U, socialReasonU } = formValues;
     const [show, setShow] = useState(true);
 
     const handleShow = () => {
         setShow(false)
     }
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
         db.ref('users/' + uid).update({
 
-            name: nameU,
-            fullName: fullNameU,
-            position: positionU,
+            phone1: phone1U,
+            phone2: phone2U,
+            socialReason: socialReasonU,
 
         }, (error) => {
             if (error) {
@@ -47,63 +43,44 @@ export const RepresentativeData = () => {
 
     }
 
-    useEffect(() => {
-        if (formValues.nameU === undefined) {
-
-            document.querySelector('#reload').click();
-
-        }
-
-    }, [formValues])
-
-
+   
 
 
     return (
         <div>
-            <Link
-                id="reload"
-                to="/perfil"
-                className="link"
-            >
-                Reload Data
-                </Link>
-            <h5>Datos del representante</h5>
+            
+            <h5>Datos de la empresa</h5>
             <form onSubmit={handleSubmit}>
-                <label>Todos tus nombres</label>
-                <input
-                    type="text"
-                    placeholder="Todos tus nombres"
-                    name="nameU"
-                    autoComplete="off"
-                    value={nameU}
-                    onChange={handleInputChange}
-                    disabled={show}
-                />
-                <br />
-                <label>Apellido Paterno, Apellido Materno</label>
-                <input
-                    type="text"
-                    placeholder="Apellido Paterno, Apellido Materno"
-                    name="fullNameU"
-                    autoComplete="off"
-                    value={fullNameU}
-                    onChange={handleInputChange}
-                    disabled={show}
 
-                />
-                <br />
-                <label>Posición en la empresa</label>
+                <label>Teléfono Móvil</label>
                 <input
                     type="text"
-                    placeholder="Posición en la empresa"
-                    name="positionU"
+                    name="phone1U"
                     autoComplete="off"
-                    value={positionU}
+                    value={phone1U}
                     onChange={handleInputChange}
                     disabled={show}
                 />
-                
+                <br />
+                <label>Teléfono Fijo</label>
+                <input
+                    type="text"
+                    name="phone2U"
+                    autoComplete="off"
+                    value={phone2U}
+                    onChange={handleInputChange}
+                    disabled={show}
+                />
+                <br />
+                <label>Razón Social</label>
+                <input
+                    type="text"
+                    name="socialReasonU"
+                    autoComplete="off"
+                    value={socialReasonU}
+                    onChange={handleInputChange}
+                    disabled={show}
+                />
                 {
                     !show &&
                     <button type="submit">Guardar</button>
@@ -115,8 +92,6 @@ export const RepresentativeData = () => {
                 show &&
                 <button onClick={handleShow}>Editar</button>
             }
-
-            <CompanyData />
 
         </div>
     )
