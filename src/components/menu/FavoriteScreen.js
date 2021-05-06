@@ -12,7 +12,6 @@ export const FavoriteScreen = () => {
     const state = useFetch('https://us-central1-talentario-a3d9a.cloudfunctions.net/api/applications/sdDQmkjPYaXba17r5GJrDrg6zUE3');
     // const state = useFetch('https://us-central1-talentario-a3d9a.cloudfunctions.net/api/applications/' + uid);
     const { data, error } = state;
-    // console.log(error)
 
     const [datos, setuid] = useState({ jobA: null, cargando: true });
     const { jobA, cargando } = datos;

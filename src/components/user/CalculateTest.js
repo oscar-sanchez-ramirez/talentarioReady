@@ -1,5 +1,5 @@
 import React from 'react'
-import {Sidebar} from '../menu/SideBar'
+import { Sidebar } from '../menu/SideBar'
 
 export const CalculateTest = () => {
 
@@ -41,20 +41,18 @@ export const CalculateTest = () => {
 
     fetch(url, {
         method: 'POST',
-        body:  JSON.stringify(data), // JSON.stringify(data)
+        body: JSON.stringify(data), // JSON.stringify(data)
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Accept': 'application/html,application/text,application/json',
+            'Content-Type': 'application/json,application/html,application/text'
         },
-    }).then(response => response)
-        .then(body => { console.log(body) })
-        .catch(console.log)
-
+    }).then(response => console.log(response))
+        .catch(error => console.log(error))
 
 
     return (
         <div>
-             <Sidebar />
+            <Sidebar />
             <hr />
             <h5>Test</h5>
         </div>

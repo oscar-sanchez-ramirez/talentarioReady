@@ -5,6 +5,12 @@ import Swal from 'sweetalert2';
 import { db } from '../../firebase/firebase-config';
 import { useForm } from '../../hooks/useForm'
 import { CompanyData } from './CompanyData';
+import { UpdateConstitutiva } from './UpdateConstitutiva';
+import { UpdateDom } from './UpdateDom';
+import { UpdateFiscal } from './UpdateFiscal';
+import { UpdateLocation } from './UpdateLocation';
+import { UpdateValidation } from './UpdateValidation';
+import { UpdateIne } from './UpdateIne'
 
 export const RepresentativeData = () => {
 
@@ -117,6 +123,16 @@ export const RepresentativeData = () => {
             }
 
             <CompanyData />
+            <UpdateLocation />
+            <br />
+            <UpdateValidation />
+            <UpdateConstitutiva />
+            <UpdateFiscal />
+            <UpdateDom />
+            <UpdateIne />
+            <br />
+            <br />
+
 
         </div>
     )

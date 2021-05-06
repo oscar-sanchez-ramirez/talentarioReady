@@ -74,6 +74,8 @@ export const UpdateDescribe = () => {
                 });
             });
         } else {
+            setActive(false);
+            setbuttonPDF(true)
             Swal.fire('Error', 'File null', 'error');
         }
     }
@@ -105,12 +107,12 @@ export const UpdateDescribe = () => {
     }
 
     useEffect(() => {
-        if(formValues.urlVideoU === undefined){
+        if (formValues.urlVideoU === undefined) {
 
             document.querySelector('#reload').click();
-            
+
         }
-        
+
     }, [formValues])
 
 
