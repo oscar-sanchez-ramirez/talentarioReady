@@ -46,7 +46,7 @@ export const UpdateStudies = () => {
         licStatusU: licStatus,
         licCareerU: licCareer,
         licIndustryU: licIndustry,
-        maesDropdownU:  maesDropdown,
+        maesDropdownU: maesDropdown,
         docDropdownU: docDropdown,
 
     });
@@ -103,6 +103,11 @@ export const UpdateStudies = () => {
         setButton(true);
         setUbutton(false);
     };
+
+    
+
+
+
 
     return (
         <div>
@@ -254,15 +259,17 @@ export const UpdateStudies = () => {
                     <option value="4">Trunca</option>
                 </select>
                 <br />
-                <label>Licenciatura profesional en</label>
-                <input
-                    type="text"
-                    name="licCareerU"
-                    value={licCareerU}
-                    onChange={handleInputchange}
-                    disabled={active}
-                />
-                <br/>
+                <div>
+                    <label>Licenciatura profesional en</label>
+                    <input
+                        type="text"
+                        name="licCareerU"
+                        value={licCareerU}
+                        onChange={handleInputchange}
+                        disabled={active}
+                    />
+                </div>
+                <br />
                 <label>Industria</label>
                 <select
                     name="licIndustryU"

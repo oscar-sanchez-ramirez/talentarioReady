@@ -1,0 +1,199 @@
+
+@font-face {
+	font-family:Roboto-Regular;
+	font-display: auto;
+	src: url('../fonts/Roboto-Regular.ttf');
+}
+@font-face {
+	font-family:Roboto-Medium;
+	font-display: auto;
+	src: url('../fonts/Roboto-Medium.ttf');
+}
+@font-face {
+	font-family:Roboto-Black;
+	font-display: auto;
+	src: url('../fonts/Roboto-Black.ttf');
+}
+* {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  }
+.text-center{
+      text-align: center;
+}
+body {
+      margin: 0;
+}
+.container {
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+}
+.form-group:after,
+.row:after, 
+.container:after{
+      clear: both;
+}
+.form-horizontal .form-group:before,
+.form-horizontal .form-group:after,
+.row:before,
+.row:after,
+.container:before,
+.container:after{
+      display: table;
+      content: " ";
+}
+.row {
+      margin-right: 0;
+      margin-left: 0;
+}
+.body_form{
+      align-items: center;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      margin: 0px;
+      height: 100vh;
+      width: 100vw;
+}
+.img-responsive{
+      max-width: 100%;
+      height: auto;
+}
+
+.form_login{
+      background-color: #001e5c;
+      box-shadow: 0px 3px #363636;
+      border-radius: 2px;
+      width: 440px;
+      color:#fff;
+      font-family: 'Roboto-Regular';
+      border-radius: 10px;      
+      -webkit-box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.5);
+      -moz-box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.5);
+      box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.5);
+      overflow: hidden;
+}
+.body_form .auth__title{
+      font-family: 'Roboto-Black', 'Arial Narrow Bold';
+      text-transform: uppercase;
+      font-size: 22px;
+}
+.logo{
+      width: 100%;
+      height: 320px;
+      align-items: end;
+      display: grid;
+      text-align: center;
+      background: url('../image/bg-form_login.jpg') no-repeat center;
+      background-size: cover;
+}
+.logo p{
+      background-color: #001e5cc4;
+      padding: 15px 0;
+      margin-bottom: 15px;
+}
+.form_content{
+      padding: 30px;
+      background: url('../image/bg-form_body.png') center bottom;
+}
+.form_content a{
+      color: #fff;
+      text-decoration: none;
+}
+.form-group {
+      margin-bottom: 15px;
+}
+
+.form-group .group{
+      display: flex;
+}
+.form-control {
+      background-color: transparent;
+      width: 100%;
+      padding: 6px 12px;
+      font-size: 14px;
+      color: #fff;
+      border-bottom: 1px solid #9c8fdb;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      height: 35px;
+}
+.form-control:focus {
+      outline: 0;
+}
+.icono_usuario{
+      width: 40px;
+      height: 40px;
+      background: url('../image/input-usuario.png') no-repeat;
+      background-size: contain;
+      position: relative;
+      top: 7px;
+}
+.auth__social-networks{
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+}
+.btn_login{
+      background: #5243a2;
+      padding: 5px 25px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 50px;
+      font-family: 'Roboto-Regular';
+      font-size: 18px;
+      color: #fff;
+      border: 1px solid #5243a2;
+      transition: 250ms;
+      margin-top: 30px;
+      margin-bottom: 20px;
+}
+.btn-ingreso:hover, .btn-ingreso:focus {
+      background: #fff;
+      color: #5243a2;
+}
+.google-btn{
+      background-color: #9a1f4f;
+      margin-top: 5px;
+      width: max-content;
+      margin-right: auto;
+      margin-left: auto;
+      height: 35px;
+      transition: box-shadow .3s ease;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: 'Roboto-Medium';
+}
+.google-icon-wrapper{
+      padding-right: 10px;
+}
+
+.google-icon{
+      width: 14px;
+      height: 14px;
+}
+
+
+@media (min-width: 768px) {
+      .container {
+            width: 750px;
+      }
+}
+@media (min-width: 992px) {
+      .container {
+            width: 970px;
+      }
+}
+@media (min-width: 1200px) {
+      .container {
+            width: 1170px;
+      }
+}

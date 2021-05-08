@@ -18,6 +18,11 @@ import { HomeScreen } from '../components/menu/HomeScreen';
 import { ProfileScreen } from '../components/menu/ProfileScreen';
 import { userNew } from '../actions/user';
 import { UpdateDescribe } from '../components/user/UpdateDescribe'
+import { CalendarScreen } from '../components/menu/CalendarScreen';
+import { FavoriteScreen } from '../components/menu/FavoriteScreen'
+import { CalculateTest } from '../components/user/CalculateTest'
+import { FavApplicant } from '../components/company/FavApplicant';
+import { CompanyProfile } from '../components/company/CompanyProfile';
 
 export const AppRouter = () => {
 
@@ -103,8 +108,6 @@ export const AppRouter = () => {
             <h1>Wait...</h1>
         )
     }
-
-
     return (
         <Router>
             <div>
@@ -124,6 +127,19 @@ export const AppRouter = () => {
 
                     <PrivateRoute
                         isAuthenticated={isLoggedIn}
+                        path="/favorite"
+                        component={FavoriteScreen}
+                    />
+
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/calendar"
+                        component={CalendarScreen}
+                    />
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
                         path="/profile"
                         component={ProfileScreen}
                     />
@@ -133,7 +149,26 @@ export const AppRouter = () => {
                         path="/describe"
                         component={UpdateDescribe}
                     />
-                    
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/test"
+                        component={CalculateTest}
+                    />
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/applicant"
+                        component={FavApplicant}
+                    />
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/perfil"
+                        component={CompanyProfile}
+                    />
+    
+
 
 
                     <Redirect to="/auth/login" />

@@ -12,7 +12,7 @@ export const UpdateUser = () => {
     const dispatch = useDispatch();
 
 
-    const { name, email, photoURL } = useSelector(state => state.auth)
+    const { uid, name, email, photoURL } = useSelector(state => state.auth)
     const [formValues, handleInputchange] = useForm({ nameU: name });
     const { nameU } = formValues;
 
@@ -50,10 +50,87 @@ export const UpdateUser = () => {
         setUbutton(false);
     };
 
+    const handleOcultar = () => {
+        document.querySelector("#imagenDocu").click();
+        setOcultar(true);
+    }
+
+    const [imagen, setImagen] = useState(null);
+    const [ocultar, setOcultar] = useState(false);
+
+    const handleChangeImage = (e) => {
+        if (e.target.files[0]) {
+            setImagen(e.target.files[0]);
+        }
+    }
+
+    const handleSubmitImagen = (e) => {
+        e.preventDefault();
+
+
+        if (imagen) {
+            Swal.fire({
+                title: 'Uploading...',
+                text: 'Please wait...',
+                allowOutsideClick: false,
+                onBeforeOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+            firebase.storage().ref(`${uid}-imgProfile`).put(imagen).then(function (snapshot) {
+                snapshot.ref.getDownloadURL().then(function (downloadURL) {
+
+                    firebase.auth().onAuthStateChanged((user) => {
+
+                        user.updateProfile({
+                            photoURL: downloadURL,
+                        }).then(function () {
+                            dispatch(login(user.uid, user.displayName, user.photoURL, user.email));
+                            setOcultar(false);
+                            Swal.close();
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Data saved',
+                                showConfirmButton: true,
+                                timer: 2000,
+                                timerProgressBar: true
+                            });
+
+                        }).catch(function (error) {
+                            setOcultar(false);
+                            Swal.fire('Error', error, 'error');
+                        });
+                    });
+
+                });
+            });
+        } else {
+            Swal.fire('Error', 'File null', 'error');
+        }
+    }
+
     return (
         <>
             <h2>Mi cuenta</h2>
             <img src={photoURL} width={100} alt={name} />
+            {
+                ocultar &&
+                <form onSubmit={handleSubmitImagen}>
+                    <button type="submit">Guardar</button>
+                </form>
+            }
+
+            <input
+                id="imagenDocu"
+                type="file"
+                onChange={handleChangeImage}
+                style={{ display: 'none' }}
+            />
+
+            {
+                !ocultar &&
+                <button onClick={handleOcultar}>Editar</button>
+            }
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -74,6 +151,7 @@ export const UpdateUser = () => {
             }
             <p>{email}</p>
             <p>El email no es editable</p>
+
         </>
     )
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './styles/styles.scss'
+//import './old_styles/styles.scss'
+import './styles/main.css'
 import { TalentarioApp } from './TalentarioApp';
 
 

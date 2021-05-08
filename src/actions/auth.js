@@ -7,10 +7,11 @@ import { startNewUser, userCleaning, userNew } from './user';
 
 
 
-export const startLoginEmailPassword = (email, password) => {
+export const startLoginEmailPassword = (email, password, empresa) => {
     return (dispatch) => {
 
         dispatch(startLoading());
+        // console.log(empresa)
 
 
         firebase.auth().signInWithEmailAndPassword(email, password)
@@ -19,8 +20,15 @@ export const startLoginEmailPassword = (email, password) => {
                 dispatch(login(user.uid, user.displayName, user.photoURL, user.email));
 
                 const starCountRef = db.ref('users/' + user.uid);
+                db.ref('users/' + user.uid).update({
+                    isCompany: (empresa === "true") ? true : false,
+         
+                 });
                 starCountRef.on('value', (snapshot) => {
                     const data = snapshot.val();
+
+                   
+
                     if(data){
                         dispatch(userNew(
                             data.isCompany,
