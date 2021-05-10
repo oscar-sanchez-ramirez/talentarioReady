@@ -121,6 +121,12 @@ export const userReducer = (state = initialState, action) => {
                 sitFiscalUrl: action.payload.sitFiscalUrl,
                 domFiscUrl: action.payload.domFiscUrl,
                 ineUrl: action.payload.ineUrl,
+                selfRecognition: action.payload.selfRecognition,
+                selfEsteem: action.payload.selfEsteem,
+                procrastinationControl: action.payload.procrastinationControl,
+                victimizationControl: action.payload.victimizationControl,
+                adaptability: action.payload.adaptability,
+
             }
 
         case types.userCleaning:

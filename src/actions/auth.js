@@ -69,6 +69,11 @@ export const startLoginEmailPassword = (email, password, empresa) => {
                             data.sitFiscalUrl,
                             data.domFiscUrl,
                             data.ineUrl,
+                            data.selfRecognition,
+                            data.selfEsteem,
+                            data.procrastinationControl,
+                            data.victimizationControl,
+                            data.adaptability,
                         ));
                     }
 
@@ -164,6 +169,11 @@ export const startGoogleLogin = () => {
                             data.sitFiscalUrl,
                             data.domFiscUrl,
                             data.ineUrl,
+                            data.selfRecognition,
+                            data.selfEsteem,
+                            data.procrastinationControl,
+                            data.victimizationControl,
+                            data.adaptability,
                         ));
                     }
 

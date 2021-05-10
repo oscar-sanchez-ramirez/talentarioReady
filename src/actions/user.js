@@ -45,7 +45,12 @@ export const startNewUser = (uid, name) => {
             actaConsUrl: "O.S.R rules",
             sitFiscalUrl: "test",
             domFiscUrl: "test",
-            ineUrl: "test"
+            ineUrl: "test",
+            selfRecognition: 0,
+            selfEsteem: 0,
+            procrastinationControl: 0,
+            victimizationControl: 0,
+            adaptability: 0,
         };
 
         await db.ref('users/' + uid).set(newUser);
@@ -89,6 +94,12 @@ export const startNewUser = (uid, name) => {
             newUser.sitFiscalUrl,
             newUser.domFiscUrl,
             newUser.ineUrl,
+            newUser.selfRecognition,
+            newUser.selfEsteem,
+            newUser.procrastinationControl,
+            newUser.victimizationControl,
+            newUser.adaptability,
+
         ));
 
 
@@ -135,6 +146,11 @@ export const userNew = (
     sitFiscalUrl,
     domFiscUrl,
     ineUrl,
+    selfRecognition,
+    selfEsteem,
+    procrastinationControl,
+    victimizationControl,
+    adaptability,
 ) => ({
     type: types.userNew,
     payload: {
@@ -176,6 +192,11 @@ export const userNew = (
         sitFiscalUrl,
         domFiscUrl,
         ineUrl,
+        selfRecognition,
+        selfEsteem,
+        procrastinationControl,
+        victimizationControl,
+        adaptability,
     }
 });
 

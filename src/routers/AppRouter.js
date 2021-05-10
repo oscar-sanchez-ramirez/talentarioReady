@@ -84,6 +84,12 @@ export const AppRouter = () => {
                             data.sitFiscalUrl,
                             data.domFiscUrl,
                             data.ineUrl,
+                            data.selfRecognition,
+                            data.selfEsteem,
+                            data.procrastinationControl,
+                            data.victimizationControl,
+                            data.adaptability,
+
                         ));
                     }
 
@@ -167,7 +173,7 @@ export const AppRouter = () => {
                         path="/perfil"
                         component={CompanyProfile}
                     />
-    
+
 
 
 
