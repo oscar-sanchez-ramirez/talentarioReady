@@ -39,7 +39,7 @@ export const Sidebar = () => {
                     <div>
                         <Link
                             to="/"
-                            className="link"
+                            className="bg-info"
                         >
                             Ofertar de trabajo
                 </Link>

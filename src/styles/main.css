@@ -22,6 +22,7 @@
 
 .auth__alert-error{
       color: red;
+      text-align: center;
 }
 body {
       margin: 0;
@@ -80,32 +81,31 @@ body {
       color: #fff;
       text-decoration: none;
 }
-.icono_usuario{
-      width: 40px;
-      height: 40px;
-      background: url('../image/input-usuario.png') no-repeat;
-      background-size: contain;
-      position: relative;
-      top: 7px;
-      margin-right: 10px;
+.form-group{
+      margin-bottom: 15px;
 }
-.icono_contrasena{
-      width: 40px;
-      height: 40px;
-      background: url('../image/input-contrasena.png') no-repeat;
-      background-size: contain;
-      position: relative;
-      top: 7px;
-      margin-right: 10px;
-}
+.icono_usuario,
+.icono_contrasena,
 .icono_correo{
       width: 40px;
       height: 40px;
+      position: relative;
+      top: 0px;
+      margin-right: 10px;
+      position: absolute;
+      left: 0;
+}
+.icono_usuario{      
+      background: url('../image/input-usuario.png') no-repeat;
+      background-size: contain;      
+}
+.icono_contrasena{
+      background: url('../image/input-contrasena.png') no-repeat;
+      background-size: contain;
+}
+.icono_correo{
       background: url('../image/input-mail.png') no-repeat;
       background-size: contain;
-      position: relative;
-      top: 7px;
-      margin-right: 10px;
 }
 .form_modalidad{
       padding: 0 10px;
@@ -165,5 +165,27 @@ body {
       width: 14px;
       height: 14px;
 }
-
-
+.form-control:focus{
+      background: transparent;
+      box-shadow: none;
+      color: #fff;
+}
+.form-control{
+      border-top: none;
+      border-left: 0;
+      border-right: 0;
+      border-radius: 0;
+      border-color: #9d8fda;
+      color:#fff;
+      background: transparent;
+}
+.form-control::placeholder{
+      color: #fff;
+}
+.group{
+      padding-left: 50px;
+      position: relative;
+}
+.btn-text{
+      margin-bottom: 0;
+}

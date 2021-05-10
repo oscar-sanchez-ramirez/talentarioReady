@@ -53,7 +53,6 @@ export const LoginScreen = () => {
         <div className="body_form">
             <div className="form_login">
                 <div className="logo">
-                    <p><img src="http://www.estaenconstruccion.com/talentario/imgusr/logo-talentario.png" alt="Talentario" border="0" className="img-responsive" /></p>
                     <p><img src={logoTalentario} alt="Talentario" border="0" className="img_responsive" /></p>
                 </div>
                 <div className="form_content">              
@@ -97,7 +96,7 @@ export const LoginScreen = () => {
                             </div>
                         </div>
 
-                        <div className="form-group">
+                        <div className="form-group text-center">
                             <div className="form_modalidad">
                                 <label htmlFor="aplicante">Aplicante</label>
                                 <input
