@@ -51,77 +51,105 @@ export const RegisterScreen = () => {
    
 
     return (
-        <>
-            <h3 className="auth__title">Register</h3>
+        <div className="body_form">
+            <div className="form_login">
+                <div className="logo">
+                    <p><img src="http://www.estaenconstruccion.com/talentario/imgusr/logo-talentario.png" alt="Talentario" border="0" className="img_responsive" /></p>
+                </div>
+                <div className="form_content">
+                    <h3 className="auth__title text-center">Nueva cuenta</h3>
 
-            <form onSubmit={ handleRegister }>
+                    <form onSubmit={ handleRegister }>
 
-                {
-                    msgError &&
-                    (
-                        <div className="auth__alert-error">
-                            { msgError }
+                        {
+                            msgError &&
+                            (
+                                <div className="auth__alert-error">
+                                    { msgError }
+                                </div>
+                            )
+                        }
+
+                        <div className="form-group">
+                            <div className="group">
+                                <div className="icono_usuario"></div>
+                                <input 
+                                    type="text"
+                                    placeholder="Name"
+                                    name="name"
+                                    className="form-control"
+                                    autoComplete="off"
+                                    value={ name }
+                                    onChange={ handleInputChange }
+                                />
+                            </div>
                         </div>
-                    )
-                }
 
+                        <div className="form-group">
+                            <div className="group">
+                                <div className="icono_correo"></div>
+                                <input 
+                                    type="text"
+                                    placeholder="Email"
+                                    name="email"
+                                    className="form-control"
+                                    autoComplete="off"
+                                    value={ email }
+                                    onChange={ handleInputChange }
+                                />
+                            </div>
+                        </div>
+                        
+                        <div className="form-group">
+                            <div className="group">
+                                <div className="icono_contrasena"></div>
+                                <input 
+                                    type="password"
+                                    placeholder="Password"
+                                    name="password"
+                                    className="form-control"
+                                    value={ password }
+                                    onChange={ handleInputChange }
+                                />
+                            </div>
+                        </div>
 
-                <input 
-                    type="text"
-                    placeholder="Name"
-                    name="name"
-                    className="auth__input"
-                    autoComplete="off"
-                    value={ name }
-                    onChange={ handleInputChange }
-                />
+                        <div className="form-group">
+                            <div className="group">
+                                <div className="icono_contrasena"></div>
+                                <input 
+                                    type="password"
+                                    placeholder="Confirm password"
+                                    name="password2"
+                                    className="form-control"
+                                    value={ password2 }
+                                    onChange={ handleInputChange }
+                                />
+                            </div>
+                        </div>
 
-                <input 
-                    type="text"
-                    placeholder="Email"
-                    name="email"
-                    className="auth__input"
-                    autoComplete="off"
-                    value={ email }
-                    onChange={ handleInputChange }
-                />
+                        <div className="form-group text-center">
+                            <button
+                                type="submit"
+                                className="btn btn-primary btn-block btn_login"
+                            >
+                                Crear
+                            </button>
+                        </div>
 
-                <input 
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    className="auth__input"
-                    value={ password }
-                    onChange={ handleInputChange }
-                />
+                    
+                        <div className="form-group text-center">
+                            <Link 
+                                to="/auth/login"
+                                className="text-center"
+                            >
+                                ¿Ya tienes una cuenta?
+                            </Link>
+                        </div>  
 
-                <input 
-                    type="password"
-                    placeholder="Confirm password"
-                    name="password2"
-                    className="auth__input"
-                    value={ password2 }
-                    onChange={ handleInputChange }
-                />
-
-
-                <button
-                    type="submit"
-                    className="btn btn-primary btn-block mb-5"
-                >
-                    Crear
-                </button>
-
-               
-
-                <Link 
-                    to="/auth/login"
-                    className="link"
-                >
-                    Already registered?
-                </Link>
-
-            </form>
-        </>
+                    </form>
+                </div>
+            </div>
+        </div>
     )
 }

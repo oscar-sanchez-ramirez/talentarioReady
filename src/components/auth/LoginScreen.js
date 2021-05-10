@@ -7,6 +7,7 @@ import { useForm } from '../../hooks/useForm';
 import { startLoginEmailPassword, startGoogleLogin } from '../../actions/auth';
 import { setError, removeError } from '../../actions/ui';
 
+import logoTalentario from '../../image/logo_talentario.png';
 
 export const LoginScreen = () => {
 
@@ -53,6 +54,7 @@ export const LoginScreen = () => {
             <div className="form_login">
                 <div className="logo">
                     <p><img src="http://www.estaenconstruccion.com/talentario/imgusr/logo-talentario.png" alt="Talentario" border="0" className="img-responsive" /></p>
+                    <p><img src={logoTalentario} alt="Talentario" border="0" className="img_responsive" /></p>
                 </div>
                 <div className="form_content">              
 
@@ -83,36 +85,40 @@ export const LoginScreen = () => {
 
                         <div className="form-group">
                             <div className="group">
-                            <div className="icono_usuario"></div>
-                            <input
-                                type="password"
-                                placeholder="Password"
-                                name="password"
-                                className="form-control"
-                                value={password}
-                                onChange={handleInputChange}
-                            />
+                                <div className="icono_contrasena"></div>
+                                <input
+                                    type="password"
+                                    placeholder="Password"
+                                    name="password"
+                                    className="form-control"
+                                    value={password}
+                                    onChange={handleInputChange}
+                                />
                             </div>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="aplicante">Aplicante</label>
-                            <input
-                                id="aplicante"
-                                type="radio"
-                                name="empresa"
-                                value="false"
-                                onChange={handleInputChange}
-                            />
-                            <label htmlFor="empresa">Empresa</label>
-                            <input
-                                id="empresa"
-                                type="radio"
-                                name="empresa"
-                                value="true"
-                                onChange={handleInputChange}
+                            <div className="form_modalidad">
+                                <label htmlFor="aplicante">Aplicante</label>
+                                <input
+                                    id="aplicante"
+                                    type="radio"
+                                    name="empresa"
+                                    value="false"                                    
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                            <div className="form_modalidad">
+                                <label htmlFor="empresa">Empresa</label>
+                                <input
+                                    id="empresa"
+                                    type="radio"
+                                    name="empresa"
+                                    value="true"
+                                    onChange={handleInputChange}
 
-                            />
+                                />
+                             </div>
                         </div>
 
                         <div className="form-group text-center">
@@ -127,7 +133,7 @@ export const LoginScreen = () => {
 
                         <div className="form-group">
                             <div className="auth__social-networks">
-                                <p>Login with social networks</p>
+                                <p>Iniciar sesión con redes sociales</p>
 
                                 <div
                                     className="google-btn"
