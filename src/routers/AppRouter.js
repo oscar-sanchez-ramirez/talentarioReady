@@ -23,6 +23,7 @@ import { FavoriteScreen } from '../components/menu/FavoriteScreen'
 import { CalculateTest } from '../components/user/CalculateTest'
 import { FavApplicant } from '../components/company/FavApplicant';
 import { CompanyProfile } from '../components/company/CompanyProfile';
+import { Test } from '../components/test/Test';
 
 export const AppRouter = () => {
 
@@ -89,6 +90,26 @@ export const AppRouter = () => {
                             data.procrastinationControl,
                             data.victimizationControl,
                             data.adaptability,
+                            data.observation,
+                            data.creativityInnovation,
+                            data.entrepreneurshipInitiative,
+                            data.improvisation,
+                            data.problemSolving,
+                            data.emotionalIntelligence,
+                            data.rationalIntelligence,
+                            data.focus,
+                            data.collaboration,
+                            data.negotiation,
+                            data.selfConfidence,
+                            data.frustrationTolerance,
+                            data.assertiveCommunication,
+                            data.conflictManagement,
+                            data.resilience,
+                            data.leadership,
+                            data.reliability,
+                            data.teamWork,
+                            data.belongingSense,
+                            data.empathy,
 
                         ));
                     }
@@ -172,6 +193,12 @@ export const AppRouter = () => {
                         isAuthenticated={isLoggedIn}
                         path="/perfil"
                         component={CompanyProfile}
+                    />
+
+                     <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/test-start"
+                        component={Test}
                     />
 
 

@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { Sidebar } from '../menu/SideBar'
-import { SelfRecognition } from '../test/SelfRecognition';
+// import { Test } from '../test/Test';
 
 export const CalculateTest = () => {
 
@@ -44,11 +45,8 @@ export const CalculateTest = () => {
         <div>
             <Sidebar />
             <hr />
-            <h4>Evaluación de Talentos</h4>
-            <br />
-            <h5>Asumir la responsabilidad propia (PA)</h5>
-            <br />
-            <SelfRecognition />
+            <h3>Evaluación de Talentos</h3>
+           <Link to="/test-start">Editar</Link>
         </div>
     )
 }
