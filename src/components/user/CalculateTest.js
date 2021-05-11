@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { Sidebar } from '../menu/SideBar'
-// import { Test } from '../test/Test';
+import { Evaluation } from '../test/Evaluation';
 
 export const CalculateTest = () => {
 
@@ -38,7 +38,7 @@ export const CalculateTest = () => {
     //     empathy: 7
     // };
 
-
+    
 
 
     return (
@@ -46,7 +46,8 @@ export const CalculateTest = () => {
             <Sidebar />
             <hr />
             <h3>Evaluación de Talentos</h3>
-           <Link to="/test-start">Editar</Link>
+            <Evaluation />
+            <Link to="/test-start">Editar</Link>
         </div>
     )
 }

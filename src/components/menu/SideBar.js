@@ -25,10 +25,9 @@ export const Sidebar = () => {
 
             <div className="row">
                 <h3>{name}</h3>
-                <img src={photoURL} alt={name} width="50" />
+                <img src={photoURL} alt={name} style={{ width: 100 }}/>
                 <br />
                 <button
-                    className=""
                     onClick={hanleLogout}
                 >
                     Logout
@@ -39,7 +38,7 @@ export const Sidebar = () => {
                     <div>
                         <Link
                             to="/"
-                            className="bg-info"
+                            className=""
                         >
                             Ofertar de trabajo
                 </Link>

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { db } from '../../firebase/firebase-config';
+import { Evaluation } from './Evaluation';
 
 export const Empathy = () => {
 
@@ -227,6 +228,7 @@ export const Empathy = () => {
             {
                 (show === 2) &&
                 <div>
+                    <Evaluation />
                     <Link to="/test-start">Editar</Link>
                 </div>
             }

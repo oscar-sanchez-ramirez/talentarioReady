@@ -15,9 +15,6 @@ export const LoginScreen = () => {
     const dispatch = useDispatch();
     const { loading, msgError } = useSelector(state => state.ui);
 
-
-
-
     const [formValues, handleInputChange] = useForm({
         email: '',
         password: '',
@@ -35,6 +32,7 @@ export const LoginScreen = () => {
     }
 
     const handleGoogleLogin = () => {
+        
         dispatch(startGoogleLogin());
     }
 
