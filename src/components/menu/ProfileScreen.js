@@ -33,7 +33,7 @@ export const ProfileScreen = () => {
         country,
     } = useSelector(state => state.user);
 
-  
+
     const birthdayT = birthday && birthday.replaceAll("/", "-");
 
     const calcularEdad = (fecha) => {
@@ -41,20 +41,24 @@ export const ProfileScreen = () => {
         var cumpleanos = new Date(fecha);
         var edad = hoy.getFullYear() - cumpleanos.getFullYear();
         var m = hoy.getMonth() - cumpleanos.getMonth();
-    
+
         if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
             edad--;
         }
-    
+
         return edad;
     }
 
+    const apellidos = fullName && fullName.split('+');
 
+    const ApU = fullName && apellidos[0];
+    const AmU = fullName && apellidos[1];
 
     const [formValues, handleInputChange] = useForm(
         {
             nameU: name,
-            fullNameU: fullName,
+            fullNameU: ApU,
+            fullNameM: AmU,
             birthdayU: birthdayT,
             ageU: age,
             sexU: sex,
@@ -66,12 +70,14 @@ export const ProfileScreen = () => {
             cityU: city,
             countryU: country,
 
+
         });
 
 
     const {
         nameU,
         fullNameU,
+        fullNameM,
         birthdayU,
         sexU,
         phone1U,
@@ -95,11 +101,14 @@ export const ProfileScreen = () => {
         setButtonEdit(false);
     }
 
+
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         db.ref('users/' + uid).update({
             name: nameU,
-            fullName: fullNameU,
+            fullName: fullNameU+'+'+fullNameM,
             birthday: birthdayU.replaceAll("-", "/"),
             age: calcularEdad(birthdayU),
             sex: sexU,
@@ -129,12 +138,12 @@ export const ProfileScreen = () => {
 
 
     useEffect(() => {
-        if(formValues.nameU === undefined){
+        if (formValues.nameU === undefined) {
 
             document.querySelector('#reload').click();
-            
+
         }
-        
+
     }, [formValues])
 
 
@@ -168,13 +177,22 @@ export const ProfileScreen = () => {
                         disabled={active}
                     />
                     <br />
-                    <label>Apellido Paterno, Apellido Materno</label>
+                    <label>Apellido Paterno</label>
                     <input
                         type="text"
-                        placeholder="Apellido Paterno, Apellido Materno"
                         name="fullNameU"
                         autoComplete="off"
                         value={fullNameU}
+                        onChange={handleInputChange}
+                        disabled={active}
+
+                    />
+                    <label>Apellido Materno</label>
+                    <input
+                        type="text"
+                        name="fullNameM"
+                        autoComplete="off"
+                        value={fullNameM}
                         onChange={handleInputChange}
                         disabled={active}
 
