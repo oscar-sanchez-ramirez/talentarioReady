@@ -23,11 +23,12 @@ export const Sidebar = () => {
 
         <div className="container">
 
-            <div className="row">
+            <div>
                 <h3>{name}</h3>
                 <img src={photoURL} alt={name} style={{ width: 100 }}/>
                 <br />
                 <button
+                className="btn btn-primary"
                     onClick={hanleLogout}
                 >
                     Logout
