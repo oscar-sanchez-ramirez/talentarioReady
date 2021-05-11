@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-//import './old_styles/styles.scss'
-import './styles/main.css'
 import { TalentarioApp } from './TalentarioApp';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/main.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+
 
 
 ReactDOM.render(

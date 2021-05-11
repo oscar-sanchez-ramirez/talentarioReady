@@ -19,55 +19,32 @@
       -moz-box-sizing: border-box;
       box-sizing: border-box;
   }
-.text-center{
+
+.auth__alert-error{
+      color: red;
       text-align: center;
 }
 body {
       margin: 0;
 }
-.container {
-      padding-right: 15px;
-      padding-left: 15px;
-      margin-right: auto;
-      margin-left: auto;
-}
-.form-group:after,
-.row:after, 
-.container:after{
-      clear: both;
-}
-.form-horizontal .form-group:before,
-.form-horizontal .form-group:after,
-.row:before,
-.row:after,
-.container:before,
-.container:after{
-      display: table;
-      content: " ";
-}
-.row {
-      margin-right: 0;
-      margin-left: 0;
-}
+
 .body_form{
       align-items: center;
-      background-color: #fff;
+      background: rgb(0,30,92);
+      background: linear-gradient(177deg, rgba(0,30,92,1) 0%, rgba(82,67,162,1) 100%); 
       display: flex;
       justify-content: center;
       margin: 0px;
       height: 100vh;
       width: 100vw;
-}
-.img-responsive{
-      max-width: 100%;
-      height: auto;
+      padding: 0 20px;
 }
 
 .form_login{
       background-color: #001e5c;
       box-shadow: 0px 3px #363636;
       border-radius: 2px;
-      width: 440px;
+      width: 540px;
       color:#fff;
       font-family: 'Roboto-Regular';
       border-radius: 10px;      
@@ -98,40 +75,41 @@ body {
 .form_content{
       padding: 30px;
       background: url('../image/bg-form_body.png') center bottom;
+      background-size: cover;
 }
 .form_content a{
       color: #fff;
       text-decoration: none;
 }
-.form-group {
+.form-group{
       margin-bottom: 15px;
 }
-
-.form-group .group{
-      display: flex;
-}
-.form-control {
-      background-color: transparent;
-      width: 100%;
-      padding: 6px 12px;
-      font-size: 14px;
-      color: #fff;
-      border-bottom: 1px solid #9c8fdb;
-      border-top: none;
-      border-right: none;
-      border-left: none;
-      height: 35px;
-}
-.form-control:focus {
-      outline: 0;
-}
-.icono_usuario{
+.icono_usuario,
+.icono_contrasena,
+.icono_correo{
       width: 40px;
       height: 40px;
-      background: url('../image/input-usuario.png') no-repeat;
-      background-size: contain;
       position: relative;
-      top: 7px;
+      top: 0px;
+      margin-right: 10px;
+      position: absolute;
+      left: 0;
+}
+.icono_usuario{      
+      background: url('../image/input-usuario.png') no-repeat;
+      background-size: contain;      
+}
+.icono_contrasena{
+      background: url('../image/input-contrasena.png') no-repeat;
+      background-size: contain;
+}
+.icono_correo{
+      background: url('../image/input-mail.png') no-repeat;
+      background-size: contain;
+}
+.form_modalidad{
+      padding: 0 10px;
+      display: inline;
 }
 .auth__social-networks{
       margin-left: auto;
@@ -151,13 +129,15 @@ body {
       transition: 250ms;
       margin-top: 30px;
       margin-bottom: 20px;
+      cursor:pointer;
 }
-.btn-ingreso:hover, .btn-ingreso:focus {
-      background: #fff;
-      color: #5243a2;
+.btn_login:hover, .btn_login:focus {
+      background: transparent;
+      border-color: #fff;
 }
 .google-btn{
       background-color: #9a1f4f;
+      border: 1px solid #9a1f4f;
       margin-top: 5px;
       width: max-content;
       margin-right: auto;
@@ -171,6 +151,11 @@ body {
       border-radius: 30px;
       cursor: pointer;
       font-family: 'Roboto-Medium';
+      transition: 250ms;
+}
+.google-btn:hover, .google-btn:focus{
+      background: transparent;
+      border-color: #fff;
 }
 .google-icon-wrapper{
       padding-right: 10px;
@@ -180,20 +165,27 @@ body {
       width: 14px;
       height: 14px;
 }
-
-
-@media (min-width: 768px) {
-      .container {
-            width: 750px;
-      }
+.form-control:focus{
+      background: transparent;
+      box-shadow: none;
+      color: #fff;
 }
-@media (min-width: 992px) {
-      .container {
-            width: 970px;
-      }
+.form-control{
+      border-top: none;
+      border-left: 0;
+      border-right: 0;
+      border-radius: 0;
+      border-color: #9d8fda;
+      color:#fff;
+      background: transparent;
 }
-@media (min-width: 1200px) {
-      .container {
-            width: 1170px;
-      }
+.form-control::placeholder{
+      color: #fff;
+}
+.group{
+      padding-left: 50px;
+      position: relative;
+}
+.btn-text{
+      margin-bottom: 0;
 }

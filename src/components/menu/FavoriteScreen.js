@@ -45,7 +45,7 @@ export const FavoriteScreen = () => {
         <div>
             <Sidebar />
             <hr />
-            <h2>Favoritos</h2>
+            <h2 className="text-primary">Favoritos</h2>
             <div>
                 <h5>Recientemente aplicados</h5>
                 <hr />

@@ -21,9 +21,9 @@ export const Sidebar = () => {
 
     return (
 
-        <div>
+        <div className="container">
 
-            <div className="">
+            <div className="row">
                 <h3>{name}</h3>
                 <img src={photoURL} alt={name} width="50" />
                 <br />
@@ -39,7 +39,7 @@ export const Sidebar = () => {
                     <div>
                         <Link
                             to="/"
-                            className="link"
+                            className="bg-info"
                         >
                             Ofertar de trabajo
                 </Link>
