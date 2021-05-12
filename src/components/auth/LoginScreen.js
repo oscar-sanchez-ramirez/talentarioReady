@@ -97,7 +97,7 @@ export const LoginScreen = () => {
 
                         <div className="form-group text-center">
                             <div className="form_modalidad">
-                                <label htmlFor="aplicante">Aplicante</label>
+                                <label htmlFor="aplicante">Aplicante Update</label>
                                 <input
                                     id="aplicante"
                                     type="radio"
