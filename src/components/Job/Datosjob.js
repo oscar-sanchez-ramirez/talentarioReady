@@ -14,8 +14,9 @@ export const Datosjob = ({ companyId }) => {
             {
                 loading ? (<p>cargando...</p>) :
                     (<div>
-                        <p>{data.name}</p>
+                        
                         <img src={data.imageUrl} alt="Imagen de perfil" width={ 50 }/>
+                        <p>{data.name}</p>
                     </div>)
             }
         </>

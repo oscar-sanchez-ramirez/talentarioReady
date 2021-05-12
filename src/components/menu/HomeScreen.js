@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useFetch } from '../../hooks/useFetch'
-import { CompanyOffers } from '../company/CompanyOffers';
 import { Datosjob } from '../Job/Datosjob';
 import { Sidebar } from './SideBar'
 
@@ -77,8 +76,8 @@ export const HomeScreen = () => {
                                 {objJob &&
                                     objJob.map(iterador => (
                                         <div key={iterador.uid}>
-                                            <Datosjob companyId={iterador.companyId} />
                                             <p>{iterador.cargo}</p>
+                                            <Datosjob companyId={iterador.companyId} />                                            
                                             <p>{iterador.salario}</p>
                                             <p>{iterador.localidad}</p>
                                             <hr />
@@ -89,7 +88,14 @@ export const HomeScreen = () => {
                             )
                         }
                     </div>
-                ) : ( <CompanyOffers /> )
+                ) : (
+                    <div>
+                        <hr />
+                        <p>Ofertas de la empresa</p>
+                        <br />
+                        <p>Ofertas populares</p>
+                    </div>
+                )
             }
 
         </div>
