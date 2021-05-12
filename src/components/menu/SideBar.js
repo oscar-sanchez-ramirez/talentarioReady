@@ -23,83 +23,104 @@ export const Sidebar = () => {
 
         <div className="container">
 
-            <div>
-                <h3>{name}</h3>
-                <img src={photoURL} alt={name} style={{ width: 100 }}/>
-                <br />
-                <button
-                className="btn btn-primary"
-                    onClick={hanleLogout}
-                >
-                    Logout
-                </button>
+            <div className="row">
+                <div className="col-md-2">
+
+                </div>
+                <div className="col-md-8">                    
+                    {
+                        !isCompany ? (
+                            <div className="d-flex justify-content-center py-3">
+                                <ul className="nav nav-pills">
+                                    <li className="nav-item">
+                                        <Link
+                                            to="/"
+                                            className="nav-link"
+                                        >
+                                            Ofertar de trabajo
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link
+                                            to="/favorite"
+                                            className="nav-link"
+                                        >
+                                            Favoritos
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link
+                                            to="/calendar"
+                                            className="nav-link"
+                                        >
+                                            Calendario
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link
+                                            to="/profile"
+                                            className="nav-link"
+                                        >
+                                            Perfil
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        ) : (
+                            <div className="d-flex justify-content-center py-3">
+                                <ul className="nav nav-pills">
+                                    <li className="nav-item">
+                                        <Link
+                                            to="/"
+                                            className="nav-link"
+                                        >
+                                            Ofertar de trabajo
+                                        </Link>
+                                    </li>
+                                
+                                    <li className="nav-item">
+                                        <Link
+                                            to="/applicant"
+                                            className="nav-link"
+                                        >
+                                            Aplicantes Favoritos
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link
+                                            to="/calendar"
+                                            className="nav-link"
+                                        >
+                                            Calendario
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link
+                                            to="/perfil"
+                                            className="nav-link"
+                                        >
+                                            Perfil
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        )
+                    }
+                </div>
+                <div className="col-md-2">
+                    <h3>{name}</h3>
+                    <p><img src={photoURL} alt={name} width="50" /></p>
+                    <br />
+                    <p>
+                        <button
+                        className="btn "
+                        onClick={hanleLogout}
+                        >
+                            Logout
+                        </button>
+                    </p>
+                </div>
             </div>
-            {
-                !isCompany ? (
-                    <div>
-                        <Link
-                            to="/"
-                            className=""
-                        >
-                            Ofertar de trabajo
-                </Link>
-                        <br />
-                        <Link
-                            to="/favorite"
-                            className="link"
-                        >
-                            Favoritos
-                </Link>
-                        <br />
-                        <Link
-                            to="/calendar"
-                            className="link"
-                        >
-                            Calendario
-                </Link>
-                        <br />
-                        <Link
-                            to="/profile"
-                            className="link"
-                        >
-                            Perfil
-                </Link>
-
-                    </div>
-                ) : (
-                    <div>
-                        <Link
-                            to="/"
-                            className="link"
-                        >
-                            Ofertar de trabajo
-                </Link>
-                <br />
-                        <Link
-                            to="/applicant"
-                            className="link"
-                        >
-                            Aplicantes Favoritos
-                </Link>
-                        <br />
-                        <Link
-                            to="/calendar"
-                            className="link"
-                        >
-                            Calendario
-                </Link>
-                        <br />
-                        <Link
-                            to="/perfil"
-                            className="link"
-                        >
-                            Perfil
-                </Link>
-
-                    </div>
-                )
-            }
-
         </div>
 
     )
