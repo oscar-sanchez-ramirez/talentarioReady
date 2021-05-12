@@ -10,7 +10,7 @@ export const CompanyOffers = () => {
 
     const state = useFetch(`https://us-central1-talentario-a3d9a.cloudfunctions.net/api/companyJobOffers/sdDQmkjPYaXba17r5GJrDrg6zUE3`);
     const { data, loading } = state;
-    console.log(data)
+    console.log(!loading && data)
 
     return (
         <div>
