@@ -189,6 +189,97 @@ body {
 .btn-text{
       margin-bottom: 0;
 }
+.hd_menu{
+      background: #001e5cc4;
+      padding: 5px 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+}
+.hd_menu .nav-link{
+      color: #fff;
+      font-family: 'Roboto-Black';
+      text-transform: uppercase;
+}
 .mnu_perfil{
       text-align: center;
+}
+.img-circle{
+      border-radius: 50%;
+}
+.img-circle:hover button{
+      -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+      -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+}
+.btn-profile{
+      color: #fff;
+      font-family: 'Roboto-Regular';
+      text-decoration: none;
+}
+.btn-profile:hover,
+.btn-profile:focus{
+      color: #fff;
+      box-shadow: none;
+}
+
+.dropdown-toggle::after {
+      display: none;
+}
+.nav-link{
+      padding: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border-bottom: 2px solid transparent;
+      transition: 200ms;
+}
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active{
+      border-bottom: 2px solid #fff;
+      border-radius: 0;
+}
+.navbar-light .navbar-toggler{
+      background: #fff;
+}
+.navbar-light .navbar-nav .nav-link{
+      color:#fff;
+      text-align: center;
+}
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus{
+      color: #fff;
+}
+.navbar-toggler:focus{
+      box-shadow: none;
+}
+.titulo_principal{
+      padding-top: 100px;
+      padding-bottom: 20px;
+      background:  url('../image/rombo_titulo-principal.png') no-repeat 10% center, url('../image/rombo_titulo-principal.png') no-repeat 90% center, #767676;
+      background-attachment: scroll, scroll, scroll;
+      color: #fff;
+      border-bottom: 6px solid #796dbc;
+      position: relative;
+      font-family: 'Roboto-Black';
+      font-size: 30px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 30px;
+}
+@media(max-width:991px){
+      .menu_logo{
+            display: none;
+      }
+      .navbar-nav{
+            margin-top: 15px;
+      }
+}
+@media(max-width:575px){
+      .titulo_principal{
+            padding-top: 170px;
+            background:  url('../image/rombo_titulo-principal.png') no-repeat -10% bottom, url('../image/rombo_titulo-principal.png') no-repeat 110% bottom, #767676;
+      }
 }
