@@ -1,5 +1,6 @@
 {
   "name": "talentario-app",
+  "homepage": "http://talentario.mx/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
