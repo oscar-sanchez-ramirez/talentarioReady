@@ -2,18 +2,41 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { db } from '../../firebase/firebase-config';
-import { SelfEsteem } from './SelfEsteem';
+import {ProcrastinationControl} from './ProcrastinationControl'
 
 
-export const SelfRecognition = () => {
 
-
+export const SelfEsteem = () => {
 
     const [msjError, setMsjError] = useState(null);
     const { uid } = useSelector(state => state.auth)
 
-    const [show, setShow] = useState(1);
+    const {
+        selfRecognition,
+        selfEsteem,
+        procrastinationControl,
+    } = useSelector(state => state.user)
 
+    const inputs = [selfRecognition, selfEsteem, procrastinationControl];
+
+    const result7 = inputs.filter(item => item === 7);
+    const result6 = inputs.filter(item => item === 6);
+    const result5 = inputs.filter(item => item === 5);
+    const result4 = inputs.filter(item => item === 4);
+    const result3 = inputs.filter(item => item === 3);
+    const result2 = inputs.filter(item => item === 2);
+    const result1 = inputs.filter(item => item === 1);
+
+
+    const scort7 = result7 && (5 - result7.length);
+    const scort6 = result6 && (4 - result6.length);
+    const scort5 = result5 && (3 - result5.length);
+    const scort4 = result4 && (3 - result4.length);
+    const scort3 = result3 && (4 - result3.length);
+    const scort2 = result2 && (3 - result2.length);
+    const scort1 = result1 && (3 - result1.length);
+
+    const [show, setShow] = useState(1);
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -23,8 +46,7 @@ export const SelfRecognition = () => {
             setMsjError(null);
 
             db.ref('users/' + uid).update({
-                selfRecognition: valor_R,
-                selfEsteem: 0,
+                selfEsteem: valor_R,
                 procrastinationControl: 0,
                 victimizationControl: 0,
                 adaptability: 0,
@@ -69,7 +91,6 @@ export const SelfRecognition = () => {
     }
 
 
-
     return (
         <div>
             {
@@ -77,9 +98,9 @@ export const SelfRecognition = () => {
                 <form onSubmit={handleSubmit}>
                     
                     <h4>Asumir la responsabilidad propia (PA)</h4>
-                    <h5>Auto Reconocimiento</h5>
+                    <h5>Autoestima</h5>
                     <h5>{msjError}</h5>
-
+                    
                     <div>
                         <label htmlFor="option7">7</label>
                         <input type="radio" name="option" id="option7" value="7" style={{ marginRight: '20px' }} />
@@ -120,33 +141,36 @@ export const SelfRecognition = () => {
                     <br />
                     <table>
                         <thead>
-                           <tr>
-                               <th>7</th>
-                               <th>6</th>
-                               <th>5</th>
-                               <th>4</th>
-                               <th>3</th>
-                               <th>2</th>
-                               <th>1</th>
-                           </tr>
+                            <tr>
+                                <th>7</th>
+                                <th>6</th>
+                                <th>5</th>
+                                <th>4</th>
+                                <th>3</th>
+                                <th>2</th>
+                                <th>1</th>
+                            </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                              <td>7/5</td>
-                              <td>6/4</td>
-                              <td>5/3</td>
-                              <td>4/3</td>
-                              <td>3/4</td>
-                              <td>2/3</td>
-                              <td>1/3</td>
-                          </tr>
+                            <tr>
+                                <td>{scort7}/5</td>
+                                <td>{scort6}/4</td>
+                                <td>{scort5}/3</td>
+                                <td>{scort4}/3</td>
+                                <td>{scort3}/4</td>
+                                <td>{scort2}/3</td>
+                                <td>{scort1}/3</td>
+                            </tr>
                         </tbody>
                     </table>
+
                 </form>
             }
-            {   (show === 2) &&
-                <SelfEsteem />
+            {
+                (show===2) &&
+                <ProcrastinationControl />
             }
+            
         </div>
     )
 }

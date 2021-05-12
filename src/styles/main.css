@@ -1,0 +1,191 @@
+
+@font-face {
+	font-family:Roboto-Regular;
+	font-display: auto;
+	src: url('../fonts/Roboto-Regular.ttf');
+}
+@font-face {
+	font-family:Roboto-Medium;
+	font-display: auto;
+	src: url('../fonts/Roboto-Medium.ttf');
+}
+@font-face {
+	font-family:Roboto-Black;
+	font-display: auto;
+	src: url('../fonts/Roboto-Black.ttf');
+}
+* {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  }
+
+.auth__alert-error{
+      color: red;
+      text-align: center;
+}
+body {
+      margin: 0;
+}
+
+.body_form{
+      align-items: center;
+      background: rgb(0,30,92);
+      background: linear-gradient(177deg, rgba(0,30,92,1) 0%, rgba(82,67,162,1) 100%); 
+      display: flex;
+      justify-content: center;
+      margin: 0px;
+      height: 100vh;
+      width: 100vw;
+      padding: 0 20px;
+}
+
+.form_login{
+      background-color: #001e5c;
+      box-shadow: 0px 3px #363636;
+      border-radius: 2px;
+      width: 540px;
+      color:#fff;
+      font-family: 'Roboto-Regular';
+      border-radius: 10px;      
+      -webkit-box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.5);
+      -moz-box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.5);
+      box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.5);
+      overflow: hidden;
+}
+.body_form .auth__title{
+      font-family: 'Roboto-Black', 'Arial Narrow Bold';
+      text-transform: uppercase;
+      font-size: 22px;
+}
+.logo{
+      width: 100%;
+      height: 320px;
+      align-items: end;
+      display: grid;
+      text-align: center;
+      background: url('../image/bg-form_login.jpg') no-repeat center;
+      background-size: cover;
+}
+.logo p{
+      background-color: #001e5cc4;
+      padding: 15px 0;
+      margin-bottom: 15px;
+}
+.form_content{
+      padding: 30px;
+      background: url('../image/bg-form_body.png') center bottom;
+      background-size: cover;
+}
+.form_content a{
+      color: #fff;
+      text-decoration: none;
+}
+.form-group{
+      margin-bottom: 15px;
+}
+.icono_usuario,
+.icono_contrasena,
+.icono_correo{
+      width: 40px;
+      height: 40px;
+      position: relative;
+      top: 0px;
+      margin-right: 10px;
+      position: absolute;
+      left: 0;
+}
+.icono_usuario{      
+      background: url('../image/input-usuario.png') no-repeat;
+      background-size: contain;      
+}
+.icono_contrasena{
+      background: url('../image/input-contrasena.png') no-repeat;
+      background-size: contain;
+}
+.icono_correo{
+      background: url('../image/input-mail.png') no-repeat;
+      background-size: contain;
+}
+.form_modalidad{
+      padding: 0 10px;
+      display: inline;
+}
+.auth__social-networks{
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+}
+.btn_login{
+      background: #5243a2;
+      padding: 5px 25px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 50px;
+      font-family: 'Roboto-Regular';
+      font-size: 18px;
+      color: #fff;
+      border: 1px solid #5243a2;
+      transition: 250ms;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      cursor:pointer;
+}
+.btn_login:hover, .btn_login:focus {
+      background: transparent;
+      border-color: #fff;
+}
+.google-btn{
+      background-color: #9a1f4f;
+      border: 1px solid #9a1f4f;
+      margin-top: 5px;
+      width: max-content;
+      margin-right: auto;
+      margin-left: auto;
+      height: 35px;
+      transition: box-shadow .3s ease;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: 'Roboto-Medium';
+      transition: 250ms;
+}
+.google-btn:hover, .google-btn:focus{
+      background: transparent;
+      border-color: #fff;
+}
+.google-icon-wrapper{
+      padding-right: 10px;
+}
+
+.google-icon{
+      width: 14px;
+      height: 14px;
+}
+.form-control:focus{
+      background: transparent;
+      box-shadow: none;
+      color: #fff;
+}
+.form-control{
+      border-top: none;
+      border-left: 0;
+      border-right: 0;
+      border-radius: 0;
+      border-color: #9d8fda;
+      color:#fff;
+      background: transparent;
+}
+.form-control::placeholder{
+      color: #fff;
+}
+.group{
+      padding-left: 50px;
+      position: relative;
+}
+.btn-text{
+      margin-bottom: 0;
+}

@@ -22,14 +22,14 @@ export const startLoginEmailPassword = (email, password, empresa) => {
                 const starCountRef = db.ref('users/' + user.uid);
                 db.ref('users/' + user.uid).update({
                     isCompany: (empresa === "true") ? true : false,
-         
-                 });
+
+                });
                 starCountRef.on('value', (snapshot) => {
                     const data = snapshot.val();
 
-                   
 
-                    if(data){
+
+                    if (data) {
                         dispatch(userNew(
                             data.isCompany,
                             data.name,
@@ -69,6 +69,31 @@ export const startLoginEmailPassword = (email, password, empresa) => {
                             data.sitFiscalUrl,
                             data.domFiscUrl,
                             data.ineUrl,
+                            data.selfRecognition,
+                            data.selfEsteem,
+                            data.procrastinationControl,
+                            data.victimizationControl,
+                            data.adaptability,
+                            data.observation,
+                            data.creativityInnovation,
+                            data.entrepreneurshipInitiative,
+                            data.improvisation,
+                            data.problemSolving,
+                            data.emotionalIntelligence,
+                            data.rationalIntelligence,
+                            data.focus,
+                            data.collaboration,
+                            data.negotiation,
+                            data.selfConfidence,
+                            data.frustrationTolerance,
+                            data.assertiveCommunication,
+                            data.conflictManagement,
+                            data.resilience,
+                            data.leadership,
+                            data.reliability,
+                            data.teamWork,
+                            data.belongingSense,
+                            data.empathy,
                         ));
                     }
 
@@ -124,7 +149,7 @@ export const startGoogleLogin = () => {
                 const starCountRef = db.ref('users/' + user.uid);
                 starCountRef.on('value', (snapshot) => {
                     const data = snapshot.val();
-                    if(data){
+                    if (data) {
                         dispatch(userNew(
                             data.isCompany,
                             data.name,
@@ -164,6 +189,31 @@ export const startGoogleLogin = () => {
                             data.sitFiscalUrl,
                             data.domFiscUrl,
                             data.ineUrl,
+                            data.selfRecognition,
+                            data.selfEsteem,
+                            data.procrastinationControl,
+                            data.victimizationControl,
+                            data.adaptability,
+                            data.observation,
+                            data.creativityInnovation,
+                            data.entrepreneurshipInitiative,
+                            data.improvisation,
+                            data.problemSolving,
+                            data.emotionalIntelligence,
+                            data.rationalIntelligence,
+                            data.focus,
+                            data.collaboration,
+                            data.negotiation,
+                            data.selfConfidence,
+                            data.frustrationTolerance,
+                            data.assertiveCommunication,
+                            data.conflictManagement,
+                            data.resilience,
+                            data.leadership,
+                            data.reliability,
+                            data.teamWork,
+                            data.belongingSense,
+                            data.empathy,
                         ));
                     }
 

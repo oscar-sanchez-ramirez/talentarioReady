@@ -21,14 +21,14 @@ export const Sidebar = () => {
 
     return (
 
-        <div>
+        <div className="container">
 
-            <div className="">
+            <div>
                 <h3>{name}</h3>
-                <img src={photoURL} alt={name} width="50" />
+                <img src={photoURL} alt={name} style={{ width: 100 }}/>
                 <br />
                 <button
-                    className=""
+                className="btn btn-primary"
                     onClick={hanleLogout}
                 >
                     Logout
@@ -39,7 +39,7 @@ export const Sidebar = () => {
                     <div>
                         <Link
                             to="/"
-                            className="link"
+                            className=""
                         >
                             Ofertar de trabajo
                 </Link>

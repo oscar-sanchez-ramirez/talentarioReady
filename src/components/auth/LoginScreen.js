@@ -7,14 +7,13 @@ import { useForm } from '../../hooks/useForm';
 import { startLoginEmailPassword, startGoogleLogin } from '../../actions/auth';
 import { setError, removeError } from '../../actions/ui';
 
+import logoTalentario from '../../image/logo_talentario.png';
+
 
 export const LoginScreen = () => {
 
     const dispatch = useDispatch();
     const { loading, msgError } = useSelector(state => state.ui);
-
-
-
 
     const [formValues, handleInputChange] = useForm({
         email: '',
@@ -33,6 +32,7 @@ export const LoginScreen = () => {
     }
 
     const handleGoogleLogin = () => {
+        
         dispatch(startGoogleLogin());
     }
 
@@ -49,91 +49,119 @@ export const LoginScreen = () => {
 
 
     return (
-        <>
-            <h3 className="auth__title">Login</h3>
-
-            <form onSubmit={handleLogin}>
-
-                {
-                    msgError &&
-                    (
-                        <div className="auth__alert-error">
-                            { msgError}
-                        </div>
-                    )
-                }
-
-                <input
-                    type="text"
-                    placeholder="Email"
-                    name="email"
-                    className="auth__input"
-                    autoComplete="off"
-                    value={email}
-                    onChange={handleInputChange}
-                />
-
-                <input
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    className="auth__input"
-                    value={password}
-                    onChange={handleInputChange}
-                />
-
-                <label htmlFor="aplicante">Aplicante</label>
-                <input
-                    id="aplicante"
-                    type="radio"
-                    name="empresa"
-                    value="false"
-                    onChange={handleInputChange}
-                />
-                <label htmlFor="empresa">Empresa</label>
-                <input
-                    id="empresa"
-                    type="radio"
-                    name="empresa"
-                    value="true"
-                    onChange={handleInputChange}
-
-                />
-
-
-                <button
-                    type="submit"
-                    className="btn btn-primary btn-block"
-                    disabled={loading}
-                >
-                    Login
-                </button>
-
-
-                <div className="auth__social-networks">
-                    <p>Login with social networks</p>
-
-                    <div
-                        className="google-btn"
-                        onClick={handleGoogleLogin}
-                    >
-                        <div className="google-icon-wrapper">
-                            <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
-                        </div>
-                        <p className="btn-text">
-                            <b>Sign in with google</b>
-                        </p>
-                    </div>
+        <div className="body_form">
+            <div className="form_login">
+                <div className="logo">
+                    <p><img src={logoTalentario} alt="Talentario" border="0" className="img_responsive" /></p>
                 </div>
+                <div className="form_content">              
 
-                <Link
-                    to="/auth/register"
-                    className="link"
-                >
-                    Create new account
-                </Link>
+                    <form onSubmit={handleLogin}>
+                        {
+                            msgError &&
+                            (
+                                <div className="auth__alert-error">
+                                    { msgError}
+                                </div>
+                            )
+                        }
+                        
+                        <div className="form-group">
+                            <div className="group">
+                                <div className="icono_usuario"></div>
+                                <input
+                                    type="text"
+                                    placeholder="Email"
+                                    name="email"
+                                    className="form-control"
+                                    autoComplete="off"
+                                    value={email}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                        </div>
 
-            </form>
-        </>
+                        <div className="form-group">
+                            <div className="group">
+                                <div className="icono_contrasena"></div>
+                                <input
+                                    type="password"
+                                    placeholder="Password"
+                                    name="password"
+                                    className="form-control"
+                                    value={password}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="form-group text-center">
+                            <div className="form_modalidad">
+                                <label htmlFor="aplicante">Aplicante</label>
+                                <input
+                                    id="aplicante"
+                                    type="radio"
+                                    name="empresa"
+                                    value="false"                                    
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                            <div className="form_modalidad">
+                                <label htmlFor="empresa">Empresa</label>
+                                <input
+                                    id="empresa"
+                                    type="radio"
+                                    name="empresa"
+                                    value="true"
+                                    onChange={handleInputChange}
+
+                                />
+                             </div>
+                        </div>
+
+                        <div className="form-group text-center">
+                            <button
+                                type="submit"
+                                className="btn btn-primary btn-block btn_login"
+                                disabled={loading}
+                            >
+                                Iniciar sesión
+                            </button>
+                        </div>
+
+                        <div className="form-group">
+                            <div className="auth__social-networks">
+                                <p>Iniciar sesión con redes sociales</p>
+
+                                <div
+                                    className="google-btn"
+                                    onClick={handleGoogleLogin}
+                                >
+                                    <div className="google-icon-wrapper">
+                                        <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
+                                    </div>
+                                    <p className="btn-text">
+                                        <b>Iniciar con Google</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="form-group text-center">
+                            <p>¿No tienes una cuenta? &nbsp;
+                            <Link
+                                to="/auth/register"
+                                className="link"
+                            >
+                                Regístrate
+                            </Link>
+                            </p>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
     )
 }
