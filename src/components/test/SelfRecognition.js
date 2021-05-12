@@ -132,13 +132,13 @@ export const SelfRecognition = () => {
                         </thead>
                         <tbody>
                           <tr>
-                              <td>7/5</td>
-                              <td>6/4</td>
-                              <td>5/3</td>
-                              <td>4/3</td>
-                              <td>3/4</td>
-                              <td>2/3</td>
-                              <td>1/3</td>
+                              <td>5/5</td>
+                              <td>4/4</td>
+                              <td>3/3</td>
+                              <td>3/3</td>
+                              <td>4/4</td>
+                              <td>3/3</td>
+                              <td>3/3</td>
                           </tr>
                         </tbody>
                     </table>
