@@ -7,6 +7,9 @@ import { useForm } from '../../hooks/useForm';
 import { setError, removeError } from '../../actions/ui';
 import { startRegisterWithEmailPasswordName } from '../../actions/auth';
 
+import logoTalentario from '../../image/logo_talentario.png';
+
+
 export const RegisterScreen = () => {
 
     const dispatch = useDispatch();
@@ -54,7 +57,7 @@ export const RegisterScreen = () => {
         <div className="body_form">
             <div className="form_login">
                 <div className="logo">
-                    <p><img src="http://www.estaenconstruccion.com/talentario/imgusr/logo-talentario.png" alt="Talentario" border="0" className="img_responsive" /></p>
+                    <p><img src={logoTalentario} alt="Talentario" border="0" className="img_responsive" /></p>
                 </div>
                 <div className="form_content">
                     <h3 className="auth__title text-center">Nueva cuenta</h3>
