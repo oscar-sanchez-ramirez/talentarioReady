@@ -22,9 +22,7 @@ export const FavoriteScreen = () => {
         data &&
             Object.keys(data).map(ids => {
                 const fin = ids.indexOf('§');
-                // const total = ids.length;
                 const uidCom = ids.substr(0, (fin));
-                // const idJo = ids.substr((fin + 1), (total - (fin)));
                 jobArray.push({
                     uidCompany: uidCom,
                     idJob: ids,
@@ -46,6 +44,7 @@ export const FavoriteScreen = () => {
             <Sidebar />
             <hr />
             <h2 className="text-primary">Favoritos</h2>
+            <hr />
             <div>
                 <h5>Recientemente aplicados</h5>
                 <hr />
@@ -63,7 +62,6 @@ export const FavoriteScreen = () => {
                 }
             </div>
             <div>
-                <h5>Favoritos</h5>
                 <FavJob />
             </div>
         </div>
