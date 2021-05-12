@@ -52,7 +52,7 @@ export const LoginScreen = () => {
         <div className="body_form">
             <div className="form_login">
                 <div className="logo">
-                    <p><img src={logoTalentario} alt="Talentario" border="0" className="img_responsive" /></p>
+                    <p><img src={logoTalentario} alt="Talentario" border="0" className="img-fluid" /></p>
                 </div>
                 <div className="form_content">              
 
