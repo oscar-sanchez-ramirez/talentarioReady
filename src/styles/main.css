@@ -14,6 +14,22 @@
 	font-display: auto;
 	src: url('../fonts/Roboto-Black.ttf');
 }
+@font-face {
+	font-family:Nunito-SemiBold;
+	font-display: auto;
+	src: url('../fonts/Nunito-SemiBold.ttf');
+}
+@font-face {
+	font-family:Nunito-Regular;
+	font-display: auto;
+	src: url('../fonts/Nunito-Regular.ttf');
+}
+@font-face {
+	font-family:Nunito-ExtraBold;
+	font-display: auto;
+	src: url('../fonts/Nunito-ExtraBold.ttf');
+}
+
 * {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -267,8 +283,52 @@ body {
       font-size: 30px;
       text-transform: uppercase;
       text-align: center;
-      margin-bottom: 30px;
 }
+.img_perfil{
+      clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+      width: 120px;
+      overflow: hidden;
+      text-align: center;
+}
+.datos_cuenta{
+      background: url('../image/bg-gris.jpg') repeat-x center -76%;
+}
+.contenido{
+      font-family: 'Nunito-Regular';
+      font-size: 18px;
+}
+.contenido h2{
+      font-family: 'Nunito-SemiBold';
+      color: black;
+}
+.contenido h2 strong{
+      font-weight: normal;
+      color: #544690;
+}
+.perfil_input input{
+      background: transparent;
+      border:none;
+      color: #000;
+      font-size: 30px;
+      font-family: 'Nunito-ExtraBold';
+      outline: none;
+}
+.btn-edit{
+      color: #544690;
+      border-bottom: 1px solid #544690;
+      border-radius: 0;
+      padding: 0;
+      position: relative;
+}
+.ico-editar{
+      position: absolute;
+      background: url('../image/ico_editar.png') no-repeat center;
+      width: 20px;
+      height: 20px;
+      right: 115%;
+      background-size: contain;
+}
+
 @media(max-width:991px){
       .menu_logo{
             display: none;

@@ -110,48 +110,59 @@ export const UpdateUser = () => {
     }
 
     return (
-        <>
-            <h2>Mi cuenta</h2>
-            <img src={photoURL} width={100} alt={name} />
-            {
-                ocultar &&
-                <form onSubmit={handleSubmitImagen}>
-                    <button type="submit">Guardar</button>
-                </form>
-            }
-
-            <input
-                id="imagenDocu"
-                type="file"
-                onChange={handleChangeImage}
-                style={{ display: 'none' }}
-            />
-
-            {
-                !ocultar &&
-                <button onClick={handleOcultar}>Editar</button>
-            }
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="nameU"
-                    value={nameU}
-                    onChange={handleInputchange}
-                    disabled={active}
-                />
-                <br />
+        <div className="row">
+            <div className="col-md-2">
+                <div className="bd-img_perfil img_perfil mx-auto">
+                    <img src={photoURL} width={"100%"} alt={name} className="img-fluid" />
+                </div>
+                <div className="btn_editar_img text-center">
                 {
-                    button &&
-                    <button type="submit">Guardar</button>
+                    ocultar &&
+                    <form onSubmit={handleSubmitImagen}>
+                        <button type="submit" className="btn btn-edit">Guardar</button>
+                    </form>
                 }
-            </form>
-            {
-                buttonU &&
-                <button onClick={handleActive}>Editar</button>
-            }
-            <p>{email}</p>
-            <p>El email no es editable</p>
 
-        </>
+                <input
+                    id="imagenDocu"
+                    type="file"
+                    onChange={handleChangeImage}
+                    style={{ display: 'none' }}
+                />
+                    {
+                        !ocultar &&
+                        <button onClick={handleOcultar} className="btn btn-edit"><span className="ico-editar"></span> Editar</button>
+                    }
+                </div>
+            </div>
+            <div className="col-md-10 pt-3"> 
+                <div className="perfil_input d-flex align-items-center">
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                name="nameU"
+                                value={nameU}
+                                onChange={handleInputchange}
+                                disabled={active}
+                            />
+                            {
+                                button &&
+                                <button type="submit" className="btn btn-edit">Guardar</button>
+                            }
+                        </form>
+                    
+                    {
+                        buttonU &&
+                        <button onClick={handleActive} className="btn btn-edit"><span className="ico-editar"></span> Editar</button>
+                    }
+                </div>
+                <div className="perfil_correo mt-2">
+                    <p>{email}</p>
+                </div>
+                
+                
+                
+            </div>
+        </div>
     )
 }
