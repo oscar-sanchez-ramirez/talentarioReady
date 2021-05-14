@@ -38,8 +38,8 @@ export const CompanyOffers = () => {
     return (
         <div>
             <hr />
-            <p>Ofertas de la empresa</p>
-            <br />
+            <h5>Ofertas de la empresa</h5>
+            <hr />
             { loading ? <p>cargando...</p> :
                 (<div id="jobFs">
                     {objJob &&
@@ -57,7 +57,8 @@ export const CompanyOffers = () => {
                 )
             }
             <br />
-            <p>Ofertas populares</p>
+            <h5>Ofertas populares</h5>
+            <hr />
         </div>
     )
 }
