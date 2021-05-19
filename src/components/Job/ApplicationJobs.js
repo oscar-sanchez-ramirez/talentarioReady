@@ -2,6 +2,7 @@ import React from 'react'
 import { useFetch } from '../../hooks/useFetch'
 import { AppInfo } from './AppInfo';
 
+
 export const ApplicationJobs = ({ companyID, idJob }) => {
 
 

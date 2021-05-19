@@ -24,6 +24,7 @@ import { CalculateTest } from '../components/user/CalculateTest'
 import { FavApplicant } from '../components/company/FavApplicant';
 import { CompanyProfile } from '../components/company/CompanyProfile';
 import { Test } from '../components/test/Test';
+import { Getapplication } from '../components/Job/Getapplication';
 
 export const AppRouter = () => {
 
@@ -110,6 +111,7 @@ export const AppRouter = () => {
                             data.teamWork,
                             data.belongingSense,
                             data.empathy,
+                            data.dateTimeTest,
 
                         ));
                     }
@@ -195,10 +197,16 @@ export const AppRouter = () => {
                         component={CompanyProfile}
                     />
 
-                     <PrivateRoute
+                    <PrivateRoute
                         isAuthenticated={isLoggedIn}
                         path="/test-start"
                         component={Test}
+                    />
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/getApplication/:uid"
+                        component={Getapplication}
                     />
 
 

@@ -146,6 +146,7 @@ export const userReducer = (state = initialState, action) => {
                 teamWork: action.payload.teamWork,
                 belongingSense: action.payload.belongingSense,
                 empathy: action.payload.empathy,
+                dateTimeTest: action.payload.dateTimeTest,
 
             }
 

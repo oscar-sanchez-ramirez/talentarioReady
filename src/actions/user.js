@@ -71,6 +71,8 @@ export const startNewUser = (uid, name) => {
             teamWork: 0,
             belongingSense: 0,
             empathy: 0,
+            dateTimeTest: '',
+
         };
 
         await db.ref('users/' + uid).set(newUser);
@@ -139,6 +141,8 @@ export const startNewUser = (uid, name) => {
             newUser.teamWork,
             newUser.belongingSense,
             newUser.empathy,
+            newUser.dateTimeTest, 
+            
 
         ));
 
@@ -211,6 +215,7 @@ export const userNew = (
     teamWork,
     belongingSense,
     empathy,
+    dateTimeTest,
 ) => ({
     type: types.userNew,
     payload: {
@@ -277,6 +282,7 @@ export const userNew = (
         teamWork,
         belongingSense,
         empathy,
+        dateTimeTest,
     }
 });
 

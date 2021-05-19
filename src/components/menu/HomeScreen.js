@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch'
 import { CompanyOffers } from '../company/CompanyOffers';
 import { Datosjob } from '../Job/Datosjob';
@@ -81,6 +82,8 @@ export const HomeScreen = () => {
                                             <Datosjob companyId={iterador.companyId} />                                            
                                             <p>{iterador.salario}</p>
                                             <p>{iterador.localidad}</p>
+                                            <Link to={`/getApplication/${iterador.uid}`}
+                                            >Ver</Link>
                                             <hr />
                                         </div>
                                     ))

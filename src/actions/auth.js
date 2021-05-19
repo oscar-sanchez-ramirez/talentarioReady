@@ -94,6 +94,7 @@ export const startLoginEmailPassword = (email, password, empresa) => {
                             data.teamWork,
                             data.belongingSense,
                             data.empathy,
+                            data.dateTimeTest,
                         ));
                     }
 
@@ -214,6 +215,7 @@ export const startGoogleLogin = () => {
                             data.teamWork,
                             data.belongingSense,
                             data.empathy,
+                            data.dateTimeTest,
                         ));
                     }
 
