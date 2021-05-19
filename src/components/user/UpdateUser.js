@@ -110,7 +110,7 @@ export const UpdateUser = () => {
     }
 
     return (
-        <div className="row">
+        <div className="col-md-8 d-flex">
             <div className="col-md-2">
                 <div className="bd-img_perfil img_perfil mx-auto">
                     <img src={photoURL} width={"100%"} alt={name} className="img-fluid" />
@@ -135,21 +135,25 @@ export const UpdateUser = () => {
                     }
                 </div>
             </div>
-            <div className="col-md-10 pt-3"> 
-                <div className="perfil_input d-flex align-items-center">
-                        <form onSubmit={handleSubmit}>
+            <div className="col-md-8 pt-2"> 
+                <div className="hd_input d-flex align-items-center">
+                    <form onSubmit={handleSubmit} className="d-flex align-items-center">
+                        <div className="input-group">
                             <input
                                 type="text"
                                 name="nameU"
+                                className="form-control"
                                 value={nameU}
                                 onChange={handleInputchange}
                                 disabled={active}
                             />
-                            {
-                                button &&
-                                <button type="submit" className="btn btn-edit">Guardar</button>
-                            }
-                        </form>
+                        </div>
+                        {
+                            button &&
+                            <button type="submit" className="btn btn-edit"><span className="ico-guardar"></span> Guardar</button>
+                        }
+                        
+                    </form>
                     
                     {
                         buttonU &&

@@ -286,12 +286,12 @@ body {
 }
 .img_perfil{
       clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
-      width: 120px;
+      max-width: 120px;
       overflow: hidden;
       text-align: center;
 }
 .datos_cuenta{
-      background: url('../image/bg-gris.jpg') repeat-x center -76%;
+      background: url('../image/bg-gris.jpg') repeat-x center  -75px;
 }
 .contenido{
       font-family: 'Nunito-Regular';
@@ -305,13 +305,17 @@ body {
       font-weight: normal;
       color: #544690;
 }
-.perfil_input input{
+.hd_input input{
       background: transparent;
       border:none;
-      color: #000;
+      color: #796dbc;
       font-size: 30px;
       font-family: 'Nunito-ExtraBold';
       outline: none;
+      transition: 250ms;
+}
+.form-control:focus{
+      color: #796dbc;
 }
 .btn-edit{
       color: #544690;
@@ -320,6 +324,9 @@ body {
       padding: 0;
       position: relative;
 }
+.btn-edit:hover{
+      color: #544690;
+}
 .ico-editar{
       position: absolute;
       background: url('../image/ico_editar.png') no-repeat center;
@@ -327,6 +334,49 @@ body {
       height: 20px;
       right: 115%;
       background-size: contain;
+      top:3px;
+}
+.ico-guardar{
+      position: absolute;
+      background: url('../image/ico_guardar.png') no-repeat center;
+      width: 20px;
+      height: 20px;
+      right: 115%;
+      background-size: contain;
+      top:3px;
+}
+.form-control:disabled, .form-control:read-only{
+      background-color: transparent;
+      color: #000;
+}
+.perfil_input .form-control{
+      color: #544690;
+	border-bottom: 2px solid #544690;
+	font-family: 'Nunito-SemiBold';
+	font-size: 18px;
+}
+.perfil_input .form-control:disabled, .perfil_input .form-control:read-only{
+      background-color: transparent;
+      color: #000;
+	border-bottom: 2px solid transparent;
+	
+}
+.perfil_input{
+	font-family: 'Nunito-SemiBold';
+	font-size: 18px;
+}
+.perfil_input label{
+	color: #544690;
+}
+.perfil_input .btn_login{
+	border:1px solid #5243a2;
+}
+.perfil_input .btn_login:focus,
+.perfil_input .btn_login:hover{
+	color: #5243a2;
+}
+.label-radio{
+	color: #000 !important;
 }
 
 @media(max-width:991px){

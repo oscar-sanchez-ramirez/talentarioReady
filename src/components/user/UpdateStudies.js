@@ -111,7 +111,7 @@ export const UpdateStudies = () => {
 
     return (
         <div>
-            <h2>Nivel de estudios</h2>
+            <h2>Nivel de <strong>estudios</strong></h2>
             <form onSubmit={handleSubmit}>
                 <label>Mi trabajo no necesita estudio a nivel profesional</label>
                 <br />
@@ -303,17 +303,20 @@ export const UpdateStudies = () => {
                 />
                 <br />
 
-
+                <p>
                 {
                     button &&
-                    <button type="submit">Guardar</button>
+                    <button type="submit" className="btn btn_login mt-5">Guardar</button>
                 }
+                </p>
 
             </form>
+            <p>
             {
                 buttonU &&
-                <button onClick={handleActive}>Editar</button>
+                <button onClick={handleActive} className="btn btn_login">Editar</button>
             }
+            </p>
         </div>
     )
 }
