@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router'
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { db } from '../../firebase/firebase-config';
 import { Sidebar } from '../menu/SideBar';
 
@@ -9,7 +11,8 @@ export const Getapplication = () => {
     const { uid } = useParams();
     // console.log(uid)
 
-    const { uid:userId } = useSelector(state => state.auth)
+    const { uid: userId } = useSelector(state => state.auth)
+
 
     const [description, setDescription] = useState(null)
     const [location, setLocation] = useState(null)
@@ -35,7 +38,7 @@ export const Getapplication = () => {
             setPositionName(datos.positionName)
             setSalary(datos.salary)
 
-            console.log(datos)
+            // console.log(datos)
 
 
             const starCount = db.ref('users/' + datos.companyId);
@@ -55,17 +58,66 @@ export const Getapplication = () => {
     useEffect(() => {
 
         getApplication(uid)
+        return () => {
+            setDescription({});
+            setLocation({});
+            setPositionName({});
+            setSalary({});
+            setCompanyId({});
+            setIdJob({});
+            setImageUrl({});
+            setName({});
+        };
 
     }, [uid])
 
 
     const handleApli = () => {
-        const url = `https://us-central1-talentario-a3d9a.cloudfunctions.net/api/newApplication/${userId}/${companyId}/${idJob}`;
-        fetch(url, {
-            method: 'POST',
+        Swal.fire({
+            title: '¿Estás seguro de aplicar a este oferta laboral?',
+            showCancelButton: true,
+            confirmButtonText: `Aplicar`,
+            cancelButtonText: `Cancelar`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                const url = `https://us-central1-talentario-a3d9a.cloudfunctions.net/api/newApplication/${userId}/${companyId}/${idJob}`;
+                fetch(url, {
+                    method: 'POST',
+                })
+                    .then(resp => {
+                        Swal.fire('Aplico!', '', 'success')
+                        document.getElementById('favorite').click();
+                    })
+                    .catch(error => console.log(error))
+            }
         })
-            .then(resp => console.log(resp))
-            .catch(error => console.log(error))
+
+
+    }
+
+    const handleFav = () => {
+        Swal.fire({
+            title: '¿Estás seguro de agregar a favoritos?',
+            showCancelButton: true,
+            confirmButtonText: `Agregar`,
+            cancelButtonText: `Cancelar`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                const url = `https://us-central1-talentario-a3d9a.cloudfunctions.net/api/favoriteJob/${userId}/${companyId}/${idJob}`;
+                fetch(url, {
+                    method: 'POST',
+                })
+                    .then(resp => {
+                        Swal.fire('Se agrego!', '', 'success')
+                        document.getElementById('favorite').click();
+                    })
+                    .catch(error => console.log(error))
+            }
+        })
+
+
     }
 
 
@@ -76,6 +128,7 @@ export const Getapplication = () => {
             <br />
             <br />
             <br />
+            <Link to="/favorite" id="favorite"></Link>
             <div>
 
                 <img src={imageUrll} alt="imagen" width="70" />
@@ -85,6 +138,7 @@ export const Getapplication = () => {
                 <p>Salario: {salary}</p>
                 <p>Dirección: {location}</p>
                 <button onClick={handleApli}>Aplicar</button>
+                <button onClick={handleFav}>Agregar a favoritos</button>
             </div>
         </>
     )

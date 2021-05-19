@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useFetch } from '../../hooks/useFetch';
 import { FavoritesJob } from './FavoritesJob';
 
 export const FavJob = () => {
 
-    // const { uid } = useSelector(state => state.auth);
+    const { uid } = useSelector(state => state.auth);
 
 
-    // const state = useFetch('https://us-central1-talentario-a3d9a.cloudfunctions.net/api/favoriteJobs/' + uid);
-    const state = useFetch('https://us-central1-talentario-a3d9a.cloudfunctions.net/api/favoriteJobs/sdDQmkjPYaXba17r5GJrDrg6zUE3');
+    const state = useFetch('https://us-central1-talentario-a3d9a.cloudfunctions.net/api/favoriteJobs/' + uid);
+    // const state = useFetch('https://us-central1-talentario-a3d9a.cloudfunctions.net/api/favoriteJobs/sdDQmkjPYaXba17r5GJrDrg6zUE3');
     const { data, error } = state;
 
     const [datos, setuid] = useState({ jobF: null, cargando: true });
