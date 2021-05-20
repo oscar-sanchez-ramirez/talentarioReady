@@ -85,6 +85,7 @@ export const userReducer = (state = initialState, action) => {
             return {
                 isCompany: action.payload.isCompany,
                 name: action.payload.name,
+                imageUrl: action.payload.imageUrl,
                 fullName: action.payload.fullName,
                 birthday: action.payload.birthday,
                 age: action.payload.age,

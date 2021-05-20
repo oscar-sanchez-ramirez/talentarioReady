@@ -3,13 +3,14 @@ import { types } from '../types/types';
 
 
 
-export const startNewUser = (uid, name) => {
+export const startNewUser = (uid, name, photoURL) => {
     return async (dispatch) => {
 
 
         const newUser = {
             isCompany: true,
             name: `${name}`,
+            imageUrl: `${photoURL}`,
             fullName: "test OSR",
             birthday: "test",
             age: "test",
@@ -80,6 +81,7 @@ export const startNewUser = (uid, name) => {
         dispatch(userNew(
             newUser.isCompany,
             newUser.name,
+            newUser.imageUrl,
             newUser.fullName,
             newUser.birthday,
             newUser.age,
@@ -154,6 +156,7 @@ export const startNewUser = (uid, name) => {
 export const userNew = (
     isCompany,
     name,
+    imageUrl,
     fullName,
     birthday,
     age,
@@ -221,6 +224,7 @@ export const userNew = (
     payload: {
         isCompany,
         name,
+        imageUrl,
         fullName,
         birthday,
         age,

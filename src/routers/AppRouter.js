@@ -50,6 +50,7 @@ export const AppRouter = () => {
                         dispatch(userNew(
                             data.isCompany,
                             data.name,
+                            data.imageUrl,
                             data.fullName,
                             data.birthday,
                             data.age,

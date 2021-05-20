@@ -33,6 +33,7 @@ export const startLoginEmailPassword = (email, password, empresa) => {
                         dispatch(userNew(
                             data.isCompany,
                             data.name,
+                            data.imageUrl,
                             data.fullName,
                             data.birthday,
                             data.age,
@@ -125,7 +126,7 @@ export const startRegisterWithEmailPasswordName = (email, password, name) => {
                     login(user.uid, user.displayName, user.photoURL, user.email)
                 );
 
-                dispatch(startNewUser(user.uid, user.displayName));
+                dispatch(startNewUser(user.uid, user.displayName, user.photoURL));
 
             })
             .catch(e => {
@@ -154,6 +155,7 @@ export const startGoogleLogin = () => {
                         dispatch(userNew(
                             data.isCompany,
                             data.name,
+                            data.imageUrl,
                             data.fullName,
                             data.birthday,
                             data.age,

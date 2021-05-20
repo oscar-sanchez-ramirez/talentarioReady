@@ -1,4 +1,4 @@
-import { firebase } from '../../firebase/firebase-config'
+import { db, firebase } from '../../firebase/firebase-config'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useForm } from '../../hooks/useForm'
@@ -100,6 +100,17 @@ export const UpdateUser = () => {
                             setOcultar(false);
                             Swal.fire('Error', error, 'error');
                         });
+                    });
+
+                    db.ref('users/' + uid).update({
+                        imageUrl: downloadURL
+            
+                    }, (error) => {
+                        if (error) {
+                           
+                        } else {
+                            
+                        }
                     });
 
                 });
