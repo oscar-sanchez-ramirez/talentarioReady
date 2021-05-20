@@ -12,6 +12,7 @@ export const Getapplication = () => {
     // console.log(uid)
 
     const { uid: userId } = useSelector(state => state.auth)
+    const { isCompany } = useSelector(state => state.user)
 
 
     const [description, setDescription] = useState(null)
@@ -20,6 +21,9 @@ export const Getapplication = () => {
     const [salary, setSalary] = useState(null)
     const [companyId, setCompanyId] = useState(null)
     const [idJob, setIdJob] = useState(null)
+    const [weekSchedule, setWeekSchedule] = useState(null)
+    const [scheduleStart, setScheduleStart] = useState(null)
+    const [scheduleEnd, setScheduleEnd] = useState(null)
 
     const [imageUrll, setImageUrl] = useState(null)
     const [name, setName] = useState(null)
@@ -37,6 +41,9 @@ export const Getapplication = () => {
             setLocation(datos.location)
             setPositionName(datos.positionName)
             setSalary(datos.salary)
+            setWeekSchedule(datos.weekSchedule);
+            setScheduleStart(datos.scheduleStart);
+            setScheduleEnd(datos.scheduleEnd);
 
             // console.log(datos)
 
@@ -67,6 +74,9 @@ export const Getapplication = () => {
             setIdJob({});
             setImageUrl({});
             setName({});
+            setWeekSchedule({});
+            setScheduleStart({});
+            setScheduleEnd({});
         };
 
     }, [uid])
@@ -93,7 +103,6 @@ export const Getapplication = () => {
             }
         })
 
-
     }
 
     const handleFav = () => {
@@ -117,7 +126,6 @@ export const Getapplication = () => {
             }
         })
 
-
     }
 
 
@@ -136,9 +144,19 @@ export const Getapplication = () => {
                 <p>Puesto: {positionName}</p>
                 <p>Descripción: {description}</p>
                 <p>Salario: {salary}</p>
+                <p>Horario: {scheduleStart} a {scheduleEnd}</p>
+                <p>Jornada laboral: { weekSchedule }</p>
                 <p>Dirección: {location}</p>
-                <button onClick={handleApli}>Aplicar</button>
-                <button onClick={handleFav}>Agregar a favoritos</button>
+                {
+                    (isCompany === false) &&
+
+                    (
+                        <div>
+                            <button onClick={handleApli}>Aplicar</button>
+                            <button onClick={handleFav}>Agregar a favoritos</button>
+                        </div>
+                    )
+                }
             </div>
         </>
     )

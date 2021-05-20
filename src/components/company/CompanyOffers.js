@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 import { useFetch } from '../../hooks/useFetch';
 import { DatosCompany } from './DatosCompany';
@@ -49,6 +50,8 @@ export const CompanyOffers = () => {
                                 <DatosCompany companyId={iterador.companyId} />
                                 <p>{iterador.salario}</p>
                                 <p>{iterador.localidad}</p>
+                                <Link to={`/getApplication/${iterador.uid}`}
+                                >Ver</Link>
                                 <hr />
                             </div>
                         ))
