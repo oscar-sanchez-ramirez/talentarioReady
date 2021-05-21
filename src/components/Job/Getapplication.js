@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { db } from '../../firebase/firebase-config';
+// import { useForm } from '../../hooks/useForm';
 import { Sidebar } from '../menu/SideBar';
 
 export const Getapplication = () => {
@@ -59,6 +60,24 @@ export const Getapplication = () => {
         });
 
     }
+
+    // const [formValues, handleInputchange] = useForm({
+         
+    // })
+
+    // const updateJoffer = () => {
+
+    //     db.ref('jobOffers/' + uid).update({
+
+    //     }, (error) => {
+    //         if (error) {
+    //             console.log(error);
+    //         } else {
+    //             console.log('exito');
+    //         }
+    //     })
+
+    // }
 
 
 
@@ -145,7 +164,7 @@ export const Getapplication = () => {
                 <p>Descripción: {description}</p>
                 <p>Salario: {salary}</p>
                 <p>Horario: {scheduleStart} a {scheduleEnd}</p>
-                <p>Jornada laboral: { weekSchedule }</p>
+                <p>Jornada laboral: {weekSchedule}</p>
                 <p>Dirección: {location}</p>
                 {
                     (isCompany === false) &&
