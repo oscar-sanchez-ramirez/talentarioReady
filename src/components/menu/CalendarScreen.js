@@ -1,96 +1,45 @@
-import React, { useState } from 'react';
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
-import { formatDate } from '@fullcalendar/react'
+import React, { useEffect, useState } from 'react';
 
 
 import { Sidebar } from '../menu/SideBar'
-import Swal from 'sweetalert2';
+import { db } from '../../firebase/firebase-config';
+import { useSelector } from 'react-redux';
+import { GetJobb } from '../Citas/GetJobb';
 
 
 
 export const CalendarScreen = () => {
 
-    const [evento, setEvento] = useState([])
-    console.log(evento)
+    const { uid } = useSelector(state => state.auth);
 
-    const [count, setCount] = useState(0);
 
-    const dateFormat = (fecha) =>{
-        let str = formatDate(fecha, {
-            month: 'long',
-            year: 'numeric',
-            day: 'numeric',
-            // timeZoneName: 'short',
-            // timeZone: 'UTC',
-            locale: 'es'
-        })
-        return str;
-    }
 
-    const handleDateClick = async (dateClickInfo) => {
-        let str = formatDate(dateClickInfo.dateStr, {
-            month: 'long',
-            year: 'numeric',
-            day: 'numeric',
-            // timeZoneName: 'short',
-            // timeZone: 'UTC',
-            locale: 'es'
-        })
+    const [datos, setDatos] = useState({ data: null, loading: true });
+    const { data } = datos;
+    // console.log(datos)
 
-        const { value: texto } = await Swal.fire({
-            title: 'Título de la cita',
-            input: 'text',
-            inputValue: '',
-            showCancelButton: true,
-            inputValidator: (value) => {
-                if (!value) {
-                    return 'Necesitas escribir un título!'
-                }
+
+
+
+    const getCita = (uid) => {
+        const starCountRef = db.ref('users/sdDQmkjPYaXba17r5GJrDrg6zUE3');
+        starCountRef.on('value', (snapshot) => {
+            const info = snapshot.val();
+            const datos = info.scheduledDates;
+            if (datos) {
+                setDatos({ data: info.scheduledDates, loading: false })
             }
-        })
-
-        if (texto) {
-            Swal.fire({
-                icon: 'success',
-                // title: 'La cita se guardó correctamente',
-                text: `Titulo: ${texto}, Fecha: ${str}`,
-                timer: 3000,
-                timerProgressBar: true,
-            })
-            setCount(count + 1);
-            setEvento([
-                ...evento,
-                { id: count, title: texto, date: dateClickInfo.dateStr }
-            ])
-        }
-
+        });
     }
 
 
-    const handleEventClick = (clickInfo) => {
-        const getEventsByPositionName = (id) => evento.filter(eventPosition => eventPosition.id !== id);
-        const id = parseInt(clickInfo.event.id)
-        const eventoUpdate = getEventsByPositionName(id)
+    useEffect(() => {
+        getCita(uid)
+    }, [uid])
 
-        Swal.fire({
-            title: `¿Estás seguro de borrar?`,
-            text: 'Se eliminara: '+clickInfo.event.title,
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, estoy seguro!',
-            cancelButtonText: 'Cancelar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                clickInfo.event.remove()
-                setEvento(eventoUpdate);
-            }
-        })
 
-    }
+
+
 
 
 
@@ -98,31 +47,23 @@ export const CalendarScreen = () => {
         <div>
             <Sidebar />
             <hr />
-            <h2>Calendario</h2>
+            <h2>Citas</h2>
             <br />
-            <div style={{ padding: '100px', width: '70%' }}>
-                <FullCalendar
-                    plugins={[dayGridPlugin, interactionPlugin]}
-
-                    initialView="dayGridMonth"
-                    dateClick={handleDateClick}
-                    selectable={true}
-                    selectMirror={true}
-                    dayMaxEvents={true}
-                    locales="es"
-                    buttonText={{ today: 'Hoy' }}
-                    events={evento}
-                    eventClick={handleEventClick}
-
-                />
-            </div>
-            <ul>
+            <div >
                 {
-                    evento.map( (item,index) =>  (
-                        <li key={index}>Título:{ item.title }, Fecha:{ dateFormat(item.date) }</li>
-                    ))
+                    data ?
+                        (
+                            Object.keys(data).map(item => (
+                                <div key={data[item].id}>
+                                    <p><b>Fecha de la cita: {data[item].date}</b></p>
+                                    <GetJobb user={data[item].applicantId} jobb={data[item].companyId + '§' + data[item].jobId} />
+                                </div>
+                            ))
+                        ) :
+                        (<p>No hay citas</p>)
+
                 }
-            </ul>
+            </div>
             <br />
             <br />
 
