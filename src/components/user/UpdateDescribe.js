@@ -134,87 +134,116 @@ export const UpdateDescribe = () => {
     return (
         <div>
             <Sidebar />
-            <hr />
-            <Link
-                id="reload"
-                to="/describe"
-                className="link"
-            >
-                Reload Data
-            </Link>
-            <br />
-            <h2>Describete</h2>
-            <br />
-            {
-                active &&
-                (
-                    <form onSubmit={handleSubmit} >
+            <div className="contenido">
+                <div className="titulo_principal">
+                    <div className="container">
+                        <div className="row">
+                            <h1>Descríbete</h1>
+                        </div>
+                    </div>
+                </div>
+                <div className="container">
+                    <div className="row">
+                        <p className="position-relative text-end py-4">
+                            <Link
+                                id="reload"
+                                to="/describe"
+                                className="btn btn-edit"
+                            >
+                                <span className="ico-recargar"></span> Recargar datos
+                            </Link>
+                        </p>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-8">                        
+                            <div className="card shadow perfil_input mb-5">
+                                <div className="card-body">
+                                    <h2>Video de <strong>introducción</strong></h2>
+                                    {
+                                        edit &&
+                                        <form onSubmit={handleSubmitInfo}>
+                                            <div className="input-group">                                            
+                                                <label>URL del video:&nbsp;</label>
+                                                <input
+                                                    type="text"
+                                                    name="urlVideoU"
+                                                    className="form-control p-0 mx-2"
+                                                    value={urlVideoU}
+                                                    onChange={handleInputchange}
+                                                />
+                                            </div>
+                                            <p className="text-secondary"><small>El video debe ser de la plataforma de YouTube</small></p>
+                                            <h2>Expericiencia y <strong>logros</strong></h2>
+                                            <label>Describe tu expericiencia y logros:</label>
+                                            <div className="input-group">
+                                                
+                                                <textarea
+                                                    type="text"
+                                                    name="experienceDescriptionU"
+                                                    className="form-control p-0 mx-2"
+                                                    rows="6"
+                                                    value={experienceDescriptionU}
+                                                    onChange={handleInputchange}
+                                                />
+                                            </div>
+                                            <button type="submit" className="btn btn_login">Guardar</button>
+                                        </form>
+                                    }
+                                    
+                                    <p className="position-relative py-3">
+                                        <a href={urlVideo} target="_blanck" className="btn btn-edit"><span className="ico-video"></span> Ver video</a>
+                                    </p>                                   
+                                    
+                                    <h2>Expericiencia y <strong>logros</strong></h2>
+                                    <p>{experienceDescription}</p>
+                                    {
+                                        (!edit) &&
+                                        < button onClick={handleEdit} className="btn btn_login">Editar</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="card shadow perfil_input">
+                                <div className="card-body">
+                                    <h2>Curriculum</h2>
+                                    
+                                    <div className="input-group">
+                                        <input
+                                            id="idFile"
+                                            type="file"
+                                            className="form-control p-0 mx-2"
+                                            onChange={handleInputchangee}
+                                            style={{ display: 'none' }}
+                                        />
+                                    </div>
+                                    
+                                    <p className="position-relative py-3">
+                                        <a href={urlCurriculum} target="_blanck" className="btn btn-edit"><span className="ico-documento"></span> PDF</a>
+                                    </p>
+                                    {
+                                        active &&
+                                        (
+                                            <form onSubmit={handleSubmit} >
 
 
 
-                        <button type="submit">Guardar</button>
+                                                <button type="submit" className="btn btn_login">Guardar</button>
 
-                    </form>
-                )
-            }
-
-            <input
-                id="idFile"
-                type="file"
-                onChange={handleInputchangee}
-                style={{ display: 'none' }}
-            />
-            <br />
-
-            <a href={urlCurriculum} target="_blanck">PDF</a>
-            <p>Curriculum</p>
-            {
-                buttonPDF &&
-                < button onClick={handleActive}>Editar</button>
-            }
-            <hr />
-            {
-                edit &&
-                <form onSubmit={handleSubmitInfo}>
-                    <label>URL del video</label>
-                    <input
-                        type="text"
-                        name="urlVideoU"
-                        value={urlVideoU}
-                        onChange={handleInputchange}
-                    />
-                    <p>El video debe ser de la plataforma de YouTube</p>
-                    <br />
-                    <br />
-
-
-                    <textarea
-                        type="text"
-                        name="experienceDescriptionU"
-                        value={experienceDescriptionU}
-                        onChange={handleInputchange}
-                    />
-
-                    <button type="submit">Guardar</button>
-                </form>
-            }
-
-            <a href={urlVideo} target="_blanck">URL video</a>
-            <p>Video de introducción</p>
-            <br />
-            <p>Expericiencia y logros</p>
-            <p>{experienceDescription}</p>
-            {
-                (!edit) &&
-                < button onClick={handleEdit}>Editar</button>
-            }
-
-
-
-
-
-
-
-        </div >
+                                            </form>
+                                        )
+                                    }
+                                    
+                                    {
+                                        buttonPDF &&
+                                        < button onClick={handleActive} className="btn btn_login my-3">Editar</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>                        
+                </div>
+            </div>
+        </div>
     )
 }

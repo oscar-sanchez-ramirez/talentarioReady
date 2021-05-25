@@ -78,7 +78,7 @@ export const RegisterScreen = () => {
                                 <div className="icono_usuario"></div>
                                 <input 
                                     type="text"
-                                    placeholder="Name"
+                                    placeholder="Nombre"
                                     name="name"
                                     className="form-control"
                                     autoComplete="off"
@@ -93,7 +93,7 @@ export const RegisterScreen = () => {
                                 <div className="icono_correo"></div>
                                 <input 
                                     type="text"
-                                    placeholder="Email"
+                                    placeholder="Correo"
                                     name="email"
                                     className="form-control"
                                     autoComplete="off"
@@ -108,7 +108,7 @@ export const RegisterScreen = () => {
                                 <div className="icono_contrasena"></div>
                                 <input 
                                     type="password"
-                                    placeholder="Password"
+                                    placeholder="Contraseña"
                                     name="password"
                                     autoComplete="off"
                                     className="form-control"
@@ -123,7 +123,7 @@ export const RegisterScreen = () => {
                                 <div className="icono_contrasena"></div>
                                 <input 
                                     type="password"
-                                    placeholder="Confirm password"
+                                    placeholder="Confirmar contraseña"
                                     name="password2"
                                     autoComplete="off"
                                     className="form-control"

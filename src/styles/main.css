@@ -313,9 +313,17 @@ body {
       font-family: 'Nunito-ExtraBold';
       outline: none;
       transition: 250ms;
+      border-bottom: 2px solid #544690;
 }
-.form-control:focus{
+.hd_input .form-control:focus{
       color: #796dbc;
+      border-color: #796dbc;
+}
+.hd_input .form-control:disabled{
+      background-color: transparent;
+      color: #000;
+	border-bottom: 2px solid transparent;
+	
 }
 .btn-edit{
       color: #544690;
@@ -323,6 +331,7 @@ body {
       border-radius: 0;
       padding: 0;
       position: relative;
+      margin-left: 32px;
 }
 .btn-edit:hover{
       color: #544690;
@@ -345,6 +354,33 @@ body {
       background-size: contain;
       top:3px;
 }
+.ico-recargar{
+      position: absolute;
+      background: url('../image/ico_recargar.png') no-repeat center;
+      width: 20px;
+      height: 20px;
+      right: 103%;
+      background-size: contain;
+      top:3px;
+}
+.ico-video{
+      position: absolute;
+      background: url('../image/ico_video.png') no-repeat center;
+      width: 20px;
+      height: 20px;
+      right: 103%;
+      background-size: contain;
+      top:3px;
+}
+.ico-documento{
+      position: absolute;
+      background: url('../image/ico_pdf.png') no-repeat center;
+      width: 20px;
+      height: 20px;
+      right: 103%;
+      background-size: contain;
+      top:3px;
+}
 .form-control:disabled, .form-control:read-only{
       background-color: transparent;
       color: #000;
@@ -355,7 +391,7 @@ body {
 	font-family: 'Nunito-SemiBold';
 	font-size: 18px;
 }
-.perfil_input .form-control:disabled, .perfil_input .form-control:read-only{
+.perfil_input .form-control:disabled{
       background-color: transparent;
       color: #000;
 	border-bottom: 2px solid transparent;
@@ -377,6 +413,22 @@ body {
 }
 .label-radio{
 	color: #000 !important;
+}
+.btn-azul{
+      background: #001e5c;
+      border: 1px solid #001e5c;
+      color: #fff;
+      border-radius: 50px;
+      padding: 5px 25px;
+      width: 270px;
+      font-family: 'Roboto-Regular';
+      font-size: 18px;
+      transition: 250ms;
+}
+.btn-azul:hover,
+.btn-azul:focus{
+      background: transparent;
+      color: #001e5c;
 }
 
 @media(max-width:991px){

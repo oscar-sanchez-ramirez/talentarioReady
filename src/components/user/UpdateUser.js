@@ -171,7 +171,7 @@ export const UpdateUser = () => {
                             <input
                                 type="text"
                                 name="nameU"
-                                className="form-control"
+                                className="form-control lh-sm py-0 mb-2"
                                 value={nameU}
                                 onChange={handleInputchange}
                                 disabled={active}
@@ -190,7 +190,7 @@ export const UpdateUser = () => {
                     }
                 </div>
                 <div className="perfil_correo mt-2">
-                    <p>{email}</p>
+                    <p className="px-2">{email}</p>
                 </div>
 
 

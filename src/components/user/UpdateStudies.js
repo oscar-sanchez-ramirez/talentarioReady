@@ -110,205 +110,249 @@ export const UpdateStudies = () => {
 
 
     return (
-        <div>
+        <div className="card-body">
             <h2>Nivel de <strong>estudios</strong></h2>
             <form onSubmit={handleSubmit}>
-                <label>Mi trabajo no necesita estudio a nivel profesional</label>
-                <br />
-                <label>Sí</label>
-                <input
-                    type="radio"
-                    name="noStudiesNeededU"
-                    value="1"
-                    onChange={handleInputchange}
-                    disabled={active}
-                    checked={noStudiesNeededU === '1'}
-                />
+                <div className="row">
+                    <div className="col-lg-12 py-2">
+                        <div className="input-group">
+                            <label>Mi trabajo no necesita estudio a nivel profesional:&nbsp;</label>
+                            <label className="label-radio">Sí</label>
+                            <input
+                                type="radio"
+                                name="noStudiesNeededU"
+                                value="1"
+                                className="mx-2"
+                                onChange={handleInputchange}
+                                disabled={active}
+                                checked={noStudiesNeededU === '1'}
+                            />
+                            <label className="label-radio">No</label>
+                            <input
+                                type="radio"
+                                name="noStudiesNeededU"
+                                value="0"
+                                className="mx-2"
+                                onChange={handleInputchange}
+                                disabled={active}
+                                checked={noStudiesNeededU === '0'}
+                            />
+                        </div>
+                    </div>
+                    <div className="col-lg-12 py-2">
+                        <div className="input-group">
+                            <label>Secundaria:&nbsp;</label>
+                            <label className="label-radio">Sí</label>
+                            <input
+                                type="radio"
+                                name="secundariaU"
+                                value="1"
+                                className="mx-2"
+                                onChange={handleInputchange}
+                                disabled={active}
+                                checked={secundariaU === '1'}
+                            />
 
-                <label>No</label>
-                <input
-                    type="radio"
-                    name="noStudiesNeededU"
-                    value="0"
-                    onChange={handleInputchange}
-                    disabled={active}
-                    checked={noStudiesNeededU === '0'}
-                />
-                <br />
-                <label>Secundaria</label>
-                <br />
-                <label>Sí</label>
-                <input
-                    type="radio"
-                    name="secundariaU"
-                    value="1"
-                    onChange={handleInputchange}
-                    disabled={active}
-                    checked={secundariaU === '1'}
-                />
+                            <label className="label-radio">No</label>
+                            <input
+                                type="radio"
+                                name="secundariaU"
+                                value="0"
+                                className="mx-2"
+                                onChange={handleInputchange}
+                                disabled={active}
+                                checked={secundariaU === '0'}
+                            />
+                        </div>
+                    </div>
+                    <div className="col-lg-12 py-2">
+                        <div className="input-group">
+                            <label>Bachillerato:&nbsp;</label>
+                            <label className="label-radio">Sí</label>
+                            <input
+                                type="radio"
+                                name="bachilleratoU"
+                                value="1"
+                                className="mx-2"
+                                onChange={handleInputchange}
+                                disabled={active}
+                                checked={bachilleratoU === '1'}
+                            />
 
-                <label>No</label>
-                <input
-                    type="radio"
-                    name="secundariaU"
-                    value="0"
-                    onChange={handleInputchange}
-                    disabled={active}
-                    checked={secundariaU === '0'}
-                />
-                <br />
-                <label>Bachillerato</label>
-                <br />
-                <label>Sí</label>
-                <input
-                    type="radio"
-                    name="bachilleratoU"
-                    value="1"
-                    onChange={handleInputchange}
-                    disabled={active}
-                    checked={bachilleratoU === '1'}
-                />
+                            <label className="label-radio">No</label>
+                            <input
+                                type="radio"
+                                name="bachilleratoU"
+                                value="0"
+                                className="mx-2"
+                                onChange={handleInputchange}
+                                disabled={active}
+                                checked={bachilleratoU === '0'}
+                            />
+                        </div>
+                    </div>
+                    <div className="col-lg-12 py-2">
+                        <div className="input-group">
+                            <label>Licenciatura:&nbsp;</label>
+                            <label className="label-radio">Sí</label>
+                            <input
+                                type="radio"
+                                name="licenciaturaU"
+                                value="1"
+                                className="mx-2"
+                                onChange={handleInputchange}
+                                disabled={active}
+                                checked={licenciaturaU === '1'}
+                            />
 
-                <label>No</label>
-                <input
-                    type="radio"
-                    name="bachilleratoU"
-                    value="0"
-                    onChange={handleInputchange}
-                    disabled={active}
-                    checked={bachilleratoU === '0'}
-                />
-                <br />
-                <label>Licenciatura</label>
-                <br />
-                <label>Sí</label>
-                <input
-                    type="radio"
-                    name="licenciaturaU"
-                    value="1"
-                    onChange={handleInputchange}
-                    disabled={active}
-                    checked={licenciaturaU === '1'}
-                />
+                            <label className="label-radio">No</label>
+                            <input
+                                type="radio"
+                                name="licenciaturaU"
+                                value="0"
+                                className="mx-2"
+                                onChange={handleInputchange}
+                                disabled={active}
+                                checked={licenciaturaU === '0'}
+                            />
+                        </div>
+                    </div>
+                    <div className="col-lg-12 py-2">
+                        <div className="input-group">
+                            <label>Maestria:&nbsp;</label>
+                            <label className="label-radio">Sí</label>
+                            <input
+                                type="radio"
+                                name="maestriaU"
+                                value="1"
+                                className="mx-2"
+                                onChange={handleInputchange}
+                                disabled={active}
+                                checked={maestriaU === '1'}
+                            />
 
-                <label>No</label>
-                <input
-                    type="radio"
-                    name="licenciaturaU"
-                    value="0"
-                    onChange={handleInputchange}
-                    disabled={active}
-                    checked={licenciaturaU === '0'}
-                />
-                <br />
-                <label>Maestria</label>
-                <br />
-                <label>Sí</label>
-                <input
-                    type="radio"
-                    name="maestriaU"
-                    value="1"
-                    onChange={handleInputchange}
-                    disabled={active}
-                    checked={maestriaU === '1'}
-                />
+                            <label className="label-radio">No</label>
+                            <input
+                                type="radio"
+                                name="maestriaU"
+                                value="0"
+                                className="mx-2"
+                                onChange={handleInputchange}
+                                disabled={active}
+                                checked={maestriaU === '0'}
+                            />
+                        </div>
+                    </div>
+                    <div className="col-lg-12 py-2">
+                        <div className="input-group">
+                            <label>Doctorado:&nbsp;</label>
+                            <label className="label-radio">Sí</label>
+                            <input
+                                type="radio"
+                                name="doctoradoU"
+                                value="1"
+                                className="mx-2"
+                                onChange={handleInputchange}
+                                disabled={active}
+                                checked={doctoradoU === '1'}
+                            />
 
-                <label>No</label>
-                <input
-                    type="radio"
-                    name="maestriaU"
-                    value="0"
-                    onChange={handleInputchange}
-                    disabled={active}
-                    checked={maestriaU === '0'}
-                />
-                <br />
-                <label>Doctorado</label>
-                <br />
-                <label>Sí</label>
-                <input
-                    type="radio"
-                    name="doctoradoU"
-                    value="1"
-                    onChange={handleInputchange}
-                    disabled={active}
-                    checked={doctoradoU === '1'}
-                />
-
-                <label>No</label>
-                <input
-                    type="radio"
-                    name="doctoradoU"
-                    value="0"
-                    onChange={handleInputchange}
-                    disabled={active}
-                    checked={doctoradoU === '0'}
-                />
-                <br />
-                <br />
-                <label>Carrera</label>
-                <select
-                    name="licStatusU"
-                    value={licStatusU}
-                    onChange={handleInputchange}
-                    disabled={active}
-                >
-                    <option value="1">Titulado</option>
-                    <option value="2">Pasante</option>
-                    <option value="3">Solo Kardex</option>
-                    <option value="4">Trunca</option>
-                </select>
-                <br />
-                <div>
-                    <label>Licenciatura profesional en</label>
-                    <input
-                        type="text"
-                        name="licCareerU"
-                        value={licCareerU}
-                        onChange={handleInputchange}
-                        disabled={active}
-                    />
+                            <label className="label-radio">No</label>
+                            <input
+                                type="radio"
+                                name="doctoradoU"
+                                value="0"
+                                className="mx-2"
+                                onChange={handleInputchange}
+                                disabled={active}
+                                checked={doctoradoU === '0'}
+                            />
+                        </div>
+                    </div>
                 </div>
-                <br />
-                <label>Industria</label>
-                <select
-                    name="licIndustryU"
-                    value={licIndustryU}
-                    onChange={handleInputchange}
-                    disabled={active}
-                >
-                    <option value="1">Agropecuario</option>
-                    <option value="2">Industrial</option>
-                    <option value="3">Servicios</option>
-                </select>
-                <br />
-                <label>Maestria</label>
-                <p>Maestria en</p>
-                <input
-                    type="text"
-                    name="maesDropdownU"
-                    value={maesDropdownU}
-                    onChange={handleInputchange}
-                    disabled={active}
-                />
-                <br />
-                <label>Doctorado</label>
-                <p>Doctorado en</p>
-                <input
-                    type="text"
-                    name="docDropdownU"
-                    value={docDropdownU}
-                    onChange={handleInputchange}
-                    disabled={active}
-                />
-                <br />
-
-                <p>
-                {
-                    button &&
-                    <button type="submit" className="btn btn_login mt-5">Guardar</button>
-                }
-                </p>
+                <div className="row">
+                    <div className="col-lg-3 py-2">
+                        <div className="input-group">
+                        <label>Carrera:&nbsp;</label>
+                            <select
+                                name="licStatusU"
+                                className="form-control p-0 mx-2"
+                                value={licStatusU}
+                                onChange={handleInputchange}
+                                disabled={active}
+                            >
+                                <option value="1">Titulado</option>
+                                <option value="2">Pasante</option>
+                                <option value="3">Solo Kardex</option>
+                                <option value="4">Trunca</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className="col-lg-6 py-2">
+                        <div className="input-group">
+                            <label>Licenciatura profesional en:&nbsp;</label>
+                            <input
+                                type="text"
+                                name="licCareerU"
+                                className="form-control p-0 mx-2"
+                                value={licCareerU}
+                                onChange={handleInputchange}
+                                disabled={active}
+                            />
+                        </div>
+                    </div>
+                    <div className="col-lg-3 py-2">
+                        <div className="input-group">
+                            <label>Industria:&nbsp;</label>
+                            <select
+                                name="licIndustryU"
+                                className="form-control p-0 mx-2"
+                                value={licIndustryU}
+                                onChange={handleInputchange}
+                                disabled={active}
+                            >
+                                <option value="1">Agropecuario</option>
+                                <option value="2">Industrial</option>
+                                <option value="3">Servicios</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-lg-4 py-2">
+                        <div className="input-group">
+                            <label>Maestría en:&nbsp;</label>
+                            <input
+                                type="text"
+                                name="maesDropdownU"
+                                className="form-control p-0 mx-2"
+                                value={maesDropdownU}
+                                onChange={handleInputchange}
+                                disabled={active}
+                            />
+                        </div>
+                    </div>
+                    <div className="col-lg-4 py-2">
+                        <div className="input-group">
+                            <label>Doctorado en:&nbsp;</label>
+                            <input
+                                type="text"
+                                name="docDropdownU"
+                                className="form-control p-0 mx-2"
+                                value={docDropdownU}
+                                onChange={handleInputchange}
+                                disabled={active}
+                            />
+                        </div>
+                    </div>
+                    <p>
+                    {
+                        button &&
+                        <button type="submit" className="btn btn_login mt-5">Guardar</button>
+                    }
+                    </p>
+                </div>
+                
 
             </form>
             <p>

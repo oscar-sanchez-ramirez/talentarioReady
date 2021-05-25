@@ -71,7 +71,7 @@ export const LoginScreen = () => {
                                 <div className="icono_usuario"></div>
                                 <input
                                     type="text"
-                                    placeholder="Email"
+                                    placeholder="Correo"
                                     name="email"
                                     className="form-control"
                                     autoComplete="off"
@@ -86,7 +86,7 @@ export const LoginScreen = () => {
                                 <div className="icono_contrasena"></div>
                                 <input
                                     type="password"
-                                    placeholder="Password"
+                                    placeholder="Contraseña"
                                     name="password"
                                     className="form-control"
                                     autoComplete="off"

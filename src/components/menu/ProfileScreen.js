@@ -167,13 +167,13 @@ export const ProfileScreen = () => {
                             <UpdateUser />
 
                             <div className="col-md-2 py-4">
-                                <p>
+                                <p className="position-relative">
                                     <Link
                                         id="reload"
                                         to="/profile"
-                                        className="link"
+                                        className="btn btn-edit"
                                     >
-                                        Recargar datos
+                                        <span className="ico-recargar"></span> Recargar datos
                                     </Link>
                                 </p>
                             </div>  
@@ -456,31 +456,24 @@ export const ProfileScreen = () => {
                             </div>
                         </div>
                         <div className="card shadow perfil_input my-5">
-                            <div className="card-body">
-                                <UpdateStudies />
+                            <UpdateStudies />
+                        </div>
+                        <div className="card shadow perfil_input py-5 mb-5">
+                            <div className="card-body text-center">
+                                <Link
+                                    to="/describe"
+                                    className="btn btn-azul mx-3"
+                                >
+                                    Descríbete
+                                </Link>
+                                <Link
+                                    to="/test"
+                                    className="btn btn-azul mx-3"
+                                >
+                                    Evaluación de habilidades
+                                </Link>
                             </div>
                         </div>
-                        
-                        <hr />
-                        <Link
-                            to="/describe"
-                            className="link"
-                        >
-                            Describete
-                        </Link>
-                        <hr />
-                        <Link
-                            to="/test"
-                            className="link"
-                        >
-                            Evaluación de habilidades
-                        </Link>
-
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
                     </div>
                 </div>
             </div>
