@@ -1,5 +1,5 @@
 import { db, firebase } from '../../firebase/firebase-config'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useForm } from '../../hooks/useForm'
 import { useDispatch } from 'react-redux';
@@ -20,26 +20,40 @@ export const UpdateUser = () => {
     const [button, setbutton] = useState(false);
     const [buttonU, setUbutton] = useState(true);
 
+    const isMounted = useRef(true);
+
+    useEffect(() => {
+
+        return () => {
+            isMounted.current = false;
+        }
+    }, [])
+
+    
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        firebase.auth().onAuthStateChanged((user) => {
+        if (isMounted.current) {
 
-            user.updateProfile({
-                displayName: nameU
-            }).then(function () {
-                dispatch(login(user.uid, user.displayName, user.photoURL, user.email));
-                setUbutton(true);
-                setbutton(false);
-                setActive(true);
-                Swal.fire('Success', 'Data saved successfully!', 'success');
+            firebase.auth().onAuthStateChanged((user) => {
 
-            }).catch(function (error) {
-                setUbutton(true);
-                setbutton(false);
-                setActive(true);
-                Swal.fire('Error', error, 'error');
+                user.updateProfile({
+                    displayName: nameU
+                }).then(function () {
+                    dispatch(login(user.uid, user.displayName, user.photoURL, user.email));
+                    setUbutton(true);
+                    setbutton(false);
+                    setActive(true);
+                    Swal.fire('Success', 'Data saved successfully!', 'success');
+
+                }).catch(function (error) {
+                    setUbutton(true);
+                    setbutton(false);
+                    setActive(true);
+                    Swal.fire('Error', error, 'error');
+                });
             });
-        });
+        }
 
     }
 
@@ -68,55 +82,59 @@ export const UpdateUser = () => {
         e.preventDefault();
 
 
-        if (imagen) {
-            Swal.fire({
-                title: 'Uploading...',
-                text: 'Please wait...',
-                allowOutsideClick: false,
-                onBeforeOpen: () => {
-                    Swal.showLoading();
-                }
-            });
-            firebase.storage().ref(`${uid}-imgProfile`).put(imagen).then(function (snapshot) {
-                snapshot.ref.getDownloadURL().then(function (downloadURL) {
+        if (isMounted.current) {
 
-                    firebase.auth().onAuthStateChanged((user) => {
-
-                        user.updateProfile({
-                            photoURL: downloadURL,
-                        }).then(function () {
-                            dispatch(login(user.uid, user.displayName, user.photoURL, user.email));
-                            setOcultar(false);
-                            Swal.close();
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Data saved',
-                                showConfirmButton: true,
-                                timer: 2000,
-                                timerProgressBar: true
-                            });
-
-                        }).catch(function (error) {
-                            setOcultar(false);
-                            Swal.fire('Error', error, 'error');
-                        });
-                    });
-
-                    db.ref('users/' + uid).update({
-                        imageUrl: downloadURL
-            
-                    }, (error) => {
-                        if (error) {
-                           
-                        } else {
-                            
-                        }
-                    });
-
+            if (imagen) {
+                Swal.fire({
+                    title: 'Uploading...',
+                    text: 'Please wait...',
+                    allowOutsideClick: false,
+                    onBeforeOpen: () => {
+                        Swal.showLoading();
+                    }
                 });
-            });
-        } else {
-            Swal.fire('Error', 'File null', 'error');
+                firebase.storage().ref(`${uid}-imgProfile`).put(imagen).then(function (snapshot) {
+                    snapshot.ref.getDownloadURL().then(function (downloadURL) {
+
+                        firebase.auth().onAuthStateChanged((user) => {
+
+                            user.updateProfile({
+                                photoURL: downloadURL,
+                            }).then(function () {
+                                dispatch(login(user.uid, user.displayName, user.photoURL, user.email));
+                                setOcultar(false);
+                                Swal.close();
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Data saved',
+                                    showConfirmButton: true,
+                                    timer: 2000,
+                                    timerProgressBar: true
+                                });
+
+                            }).catch(function (error) {
+                                setOcultar(false);
+                                Swal.fire('Error', error, 'error');
+                            });
+                        });
+
+                        db.ref('users/' + uid).update({
+                            imageUrl: downloadURL
+
+                        }, (error) => {
+                            if (error) {
+
+                            } else {
+
+                            }
+                        });
+
+                    });
+                });
+            } else {
+                Swal.fire('Error', 'File null', 'error');
+            }
+
         }
     }
 
@@ -127,26 +145,26 @@ export const UpdateUser = () => {
                     <img src={photoURL} width={"100%"} alt={name} className="img-fluid" />
                 </div>
                 <div className="btn_editar_img text-center">
-                {
-                    ocultar &&
-                    <form onSubmit={handleSubmitImagen}>
-                        <button type="submit" className="btn btn-edit">Guardar</button>
-                    </form>
-                }
+                    {
+                        ocultar &&
+                        <form onSubmit={handleSubmitImagen}>
+                            <button type="submit" className="btn btn-edit">Guardar</button>
+                        </form>
+                    }
 
-                <input
-                    id="imagenDocu"
-                    type="file"
-                    onChange={handleChangeImage}
-                    style={{ display: 'none' }}
-                />
+                    <input
+                        id="imagenDocu"
+                        type="file"
+                        onChange={handleChangeImage}
+                        style={{ display: 'none' }}
+                    />
                     {
                         !ocultar &&
                         <button onClick={handleOcultar} className="btn btn-edit"><span className="ico-editar"></span> Editar</button>
                     }
                 </div>
             </div>
-            <div className="col-md-8 pt-2"> 
+            <div className="col-md-8 pt-2">
                 <div className="hd_input d-flex align-items-center">
                     <form onSubmit={handleSubmit} className="d-flex align-items-center">
                         <div className="input-group">
@@ -163,9 +181,9 @@ export const UpdateUser = () => {
                             button &&
                             <button type="submit" className="btn btn-edit"><span className="ico-guardar"></span> Guardar</button>
                         }
-                        
+
                     </form>
-                    
+
                     {
                         buttonU &&
                         <button onClick={handleActive} className="btn btn-edit"><span className="ico-editar"></span> Editar</button>
@@ -174,9 +192,9 @@ export const UpdateUser = () => {
                 <div className="perfil_correo mt-2">
                     <p>{email}</p>
                 </div>
-                
-                
-                
+
+
+
             </div>
         </div>
     )

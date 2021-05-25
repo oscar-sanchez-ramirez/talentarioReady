@@ -1,5 +1,5 @@
 import { firebase, db } from '../../firebase/firebase-config';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
@@ -33,50 +33,53 @@ export const UpdateDescribe = () => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        const metadata = {
-            contentType: 'application/pdf',
-        };
+        if (isMounted.current) {
 
-        if (pdf) {
-            Swal.fire({
-                title: 'Uploading...',
-                text: 'Please wait...',
-                allowOutsideClick: false,
-                onBeforeOpen: () => {
-                    Swal.showLoading();
-                }
-            });
-            firebase.storage().ref(`${uid}-curriculum`).put(pdf, metadata).then(function (snapshot) {
-                snapshot.ref.getDownloadURL().then(function (downloadURL) {
+            e.preventDefault();
+            const metadata = {
+                contentType: 'application/pdf',
+            };
 
-                    db.ref('users/' + uid).update({
-
-                        urlCurriculum: downloadURL,
-
-                    }, (error) => {
-                        if (error) {
-                            Swal.fire('Error', error, 'error');
-                        } else {
-                            setActive(false);
-                            setbuttonPDF(true)
-                            Swal.close();
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Data saved',
-                                showConfirmButton: true,
-                                timer: 2000,
-                                timerProgressBar: true
-                            });
-                        }
-                    });
-
+            if (pdf) {
+                Swal.fire({
+                    title: 'Uploading...',
+                    text: 'Please wait...',
+                    allowOutsideClick: false,
+                    onBeforeOpen: () => {
+                        Swal.showLoading();
+                    }
                 });
-            });
-        } else {
-            setActive(false);
-            setbuttonPDF(true)
-            Swal.fire('Error', 'File null', 'error');
+                firebase.storage().ref(`${uid}-curriculum`).put(pdf, metadata).then(function (snapshot) {
+                    snapshot.ref.getDownloadURL().then(function (downloadURL) {
+
+                        db.ref('users/' + uid).update({
+
+                            urlCurriculum: downloadURL,
+
+                        }, (error) => {
+                            if (error) {
+                                Swal.fire('Error', error, 'error');
+                            } else {
+                                setActive(false);
+                                setbuttonPDF(true)
+                                Swal.close();
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Data saved',
+                                    showConfirmButton: true,
+                                    timer: 2000,
+                                    timerProgressBar: true
+                                });
+                            }
+                        });
+
+                    });
+                });
+            } else {
+                setActive(false);
+                setbuttonPDF(true)
+                Swal.fire('Error', 'File null', 'error');
+            }
         }
     }
 
@@ -88,22 +91,25 @@ export const UpdateDescribe = () => {
     }
 
     const handleSubmitInfo = (e) => {
-        e.preventDefault();
-        db.ref('users/' + uid).update({
+        if (isMounted.current) {
 
-            urlVideo: urlVideoU,
-            experienceDescription: experienceDescriptionU,
+            e.preventDefault();
+            db.ref('users/' + uid).update({
+
+                urlVideo: urlVideoU,
+                experienceDescription: experienceDescriptionU,
 
 
-        }, (error) => {
-            if (error) {
-                setEdit(false)
-                Swal.fire('Error', error, 'error');
-            } else {
-                setEdit(false)
-                Swal.fire('Success', 'Data saved successfully!', 'success');
-            }
-        });
+            }, (error) => {
+                if (error) {
+                    setEdit(false)
+                    Swal.fire('Error', error, 'error');
+                } else {
+                    setEdit(false)
+                    Swal.fire('Success', 'Data saved successfully!', 'success');
+                }
+            });
+        }
     }
 
     useEffect(() => {
@@ -114,6 +120,15 @@ export const UpdateDescribe = () => {
         }
 
     }, [formValues])
+
+    const isMounted = useRef(true);
+
+    useEffect(() => {
+
+        return () => {
+            isMounted.current = false;
+        }
+    }, [])
 
 
     return (

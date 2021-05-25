@@ -68,6 +68,7 @@ export const Sidebar = () => {
                                             </li>
                                             <li className="nav-item">
                                                 <Link
+                                                    id="perfilU"
                                                     to="/profile"
                                                     className="nav-link"
                                                 >

@@ -89,6 +89,7 @@ export const LoginScreen = () => {
                                     placeholder="Password"
                                     name="password"
                                     className="form-control"
+                                    autoComplete="off"
                                     value={password}
                                     onChange={handleInputChange}
                                 />

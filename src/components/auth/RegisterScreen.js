@@ -110,6 +110,7 @@ export const RegisterScreen = () => {
                                     type="password"
                                     placeholder="Password"
                                     name="password"
+                                    autoComplete="off"
                                     className="form-control"
                                     value={ password }
                                     onChange={ handleInputChange }
@@ -124,6 +125,7 @@ export const RegisterScreen = () => {
                                     type="password"
                                     placeholder="Confirm password"
                                     name="password2"
+                                    autoComplete="off"
                                     className="form-control"
                                     value={ password2 }
                                     onChange={ handleInputChange }
