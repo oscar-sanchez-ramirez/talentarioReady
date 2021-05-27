@@ -75,6 +75,8 @@ export const UpdateUser = () => {
     const handleChangeImage = (e) => {
         if (e.target.files[0]) {
             setImagen(e.target.files[0]);
+            const imgCodified = URL.createObjectURL(e.target.files[0]);
+            document.getElementById('imgUser').src = imgCodified;
         }
     }
 
@@ -142,7 +144,7 @@ export const UpdateUser = () => {
         <div className="col-md-8 d-flex">
             <div className="col-md-2">
                 <div className="bd-img_perfil img_perfil mx-auto">
-                    <img src={photoURL} width={"100%"} alt={name} className="img-fluid" />
+                    <img src={photoURL} width={"100%"} alt={name} className="img-fluid" id="imgUser" />
                 </div>
                 <div className="btn_editar_img text-center">
                     {

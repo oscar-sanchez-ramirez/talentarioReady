@@ -65,6 +65,8 @@ export const UpdateCompany = () => {
     const handleChangeImage = (e) => {
         if (e.target.files[0]) {
             setImagen(e.target.files[0]);
+            const imgCodified = URL.createObjectURL(e.target.files[0]);
+            document.getElementById('imgCompany').src = imgCodified;
         }
     }
 
@@ -117,7 +119,7 @@ export const UpdateCompany = () => {
     return (
         <>
             <h2>Mi cuenta</h2>
-            <img src={photoURL} width={100} alt={name} />
+            <img src={photoURL} width={100} alt={name} id="imgCompany"/>
             {
                 ocultar &&
                 <form onSubmit={handleSubmitImagen}>

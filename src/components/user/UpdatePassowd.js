@@ -48,6 +48,7 @@ export const UpdatePassowd = () => {
                     type="password"
                     placeholder="Nuevo contraseña"
                     name="password"
+                    autoComplete="off"
                     value={password}
                     onChange={handleInputchange}
                     disabled={show}
