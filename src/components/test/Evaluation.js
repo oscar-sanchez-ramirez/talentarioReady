@@ -144,11 +144,11 @@ export const Evaluation = () => {
 
     return (
         <div>
-            <h5>PA: { empathy && PA}</h5>
-            <h5>PD: { empathy && PD}</h5>
-            <h5>TD: { empathy && TD}</h5>
-            <h5>DC: { empathy && DC}</h5>
-            <h5>TE: { empathy && TE}</h5>
+            <h2><strong>PA: </strong>{ empathy && PA}</h2>
+            <h2><strong>PD: </strong>{ empathy && PD}</h2>
+            <h2><strong>TD: </strong>{ empathy && TD}</h2>
+            <h2><strong>DC: </strong>{ empathy && DC}</h2>
+            <h2><strong>TE: </strong>{ empathy && TE}</h2>
         </div>
     )
 }

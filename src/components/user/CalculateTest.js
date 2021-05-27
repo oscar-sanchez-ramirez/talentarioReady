@@ -42,12 +42,31 @@ export const CalculateTest = () => {
 
 
     return (
-        <div>
+        <>
             <Sidebar />
-            <hr />
-            <h3>Evaluación de Talentos</h3>
-            <Evaluation />
-            <Link to="/test-start">Editar</Link>
-        </div>
+            <div className="contenido">            
+                <div className="titulo_principal">
+                    <div className="container">
+                        <div className="row">
+                            <h1>Evaluación de Talentos</h1>
+                        </div>
+                    </div>
+                </div>
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-md-7">
+                            <div className="card shadow perfil_input my-5">
+                                <div className="card-body text-center">
+                                    <Evaluation />
+                                    <p><Link to="/test-start" className="btn btn_login mt-3 mb-0">Editar</Link></p>
+                                </div>                                
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                
+            </div>
+            
+        </>
     )
 }

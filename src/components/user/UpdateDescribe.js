@@ -132,7 +132,7 @@ export const UpdateDescribe = () => {
 
 
     return (
-        <div>
+        <>
             <Sidebar />
             <div className="contenido">
                 <div className="titulo_principal">
@@ -225,9 +225,7 @@ export const UpdateDescribe = () => {
                                         active &&
                                         (
                                             <form onSubmit={handleSubmit} >
-
-
-
+                                                
                                                 <button type="submit" className="btn btn_login">Guardar</button>
 
                                             </form>
@@ -244,6 +242,6 @@ export const UpdateDescribe = () => {
                     </div>                        
                 </div>
             </div>
-        </div>
+        </>
     )
 }

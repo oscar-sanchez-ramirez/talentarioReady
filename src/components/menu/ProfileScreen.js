@@ -150,7 +150,7 @@ export const ProfileScreen = () => {
 
 
     return (
-        <div>
+        <>
             <Sidebar />
             <div className="contenido">
                 <div className="titulo_principal">
@@ -477,7 +477,7 @@ export const ProfileScreen = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
