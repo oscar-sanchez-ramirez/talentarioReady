@@ -53,7 +53,7 @@ export const HomeScreen = () => {
     const { isCompany } = useSelector(state => state.user)
 
 
-    
+
     return (
         <div>
 
@@ -72,28 +72,33 @@ export const HomeScreen = () => {
                             onChange={handleInputChange}
                             style={{ marginBottom: '20px' }}
                         />
+                        <div className="container">
+                            {loading ? <p>cargando...</p> :
+                                (<div id="jobFs" className="row">
+                                    {objJob &&
+                                        objJob.map(iterador => (
+                                            <div key={iterador.uid} className="col-md-4 mb-4">
+                                                <div className="card shadow h-100">
+                                                    <div className="card-body">
+                                                        <p>{iterador.cargo}</p>
+                                                        <Datosjob companyId={iterador.companyId} />
+                                                        <p>{iterador.salario}</p>
+                                                        <p>{iterador.localidad}</p>
+                                                    </div>
 
-                        { loading ? <p>cargando...</p> :
-                            (<div id="jobFs">
-                                {objJob &&
-                                    objJob.map(iterador => (
-                                        <div key={iterador.uid}>
-                                            <p>{iterador.cargo}</p>
-                                            <Datosjob companyId={iterador.companyId} />                                            
-                                            <p>{iterador.salario}</p>
-                                            <p>{iterador.localidad}</p>
-                                            <Link to={`/getApplication/${iterador.uid}`}
-                                            >Ver</Link>
-                                            <hr />
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                            )
-                        }
+                                                    <p><Link className="btn btn-primary btn-small" to={`/getApplication/${iterador.uid}`}
+                                                    >Ver</Link></p>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                                )
+                            }
+                        </div>
                     </div>
                 ) : (
-                   <CompanyOffers />
+                    <CompanyOffers />
                 )
             }
 

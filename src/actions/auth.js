@@ -104,9 +104,20 @@ export const startLoginEmailPassword = (email, password, empresa) => {
                 dispatch(finishLoading());
             })
             .catch(e => {
-                console.log(e);
-                dispatch(finishLoading());
-                Swal.fire('Error', e.message, 'error');
+                if (e.message === "The email address is badly formatted.") {
+                    dispatch(finishLoading());
+                    Swal.fire('Error', 'El correo no tiene un formato correcto', 'error');
+                } else if (e.message === "The password is invalid or the user does not have a password.") {
+                    dispatch(finishLoading());
+                    Swal.fire('Error', 'La contraseña no es válida o el usuario no tiene contraseña.', 'error');
+                } else if (e.message === 'There is no user record corresponding to this identifier. The user may have been deleted.') {
+                    dispatch(finishLoading());
+                    Swal.fire('Error', 'No hay ningún registro de usuario que corresponda a este identificador. Es posible que se haya eliminado al usuario.', 'error');
+                } else {
+                    dispatch(finishLoading());
+                    console.log(e.message);
+                }
+
             })
 
 
