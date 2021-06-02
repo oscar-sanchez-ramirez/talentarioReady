@@ -42,8 +42,8 @@ export const UpdateDescribe = () => {
 
             if (pdf) {
                 Swal.fire({
-                    title: 'Uploading...',
-                    text: 'Please wait...',
+                    title: 'Subiendo...',
+                    text: 'Por favor espere...',
                     allowOutsideClick: false,
                     onBeforeOpen: () => {
                         Swal.showLoading();
@@ -65,10 +65,11 @@ export const UpdateDescribe = () => {
                                 Swal.close();
                                 Swal.fire({
                                     icon: 'success',
-                                    title: 'Data saved',
+                                    title: 'PDF guardado con éxito',
                                     showConfirmButton: true,
-                                    timer: 2000,
-                                    timerProgressBar: true
+                                    timer: 1500,
+                                    timerProgressBar: true,
+                                    // position: 'top-end',
                                 });
                             }
                         });

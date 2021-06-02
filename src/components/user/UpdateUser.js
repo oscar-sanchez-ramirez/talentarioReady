@@ -44,7 +44,14 @@ export const UpdateUser = () => {
                     setUbutton(true);
                     setbutton(false);
                     setActive(true);
-                    Swal.fire('Success', 'Data saved successfully!', 'success');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Nombre guarado con éxito',
+                        showConfirmButton: true,
+                        timer: 1500,
+                        timerProgressBar: true,
+                        // position: 'top-end',
+                    });
 
                 }).catch(function (error) {
                     setUbutton(true);
@@ -75,8 +82,12 @@ export const UpdateUser = () => {
     const handleChangeImage = (e) => {
         if (e.target.files[0]) {
             setImagen(e.target.files[0]);
+            const imgID = document.getElementById('imgUser');
             const imgCodified = URL.createObjectURL(e.target.files[0]);
-            document.getElementById('imgUser').src = imgCodified;
+            imgID.src = imgCodified;
+            const imgBOX = document.getElementById('boxIMG');
+            imgBOX.classList.add('animate__animated', 'animate__pulse');
+
         }
     }
 
@@ -88,8 +99,8 @@ export const UpdateUser = () => {
 
             if (imagen) {
                 Swal.fire({
-                    title: 'Uploading...',
-                    text: 'Please wait...',
+                    title: 'Subiendo...',
+                    text: 'Por favor espere...',
                     allowOutsideClick: false,
                     onBeforeOpen: () => {
                         Swal.showLoading();
@@ -108,10 +119,11 @@ export const UpdateUser = () => {
                                 Swal.close();
                                 Swal.fire({
                                     icon: 'success',
-                                    title: 'Data saved',
+                                    title: 'Imagen subida con éxito',
                                     showConfirmButton: true,
-                                    timer: 2000,
-                                    timerProgressBar: true
+                                    timer: 1500,
+                                    timerProgressBar: true,
+                                    // position: 'top-end',
                                 });
 
                             }).catch(function (error) {
@@ -143,14 +155,14 @@ export const UpdateUser = () => {
     return (
         <div className="col-md-8 d-flex">
             <div className="col-md-2">
-                <div className="bd-img_perfil img_perfil mx-auto">
+                <div className="bd-img_perfil img_perfil mx-auto" id="boxIMG">
                     <img src={photoURL} width={"100%"} alt={name} className="img-fluid" id="imgUser" />
                 </div>
                 <div className="btn_editar_img text-center">
                     {
                         ocultar &&
                         <form onSubmit={handleSubmitImagen}>
-                            <button type="submit" className="btn btn-edit">Guardar</button>
+                            <button type="submit" className="btn btn-edit"><span className="ico-guardar"></span> Guardar</button>
                         </form>
                     }
 
