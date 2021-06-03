@@ -159,6 +159,8 @@ export const startGoogleLogin = () => {
                     login(user.uid, user.displayName, user.photoURL, user.email)
                 )
 
+                dispatch(startNewUser(user.uid, user.displayName, user.photoURL));
+
                 const starCountRef = db.ref('users/' + user.uid);
                 starCountRef.on('value', (snapshot) => {
                     const data = snapshot.val();

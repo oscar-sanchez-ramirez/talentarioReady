@@ -38,6 +38,7 @@ export const FavJob = () => {
         separador(data);
     }, [data])
 
+
     return (
         <div>
             <h5>Todos los favoritos</h5>
@@ -45,7 +46,7 @@ export const FavJob = () => {
             {error ? (<p>No hay favoritos</p>) :
                 (
                     !cargando &&
-                    jobF.map( (item, index) => (
+                    jobF.map((item, index) => (
                         <div key={index}>
                             <FavoritesJob companyID={item.uidCompany} idFav={item.idFav} />
                         </div>

@@ -5,15 +5,16 @@ import { types } from '../types/types';
 
 export const startNewUser = (uid, name, photoURL) => {
     return async (dispatch) => {
-
-
+         
+       
+        
         const newUser = {
-            isCompany: true,
+            isCompany: false,
             name: `${name}`,
             imageUrl: `${photoURL}`,
             fullName: "test OSR",
-            birthday: "test",
-            age: "test",
+            birthday: "2021/01/01",
+            age: "18",
             sex: 1,
             phone1: "test",
             phone2: "test",
