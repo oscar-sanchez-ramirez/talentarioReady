@@ -157,7 +157,7 @@ export const ProfileScreen = () => {
 
 
     return (
-        <div>
+        <>
             <Sidebar />
             <div className="contenido">
                 <div className="titulo_principal">
@@ -475,7 +475,7 @@ export const ProfileScreen = () => {
                                 </Link>
                                 <Link
                                     to="/test"
-                                    className="btn btn-azul mx-3"
+                                    className="btn btn-azul mx-3 my-2"
                                 >
                                     Evaluación de habilidades
                                 </Link>
@@ -484,7 +484,7 @@ export const ProfileScreen = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

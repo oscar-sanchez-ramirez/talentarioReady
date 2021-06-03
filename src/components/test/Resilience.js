@@ -109,118 +109,121 @@ export const Resilience = () => {
     }
 
     return (
-        <div>
+        <>
             {
                 (show === 1) &&
                 <form onSubmit={handleSubmit}>
                     
-                    <h4>Desarollo del carácter (DC)</h4>
-                    <h5>Resilencia</h5>
-                    <h5>{msjError}</h5>
+                    <h2 className="mb-5">Desarollo del carácter (<strong>DC</strong>)</h2>
+                    <label className="fs-3">Resilencia</label>
+                    <p className="auth__alert-error">{msjError}</p>
 
-                    {
-                        (result7.length < 5) &&
-                        (
-                            <div>
-                                <label htmlFor="option7">7</label>
-                                <input type="radio" name="option" id="option7" value="7" style={{ marginRight: '20px' }} />
-                            </div>
-                        )
-                    }
-                    {
-                        (result6.length < 4) &&
-                        (
-                            <div>
-                                <label htmlFor="option6">6</label>
-                                <input type="radio" name="option" id="option6" value="6" style={{ marginRight: '20px' }} />
-                            </div>
-                        )
-                    }
+                    <div className="input-group text-center">
+                        <div className="mx-auto d-sm-flex">
+                            {
+                                (result7.length < 5) &&
+                                (
+                                    <div>
+                                        <label htmlFor="option7" className="label-radio ms-2">7</label>
+                                        <input type="radio" name="option" id="option7" value="7" className="ms-1 me-3" />
+                                    </div>
+                                )
+                            }
+                            {
+                                (result6.length < 4) &&
+                                (
+                                    <div>
+                                        <label htmlFor="option6" className="label-radio ms-2">6</label>
+                                        <input type="radio" name="option" id="option6" value="6" className="ms-1 me-3" />
+                                    </div>
+                                )
+                            }
 
-                    {
-                        (result5.length < 3) &&
-                        (
-                            <div>
-                                <label htmlFor="option5">5</label>
-                                <input type="radio" name="option" id="option5" value="5" style={{ marginRight: '20px' }} />
-                            </div>
-                        )
-                    }
+                            {
+                                (result5.length < 3) &&
+                                (
+                                    <div>
+                                        <label htmlFor="option5" className="label-radio ms-2">5</label>
+                                        <input type="radio" name="option" id="option5" value="5" className="ms-1 me-3" />
+                                    </div>
+                                )
+                            }
 
-                    {
-                        (result4.length < 3) &&
-                        (
-                            <div>
-                                <label htmlFor="option4">4</label>
-                                <input type="radio" name="option" id="option4" value="4" style={{ marginRight: '20px' }} />
-                            </div>
-                        )
-                    }
+                            {
+                                (result4.length < 3) &&
+                                (
+                                    <div>
+                                        <label htmlFor="option4" className="label-radio ms-2">4</label>
+                                        <input type="radio" name="option" id="option4" value="4" className="ms-1 me-3" />
+                                    </div>
+                                )
+                            }
 
-                    {
-                        (result3.length < 4) &&
-                        (
-                            <div>
-                                <label htmlFor="option3">3</label>
-                                <input type="radio" name="option" id="option3" value="3" style={{ marginRight: '20px' }} />
-                            </div>
-                        )
-                    }
+                            {
+                                (result3.length < 4) &&
+                                (
+                                    <div>
+                                        <label htmlFor="option3" className="label-radio ms-2">3</label>
+                                        <input type="radio" name="option" id="option3" value="3" className="ms-1 me-3" />
+                                    </div>
+                                )
+                            }
 
-                    {
-                        (result2.length < 3) &&
-                        (
-                            <div>
-                                <label htmlFor="option2">2</label>
-                                <input type="radio" name="option" id="option2" value="2" style={{ marginRight: '20px' }} />
-                            </div>
-                        )
-                    }
+                            {
+                                (result2.length < 3) &&
+                                (
+                                    <div>
+                                        <label htmlFor="option2" className="label-radio ms-2">2</label>
+                                        <input type="radio" name="option" id="option2" value="2" className="ms-1 me-3" />
+                                    </div>
+                                )
+                            }
 
-                    {
-                        (result1.length < 3) &&
-                        (
-                            <div>
-                                <label htmlFor="option1">1</label>
-                                <input type="radio" name="option" id="option1" value="1" style={{ marginRight: '20px' }} />
-                            </div>
-                        )
-                    }
+                            {
+                                (result1.length < 3) &&
+                                (
+                                    <div>
+                                        <label htmlFor="option1" className="label-radio ms-2">1</label>
+                                        <input type="radio" name="option" id="option1" value="1" className="ms-1 me-3" />
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </div>
 
-                    <button>Guardar</button>
-                    <br />
-                    <br />
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>7</th>
-                                <th>6</th>
-                                <th>5</th>
-                                <th>4</th>
-                                <th>3</th>
-                                <th>2</th>
-                                <th>1</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{scort7}/5</td>
-                                <td>{scort6}/4</td>
-                                <td>{scort5}/3</td>
-                                <td>{scort4}/3</td>
-                                <td>{scort3}/4</td>
-                                <td>{scort2}/3</td>
-                                <td>{scort1}/3</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
+                    <button className="btn btn_login mb-5">Guardar</button>
+                    <div className="table-responsive">
+                        <table align="center" cellPadding="5" border="0" className="table table-striped evaluacion">
+                            <thead>
+                                <tr>
+                                    <th>7</th>
+                                    <th>6</th>
+                                    <th>5</th>
+                                    <th>4</th>
+                                    <th>3</th>
+                                    <th>2</th>
+                                    <th>1</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{scort7}/5</td>
+                                    <td>{scort6}/4</td>
+                                    <td>{scort5}/3</td>
+                                    <td>{scort4}/3</td>
+                                    <td>{scort3}/4</td>
+                                    <td>{scort2}/3</td>
+                                    <td>{scort1}/3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </form>
             }
             {
                 (show === 2) &&
                 <Leadership />
             }
-        </div>
+        </>
     )
 }
