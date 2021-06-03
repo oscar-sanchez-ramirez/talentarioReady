@@ -158,7 +158,7 @@ export const UpdateDescribe = () => {
                         <div className="col-md-8">                        
                             <div className="card shadow perfil_input mb-5">
                                 <div className="card-body">
-                                    <h2>Video de <strong>introducción</strong></h2>
+                                    <h2>Video de introducción</h2>
                                     {
                                         edit &&
                                         <form onSubmit={handleSubmitInfo}>
@@ -173,7 +173,7 @@ export const UpdateDescribe = () => {
                                                 />
                                             </div>
                                             <p className="text-secondary"><small>El video debe ser de la plataforma de YouTube</small></p>
-                                            <h2>Expericiencia y <strong>logros</strong></h2>
+                                            <h2>Expericiencia y logros</h2>
                                             <label>Describe tu expericiencia y logros:</label>
                                             <div className="input-group">
                                                 
@@ -194,7 +194,7 @@ export const UpdateDescribe = () => {
                                         <a href={urlVideo} target="_blanck" className="btn btn-edit"><span className="ico-video"></span> Ver video</a>
                                     </p>                                   
                                     
-                                    <h2>Expericiencia y <strong>logros</strong></h2>
+                                    <h2>Expericiencia y logros</h2>
                                     <p>{experienceDescription}</p>
                                     {
                                         (!edit) &&

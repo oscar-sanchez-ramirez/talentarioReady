@@ -142,7 +142,7 @@ export const SelfEsteem = () => {
 
                     <button className="btn btn_login mb-5">Guardar</button>
                     <div className="table-responsive">
-                        <table align="center" cellPadding="5" border="0" className="table table-striped">
+                        <table align="center" cellPadding="5" border="0" className="table table-striped evaluacion">
                             <thead>
                                 <tr>
                                     <th>7</th>
