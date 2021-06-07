@@ -14,7 +14,7 @@ import { UpdateIne } from './UpdateIne'
 
 export const RepresentativeData = () => {
 
-    const { name, fullName, position } = useSelector(state => state.user)
+    const { name, fullName, position, plan } = useSelector(state => state.user)
     const { uid } = useSelector(state => state.auth)
 
     const apellidos = fullName && fullName.split('+');
@@ -82,6 +82,11 @@ export const RepresentativeData = () => {
                 </Link>
             <h5>Datos del representante</h5>
             <form onSubmit={handleSubmit}>
+                <p>Plan: {plan}</p>
+                <Link to="/plan">Mejorar plan</Link>
+                <br />
+                <br />
+
                 <label>Todos tus nombres</label>
                 <input
                     type="text"
