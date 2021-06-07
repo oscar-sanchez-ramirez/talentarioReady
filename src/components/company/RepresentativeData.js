@@ -17,15 +17,21 @@ export const RepresentativeData = () => {
     const { name, fullName, position } = useSelector(state => state.user)
     const { uid } = useSelector(state => state.auth)
 
+    const apellidos = fullName && fullName.split('+');
+
+    const ApU = fullName && apellidos[0];
+    const AmU = fullName && apellidos[1];
+
     const [formValues, handleInputChange] = useForm(
         {
             nameU: name,
-            fullNameU: fullName,
+            fullNameU: ApU,
+            fullNameM: AmU,
             positionU: position,
-            
+
         });
 
-    const { nameU, fullNameU, positionU } = formValues;
+    const { nameU, fullNameU, fullNameM, positionU } = formValues;
     const [show, setShow] = useState(true);
 
     const handleShow = () => {
@@ -38,7 +44,7 @@ export const RepresentativeData = () => {
         db.ref('users/' + uid).update({
 
             name: nameU,
-            fullName: fullNameU,
+            fullName: fullNameU + '+' + fullNameM,
             position: positionU,
 
         }, (error) => {
@@ -87,13 +93,22 @@ export const RepresentativeData = () => {
                     disabled={show}
                 />
                 <br />
-                <label>Apellido Paterno, Apellido Materno</label>
+                <label>Apellido Paterno</label>
                 <input
                     type="text"
-                    placeholder="Apellido Paterno, Apellido Materno"
                     name="fullNameU"
                     autoComplete="off"
                     value={fullNameU}
+                    onChange={handleInputChange}
+                    disabled={show}
+
+                />
+                <br />
+                <input
+                    type="text"
+                    name="fullNameM"
+                    autoComplete="off"
+                    value={fullNameM}
                     onChange={handleInputChange}
                     disabled={show}
 
@@ -109,7 +124,7 @@ export const RepresentativeData = () => {
                     onChange={handleInputChange}
                     disabled={show}
                 />
-                
+
                 {
                     !show &&
                     <button type="submit">Guardar</button>
