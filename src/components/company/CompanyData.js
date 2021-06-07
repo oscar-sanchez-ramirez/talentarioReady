@@ -49,7 +49,7 @@ export const CompanyData = () => {
     return (
         <div>
             
-            <h5>Datos de la empresa</h5>
+            <h2>Datos de la <strong>empresa</strong></h2>
             <form onSubmit={handleSubmit}>
 
                 <label>Teléfono Móvil</label>

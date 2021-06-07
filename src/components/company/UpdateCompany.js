@@ -116,53 +116,62 @@ export const UpdateCompany = () => {
 
     return (
         <>
-            <h2>Mi cuenta</h2>
-            <img src={photoURL} width={100} alt={name} />
-            {
-                ocultar &&
-                <form onSubmit={handleSubmitImagen}>
-                    <button type="submit">Guardar</button>
-                </form>
-            }
+            <div className="col-lg-8 d-flex mb-4">            
+                <div className="col-md-2">
+                    <div className="bd-img_perfil img_perfil mx-auto">
+                        <img src={photoURL} width={"100%"} alt={name} className="img-fluid" />
+                    </div>
+                    <div className="btn_editar_img text-center">
+                        {
+                            ocultar &&
+                            <form onSubmit={handleSubmitImagen}>
+                                <button type="submit" className="btn btn-edit"><span className="ico-guardar"></span> Guardar</button>
+                            </form>
+                        }
 
-            <input
-                id="imagenDocu"
-                type="file"
-                onChange={handleChangeImage}
-                style={{ display: 'none' }}
-            />
-
-            {
-                !ocultar &&
-                <button onClick={handleOcultar}>Editar</button>
-            }
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="nameU"
-                    value={nameU}
-                    onChange={handleInputchange}
-                    disabled={active}
-                />
-                <br />
-                {
-                    button &&
-                    <button type="submit">Guardar</button>
-                }
-            </form>
-            {
-                buttonU &&
-                <button onClick={handleActive}>Editar</button>
-            }
-
-            <UpdatePassowd />
-
-
-            <p>{email}</p>
-            <p>El email no es editable</p>
-
-
-
+                        <input
+                            id="imagenDocu"
+                            type="file"
+                            onChange={handleChangeImage}
+                            style={{ display: 'none' }}
+                        />
+                        {
+                            !ocultar &&
+                            <button onClick={handleOcultar} className="btn btn-edit"><span className="ico-editar"></span>Editar</button>
+                        }
+                    </div>
+                </div>
+                <div className="col-md-8 pt-2">
+                    <div className="hd_input d-flex align-items-center">
+                        <form onSubmit={handleSubmit} className="d-flex align-items-center">
+                            <div className="input-group">
+                            <input
+                                type="text"
+                                name="nameU"
+                                className="form-control lh-sm py-0 mb-2"
+                                value={nameU}
+                                onChange={handleInputchange}
+                                disabled={active}
+                            />
+                            </div>
+                            {
+                                button &&
+                                <button type="submit" className="btn btn-edit"><span className="ico-guardar"></span> Guardar</button>
+                            }
+                        </form>
+                        {
+                            buttonU &&
+                            <button onClick={handleActive} className="btn btn-edit"><span className="ico-editar"></span> Editar</button>
+                        }
+                    </div>
+                    <div className="perfil_correo mt-2">
+                        <p className="px-2">{email}</p>
+                    </div>
+                </div>
+            </div>
+            <div className="col-lg-4">
+                <UpdatePassowd />
+            </div>
         </>
     )
 }

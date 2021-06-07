@@ -66,60 +66,77 @@ export const RepresentativeData = () => {
 
 
     return (
-        <div>
-            <Link
-                id="reload"
-                to="/perfil"
-                className="link"
-            >
-                Reload Data
+        <div className="card-body">
+            <p className="text-end mb-2">
+                <Link
+                    id="reload"
+                    to="/perfil"
+                    className="btn btn-edit"
+                >
+                <span className="ico-recargar"></span> Recargar datos
                 </Link>
-            <h5>Datos del representante</h5>
+            </p>
+            
+            <h2>Datos del <strong>representante</strong></h2>
             <form onSubmit={handleSubmit}>
-                <label>Todos tus nombres</label>
-                <input
-                    type="text"
-                    placeholder="Todos tus nombres"
-                    name="nameU"
-                    autoComplete="off"
-                    value={nameU}
-                    onChange={handleInputChange}
-                    disabled={show}
-                />
-                <br />
-                <label>Apellido Paterno, Apellido Materno</label>
-                <input
-                    type="text"
-                    placeholder="Apellido Paterno, Apellido Materno"
-                    name="fullNameU"
-                    autoComplete="off"
-                    value={fullNameU}
-                    onChange={handleInputChange}
-                    disabled={show}
+                <div className="row">
+                    <div className="col-lg-4 py-2">
+                        <div className="input-group">
+                            <label>Nombre(s):</label>
+                            <input
+                                type="text"
+                                placeholder="Todos tus nombres"
+                                name="nameU"
+                                autoComplete="off"
+                                className="form-control p-0 mx-2"
+                                value={nameU}
+                                onChange={handleInputChange}
+                                disabled={show}
+                            />
+                        </div>
+                    </div>
+                    <div className="col-lg-4 py-2">
+                        <div className="input-group">
+                            <label>Apellidos:</label>
+                            <input
+                                type="text"
+                                placeholder="Apellido Paterno, Apellido Materno"
+                                name="fullNameU"
+                                autoComplete="off"
+                                className="form-control p-0 mx-2"
+                                value={fullNameU}
+                                onChange={handleInputChange}
+                                disabled={show}
 
-                />
-                <br />
-                <label>Posición en la empresa</label>
-                <input
-                    type="text"
-                    placeholder="Posición en la empresa"
-                    name="positionU"
-                    autoComplete="off"
-                    value={positionU}
-                    onChange={handleInputChange}
-                    disabled={show}
-                />
-                
+                            />
+                        </div>
+                    </div>
+                    <div className="col-lg-4 py-2">
+                        <div className="input-group">
+                            <label>Posición en la empresa:</label>
+                            <input
+                                type="text"
+                                placeholder="Posición en la empresa"
+                                name="positionU"
+                                autoComplete="off"
+                                className="form-control p-0 mx-2"
+                                value={positionU}
+                                onChange={handleInputChange}
+                                disabled={show}
+                            />
+                        </div>
+                    </div>
+                </div>                
                 {
                     !show &&
-                    <button type="submit">Guardar</button>
+                    <button type="submit" className="btn btn_login mt-3">Guardar</button>
                 }
 
             </form>
 
             {
                 show &&
-                <button onClick={handleShow}>Editar</button>
+                <button onClick={handleShow} className="btn btn_login mt-3">Editar</button>
             }
 
             <CompanyData />

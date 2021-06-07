@@ -201,6 +201,13 @@ body {
 .form-control::placeholder{
       color: #fff;
 }
+.perfil_input .form-control::placeholder{
+      color: #000;
+}
+.input-group input[type="radio"]{
+      margin-top: 6px;
+      margin-bottom: 6px;
+}
 .group{
       padding-left: 50px;
       position: relative;
