@@ -22,7 +22,7 @@ export const CalendarScreen = () => {
 
 
     const getCita = (uid) => {
-        const starCountRef = db.ref('users/sdDQmkjPYaXba17r5GJrDrg6zUE3');
+        const starCountRef = db.ref('users/'+uid);
         starCountRef.on('value', (snapshot) => {
             const info = snapshot.val();
             const datos = info.scheduledDates;

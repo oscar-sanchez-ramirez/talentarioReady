@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.73b51f2d.chunk.css",
+    "main.js": "/static/js/main.3c4c78cd.chunk.js",
+    "main.js.map": "/static/js/main.3c4c78cd.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.b0c11435.js",
+    "runtime-main.js.map": "/static/js/runtime-main.b0c11435.js.map",
+    "static/css/2.f53b4544.chunk.css": "/static/css/2.f53b4544.chunk.css",
+    "static/js/2.493a155c.chunk.js": "/static/js/2.493a155c.chunk.js",
+    "static/js/2.493a155c.chunk.js.map": "/static/js/2.493a155c.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.9d9037aa6acc9a79ed1be070d762b901.js": "/precache-manifest.9d9037aa6acc9a79ed1be070d762b901.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.f53b4544.chunk.css.map": "/static/css/2.f53b4544.chunk.css.map",
+    "static/css/main.73b51f2d.chunk.css.map": "/static/css/main.73b51f2d.chunk.css.map",
+    "static/js/2.493a155c.chunk.js.LICENSE.txt": "/static/js/2.493a155c.chunk.js.LICENSE.txt",
+    "static/media/main.css": "/static/media/rombo_titulo-principal.49e9924d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b0c11435.js",
+    "static/css/2.f53b4544.chunk.css",
+    "static/js/2.493a155c.chunk.js",
+    "static/css/main.73b51f2d.chunk.css",
+    "static/js/main.3c4c78cd.chunk.js"
+  ]
+}
