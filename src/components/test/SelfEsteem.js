@@ -99,7 +99,7 @@ export const SelfEsteem = () => {
 
 
     return (
-        <div className="animate__animated animate__backInUp">
+        <div>
             {
                 (show === 1) &&
                 <form onSubmit={handleSubmit}>
