@@ -143,6 +143,7 @@ export const Evaluation = () => {
     const { PA, PD, TD, DC, TE } = calculate();
 
     return (
+        
         <div className="test_resultados text-start mx-auto">
             <h2><strong>PA: </strong>{ empathy && PA}</h2>
             <h2><strong>PD: </strong>{ empathy && PD}</h2>
@@ -150,5 +151,6 @@ export const Evaluation = () => {
             <h2><strong>DC: </strong>{ empathy && DC}</h2>
             <h2><strong>TE: </strong>{ empathy && TE}</h2>
         </div>
+            
     )
 }

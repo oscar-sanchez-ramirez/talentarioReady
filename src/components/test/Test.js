@@ -17,11 +17,9 @@ export const Test = () => {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-7">
-                            <div className="card shadow perfil_input my-5">
-                                <div className="card-body text-center">
-                                    <SelfRecognition />
-                                </div>                                
-                            </div>
+                            
+                            <SelfRecognition />
+                                
                         </div>                        
                     </div>
                 </div>                
