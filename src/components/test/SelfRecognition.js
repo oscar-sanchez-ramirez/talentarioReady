@@ -57,7 +57,14 @@ export const SelfRecognition = () => {
                 if (error) {
                     Swal.fire('Error', error, 'error');
                 } else {
-                    Swal.fire('Success', 'Data saved successfully!', 'success');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Respuesta almacenada',
+                        showConfirmButton: false,
+                        timer: 1000,
+                        timerProgressBar: true,
+                        position: 'top-end',
+                    });
                     setShow(show + 1)
                 }
             });
@@ -74,7 +81,7 @@ export const SelfRecognition = () => {
         <>
             {
                 (show === 1) &&
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} >
                     
                     <h2 className="mb-5">Asumir la responsabilidad propia (<strong>PA</strong>)</h2>
                     <label className="fs-3">Auto Reconocimiento</label>

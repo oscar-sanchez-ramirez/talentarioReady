@@ -79,7 +79,14 @@ export const SelfEsteem = () => {
                 if (error) {
                     Swal.fire('Error', error, 'error');
                 } else {
-                    Swal.fire('Success', 'Data saved successfully!', 'success');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Respuesta almacenada',
+                        showConfirmButton: false,
+                        timer: 1000,
+                        timerProgressBar: true,
+                        position: 'top-end',
+                    });
                     setShow(show + 1)
                 }
             });
@@ -92,7 +99,7 @@ export const SelfEsteem = () => {
 
 
     return (
-        <div>
+        <div className="animate__animated animate__backInUp">
             {
                 (show === 1) &&
                 <form onSubmit={handleSubmit}>

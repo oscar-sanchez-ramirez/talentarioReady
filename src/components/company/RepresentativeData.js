@@ -86,7 +86,6 @@ export const RepresentativeData = () => {
                 <Link to="/plan">Mejorar plan</Link>
                 <br />
                 <br />
-
                 <label>Todos tus nombres</label>
                 <input
                     type="text"
