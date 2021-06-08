@@ -70,25 +70,24 @@ export const UpdateIne = () => {
     }
 
     return (
-        <div>
+        <div className="col-lg-4 col-md-6">
             <input
                 id="idIne"
                 type="file"
                 onChange={handleInputchangee}
                 style={{ display: 'none' }}
             />
-            <br />
-            <p>INE Representante Legal: <a href={ineUrl} target="_blanck">Ver</a></p>
+            <p className="position-relative pt-3 mb-0">INE Representante Legal: <a href={ineUrl} target="_blanck" className="btn btn-edit"><span className="ico-documento"></span> Ver</a></p>
             {
                 !show &&
                 <form onSubmit={handleSubmit} >
-                    <button type="submit">Guardar</button>
+                    <button type="submit" className="btn btn_login">Guardar</button>
                 </form>
             }
 
             {
                 show &&
-                <button onClick={handleActive}>Editar</button>
+                <button onClick={handleActive} className="btn btn_login">Editar</button>
             }
         </div>
     )

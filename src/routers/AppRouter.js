@@ -25,6 +25,7 @@ import { FavApplicant } from '../components/company/FavApplicant';
 import { CompanyProfile } from '../components/company/CompanyProfile';
 import { Test } from '../components/test/Test';
 import { Getapplication } from '../components/Job/Getapplication';
+import { planCompany } from '../components/Plane/planCompany';
 
 export const AppRouter = () => {
 
@@ -208,6 +209,12 @@ export const AppRouter = () => {
                         isAuthenticated={isLoggedIn}
                         path="/getApplication/:uid"
                         component={Getapplication}
+                    />
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/plan"
+                        component={planCompany}
                     />
 
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFetch } from '../../hooks/useFetch';
+import { DeleteFav } from './DeleteFav';
 import { FavInfo } from './FavInfo';
 
 export const FavoritesJob = ({ companyID, idFav }) => {
@@ -13,9 +14,10 @@ export const FavoritesJob = ({ companyID, idFav }) => {
             {
                 loading ? (<p>Cargando...</p>) : (
                     <div>
+                        <DeleteFav company={companyID} job={idFav} />
                         <p>{data.name}</p>
-                        <img src={data.imageUrl} alt="imagen" width={ 50 }/> 
-                        <FavInfo idFav={idFav}/>
+                        <img src={data.imageUrl} alt="imagen" width={50} />
+                        <FavInfo idFav={idFav} />
                     </div>
                 )
             }

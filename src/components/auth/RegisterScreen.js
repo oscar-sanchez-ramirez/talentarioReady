@@ -37,13 +37,13 @@ export const RegisterScreen = () => {
     const isFormValid = () => {
         
         if ( name.trim().length === 0 ) {
-            dispatch( setError('Name is required') )
+            dispatch( setError('El nombre es requerido') )
             return false;
         } else if ( !validator.isEmail( email ) ) {
-            dispatch( setError('Email is not valid') )
+            dispatch( setError('El correo electrónico no es valido') )
             return false;
         } else if ( password !== password2 || password.length < 5 ) {
-            dispatch( setError('Password should be at least 6 characters and match each other') )
+            dispatch( setError('La contraseña debe tener al menos 6 caracteres y coincidir entre sí') )
             return false
         }
         

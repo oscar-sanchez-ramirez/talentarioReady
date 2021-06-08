@@ -70,29 +70,26 @@ export const UpdateValidation = () => {
     }
 
     return (
-        <div>
-
-            <h5>Validación/Certificación</h5>
+        <div className="col-lg-4 col-md-6">           
             <input
                 id="idFile"
                 type="file"
                 onChange={handleInputchangee}
                 style={{ display: 'none' }}
             />
-            <br />
-            <p>Alta Hacienda: <a href={hdaUrl} target="_blanck">Ver</a></p>
+            <p className="position-relative pt-3 mb-0"> Alta Hacienda: <a href={hdaUrl} target="_blanck" className="btn btn-edit"><span className="ico-documento"></span> Ver</a></p>
             {
                 !show &&
                 <form onSubmit={handleSubmit} >
-                    <button type="submit">Guardar</button>
+                    <button type="submit" className="btn btn_login">Guardar</button>
                 </form>
             }
-
+            <p>
             {
                 show &&
-                <button onClick={handleActive}>Editar</button>
+                <button onClick={handleActive} className="btn btn_login">Editar</button>
             }
-
+            </p>
 
         </div>
     )

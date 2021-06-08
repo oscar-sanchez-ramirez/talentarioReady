@@ -14,18 +14,24 @@ import { UpdateIne } from './UpdateIne'
 
 export const RepresentativeData = () => {
 
-    const { name, fullName, position } = useSelector(state => state.user)
+    const { name, fullName, position, plan } = useSelector(state => state.user)
     const { uid } = useSelector(state => state.auth)
+
+    const apellidos = fullName && fullName.split('+');
+
+    const ApU = fullName && apellidos[0];
+    const AmU = fullName && apellidos[1];
 
     const [formValues, handleInputChange] = useForm(
         {
             nameU: name,
-            fullNameU: fullName,
+            fullNameU: ApU,
+            fullNameM: AmU,
             positionU: position,
-            
+
         });
 
-    const { nameU, fullNameU, positionU } = formValues;
+    const { nameU, fullNameU, fullNameM, positionU } = formValues;
     const [show, setShow] = useState(true);
 
     const handleShow = () => {
@@ -38,7 +44,7 @@ export const RepresentativeData = () => {
         db.ref('users/' + uid).update({
 
             name: nameU,
-            fullName: fullNameU,
+            fullName: fullNameU + '+' + fullNameM,
             position: positionU,
 
         }, (error) => {
@@ -66,91 +72,130 @@ export const RepresentativeData = () => {
 
 
     return (
-        <div className="card-body">
-            <p className="text-end mb-2">
-                <Link
-                    id="reload"
-                    to="/perfil"
-                    className="btn btn-edit"
-                >
-                <span className="ico-recargar"></span> Recargar datos
-                </Link>
-            </p>
-            
-            <h2>Datos del <strong>representante</strong></h2>
-            <form onSubmit={handleSubmit}>
-                <div className="row">
-                    <div className="col-lg-4 py-2">
-                        <div className="input-group">
-                            <label>Nombre(s):</label>
-                            <input
-                                type="text"
-                                placeholder="Todos tus nombres"
-                                name="nameU"
-                                autoComplete="off"
-                                className="form-control p-0 mx-2"
-                                value={nameU}
-                                onChange={handleInputChange}
-                                disabled={show}
-                            />
+        <div className="row">
+            <div className="card shadow perfil_input">
+                <div className="card-body">
+                    <p className="text-end mb-2">
+                        <Link
+                            id="reload"
+                            to="/perfil"
+                            className="btn btn-edit"
+                        >
+                        <span className="ico-recargar"></span> Recargar datos
+                        </Link>
+                    </p>
+                    
+                    <h2>Datos del <strong>representante</strong></h2>
+                    <form onSubmit={handleSubmit}>
+
+                        <div className="row">
+                            
+                            <div className="col-lg-4 py-2">
+                                <div className="input-group">
+                                    <label>Nombre(s):</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Todos tus nombres"
+                                        name="nameU"
+                                        autoComplete="off"
+                                        className="form-control p-0 mx-2"
+                                        value={nameU}
+                                        onChange={handleInputChange}
+                                        disabled={show}
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-lg-4 py-2">
+                                <div className="input-group">                            
+                                    <label>Apellido Paterno:</label>
+                                    <input
+                                        type="text"
+                                        name="fullNameU"
+                                        autoComplete="off"
+                                        className="form-control p-0 mx-2"
+                                        value={fullNameU}
+                                        onChange={handleInputChange}
+                                        disabled={show}
+
+                                    />
+                                    
+                                </div>
+                            </div>
+                            <div className="col-lg-4 py-2">
+                                <div className="input-group">
+                                    <label>Apellido Materno:</label>
+                                    <input
+                                        type="text"
+                                        name="fullNameM"
+                                        autoComplete="off"
+                                        className="form-control p-0 mx-2"
+                                        value={fullNameM}
+                                        onChange={handleInputChange}
+                                        disabled={show}
+
+                                    />
+                                </div>
+                            </div>
                         </div>
+                        <div className="row">
+                            <div className="col-lg-6 py-2">
+                                <div className="input-group">
+                                    <label>Posición en la empresa:</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Posición en la empresa"
+                                        name="positionU"
+                                        autoComplete="off"
+                                        className="form-control p-0 mx-2"
+                                        value={positionU}
+                                        onChange={handleInputChange}
+                                        disabled={show}
+                                    />
+                                </div>
+                            </div>
+                        </div>                
+
+                        {
+                            !show &&
+                            <button type="submit" className="btn btn_login">Guardar</button>
+                        }
+
+                    </form>
+
+                    {
+                        show &&
+                        <button onClick={handleShow} className="btn btn_login">Editar</button>
+                    }
+                </div>
+            </div>
+            <div className="card shadow perfil_input mt-5">
+                <div className="card-body">
+                    <CompanyData />
+                </div>
+            </div>
+            <div className="card shadow perfil_input mt-5">
+                <div className="card-body">
+                    <UpdateLocation />
+                </div>
+            </div>
+            <div className="card shadow perfil_input mt-5">
+                <div className="card-body">
+                    <div className="row">
+                        <h2>Validación / <strong>Certificación</strong></h2>
+                        <UpdateValidation />
+                        <UpdateConstitutiva />
+                        <UpdateFiscal />
+                        <UpdateDom />
+                        <UpdateIne />
                     </div>
-                    <div className="col-lg-4 py-2">
-                        <div className="input-group">
-                            <label>Apellidos:</label>
-                            <input
-                                type="text"
-                                placeholder="Apellido Paterno, Apellido Materno"
-                                name="fullNameU"
-                                autoComplete="off"
-                                className="form-control p-0 mx-2"
-                                value={fullNameU}
-                                onChange={handleInputChange}
-                                disabled={show}
-
-                            />
-                        </div>
-                    </div>
-                    <div className="col-lg-4 py-2">
-                        <div className="input-group">
-                            <label>Posición en la empresa:</label>
-                            <input
-                                type="text"
-                                placeholder="Posición en la empresa"
-                                name="positionU"
-                                autoComplete="off"
-                                className="form-control p-0 mx-2"
-                                value={positionU}
-                                onChange={handleInputChange}
-                                disabled={show}
-                            />
-                        </div>
-                    </div>
-                </div>                
-                {
-                    !show &&
-                    <button type="submit" className="btn btn_login mt-3">Guardar</button>
-                }
-
-            </form>
-
-            {
-                show &&
-                <button onClick={handleShow} className="btn btn_login mt-3">Editar</button>
-            }
-
-            <CompanyData />
-            <UpdateLocation />
-            <br />
-            <UpdateValidation />
-            <UpdateConstitutiva />
-            <UpdateFiscal />
-            <UpdateDom />
-            <UpdateIne />
-            <br />
-            <br />
-
-
+                </div>
+            </div>
+            <div className="card shadow perfil_input my-5 py-4">
+                <div className="card-body text-center">
+                    <h2 className="mb-4"><label>Plan:</label> {plan}</h2>
+                    <Link to="/plan" className="btn btn-azul mx-3">Mejorar plan</Link>
+                </div>
+            </div>
         </div>
     )
 }

@@ -130,7 +130,14 @@ export const ProfileScreen = () => {
                 setActive(true);
                 setButtonEdit(true);
                 setButtonSave(false);
-                Swal.fire('Success', 'Data saved successfully!', 'success');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Datos guardados con éxito',
+                    showConfirmButton: true,
+                    timer: 1500,
+                    timerProgressBar: true,
+                    // position: 'top-end',
+                });
             }
         });
 

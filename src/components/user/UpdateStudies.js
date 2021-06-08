@@ -91,7 +91,14 @@ export const UpdateStudies = () => {
                 setActive(true);
                 setButton(false);
                 setUbutton(true);
-                Swal.fire('Success', 'Data saved successfully!', 'success');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Datos guardados con éxito',
+                    showConfirmButton: true,
+                    timer: 1500,
+                    timerProgressBar: true,
+                    // position: 'top-end',
+                });
             }
         });
     };

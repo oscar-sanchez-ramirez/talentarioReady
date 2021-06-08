@@ -26,11 +26,7 @@ export const CompanyProfile = () => {
                 </div>
             
                 <div className="container">
-                    <div className="row">
-                        <div className="card shadow perfil_input mb-4">
-                            <RepresentativeData />
-                        </div>
-                    </div>
+                     <RepresentativeData />
                 </div>
             </div>
             
