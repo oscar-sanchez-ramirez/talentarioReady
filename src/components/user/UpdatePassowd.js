@@ -41,30 +41,33 @@ export const UpdatePassowd = () => {
     }
    
     return (
-        <div>
-            
-            <form onSubmit={hanldeSubmitPassword}>
-                <input
-                    type="password"
-                    placeholder="Nuevo contraseña"
-                    name="password"
-                    autoComplete="off"
-                    value={password}
-                    onChange={handleInputchange}
-                    disabled={show}
-                />
-                <p>La contraseña debe ser mayor a 5 caracteres</p>
+        <div className="perfil_input">
+            <div className="hd_input d-flex align-items-center">
+                <form onSubmit={hanldeSubmitPassword} className="d-flex align-items-center">
+                    <div className="input-group">
+                        <input
+                            type="password"
+                            placeholder="Nueva contraseña"
+                            name="password"
+                            className="form-control p-0 mx-2"
+                            value={password}
+                            onChange={handleInputchange}
+                            disabled={show}
+                        />
+                    </div>                    
+                        {
+                            !show &&
+                            <button type="submit" className="btn btn-edit"><span className="ico-guardar"></span> Guardar</button>
+                        }
+                    
+                </form>
+                
                 {
-                    !show &&
-                    <button type="submit">Guardar</button>
+                    show &&
+                    <button onClick={handleShow}  className="btn btn-edit"><span className="ico-editar"></span> Editar</button>
                 }
-
-            </form>
-            {
-                show &&
-                <button onClick={handleShow} >Editar</button>
-            }
-
+            </div>
+            <p className="fs-6 text"><small>La contraseña debe ser mayor a 5 caracteres</small></p>
         </div>
     )
 }

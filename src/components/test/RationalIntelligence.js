@@ -88,7 +88,14 @@ export const RationalIntelligence = () => {
                 if (error) {
                     Swal.fire('Error', error, 'error');
                 } else {
-                    Swal.fire('Success', 'Data saved successfully!', 'success');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Respuesta almacenada',
+                        showConfirmButton: false,
+                        timer: 1000,
+                        timerProgressBar: true,
+                        position: 'top-end',
+                    });
                     setShow(show + 1)
                 }
             });
