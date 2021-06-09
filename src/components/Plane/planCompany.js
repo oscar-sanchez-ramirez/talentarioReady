@@ -1,8 +1,10 @@
 import React from 'react'
+import { Sidebar } from '../menu/SideBar'
 
 export const planCompany = () => {
     return (
         <div>
+            <Sidebar />
             <div className="contenido">
                 <div className="titulo_principal mb-5">
                     <div className="container">

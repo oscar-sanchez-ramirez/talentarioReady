@@ -95,7 +95,7 @@ export const Adaptability = () => {
         <>
             {
                 (show === 1) &&
-                <div className="card shadow perfil_input my-5 animate__animated animate__zoomInDown">
+                <div className="card shadow perfil_input my-5 animate__animated animate__zoomIn">
                     <div className="card-body text-center">
 
                         <form onSubmit={handleSubmit}>
