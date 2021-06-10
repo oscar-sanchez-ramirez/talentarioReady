@@ -241,7 +241,7 @@ export const ProfileScreen = () => {
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col-lg-4 py-2">
+                                        <div className="col-lg-5  col-xl-4 py-2">
                                                 <div className="input-group">
                                                     <label>Fecha de nacimiento: </label>
                                                     <input
@@ -255,13 +255,13 @@ export const ProfileScreen = () => {
                                                     />
                                             </div>
                                         </div>
-                                        <div className="col-lg-4 py-2">
+                                        <div className="col-lg-2  col-xl-4 py-2">
                                             <div className="input-group">
                                                 <label>Edad: </label>
                                                 <p className="mx-2 my-0">{age}</p>
                                             </div>
                                         </div>
-                                        <div className="col-lg-4 py-2">
+                                        <div className="col-lg-5  col-xl-4 py-2">
                                             <div className="input-group">
                                                 <label>Sexo:&nbsp;</label>
                                                 <label className="label-radio">Hombre</label>
@@ -342,7 +342,7 @@ export const ProfileScreen = () => {
                                         </div>
                                     </div>
                                      <div className="row">
-                                        <div className="col-lg-4 py-2">
+                                        <div className="col-lg-6 py-2">
                                             <div className="input-group">
                                                 <label>Nacionalidad:</label>
                                                 <label className="label-radio ms-2">Mexicano</label>
@@ -376,7 +376,7 @@ export const ProfileScreen = () => {
                                         <h2>Ubicación</h2>
                                         <div className="col-lg-4 py-2">
                                             <div className="input-group">                                                
-                                                <label className="label-radio">Estado:</label>
+                                                <label>Estado:</label>
                                                 <select
                                                     name="countryU"
                                                     className="form-control p-0 mx-2"
