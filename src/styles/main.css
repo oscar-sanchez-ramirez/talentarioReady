@@ -10,6 +10,11 @@
 	src: url('../fonts/Roboto-Medium.ttf');
 }
 @font-face {
+	font-family:Roboto-Bold;
+	font-display: auto;
+	src: url('../fonts/Roboto-Bold.ttf');
+}
+@font-face {
 	font-family:Roboto-Black;
 	font-display: auto;
 	src: url('../fonts/Roboto-Black.ttf');
@@ -411,14 +416,6 @@ body {
 	font-family: 'Nunito-SemiBold';
 	font-size: 18px;
 }
-/*.card.perfil_input{
-      transition: all 250ms;
-      bottom: 0;
-}
-.card.perfil_input:hover{
-      bottom: 5px;
-      box-shadow: 0 .5rem 1rem rgba(82, 67, 162, 0.39);
-}*/
 .perfil_input label{
 	color: #544690;
 }
@@ -455,8 +452,25 @@ body {
       background: url('../image/bg_resultados.png') no-repeat center;
       background-size: contain;
 }
+.planes{
+      font-size: 20px;
+}
+.planes ul{
+      padding-left: 0;
+}
+.planes ul li{
+      list-style: none;
+      background: url('../image/bullet_planes.png') no-repeat left top;
+      padding-left: 35px;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+      border-bottom: 1.5px solid #6b6b6b;
+}
 .planes .card-header{
       background-color: #5243a2;
+}
+.planes .card-body{
+      background: #ededed;
 }
 .planes .card-header h2{
       color: #fff;
@@ -464,9 +478,10 @@ body {
       font-weight: 600;   
 }
 .planes .card-body h3{
-      font-family: 'Nunito-SemiBold';
+      font-family: 'Roboto-Bold';
       font-weight: bold;
       margin-bottom: 20px;
+      font-size: 40px;
 }
 
 @media(max-width:991px){
