@@ -42,26 +42,25 @@ export const CompanyOffers = () => {
             <h5>Ofertas de la empresa</h5>
             <hr />
             { loading ? <p>cargando...</p> :
-                (<div id="jobFs">
+                (<div id="jobFs" className="col-md-4">
                     {objJob &&
                         objJob.map(iterador => (
-                            <div key={iterador.uid}>
+                            <div key={iterador.uid} className="card">
                                 <p>{iterador.cargo}</p>
                                 <DatosCompany companyId={iterador.companyId} />
                                 <p>{iterador.salario}</p>
                                 <p>{iterador.localidad}</p>
-                                <Link to={`/getApplication/${iterador.uid}`}
-                                >Ver</Link>
-                                <hr />
+                                <p>
+                                    <Link className="btn btn-primary" to={`/getApplication/${iterador.uid}`}
+                                    >Ver</Link>
+                                </p>
                             </div>
                         ))
                     }
                 </div>
                 )
             }
-            <br />
-            <h5>Ofertas populares</h5>
-            <hr />
+            
         </div>
     )
 }

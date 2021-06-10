@@ -26,6 +26,7 @@ import { CompanyProfile } from '../components/company/CompanyProfile';
 import { Test } from '../components/test/Test';
 import { Getapplication } from '../components/Job/Getapplication';
 import { planCompany } from '../components/Plane/planCompany';
+import { Checkout } from '../components/paypal/Checkout';
 
 export const AppRouter = () => {
 
@@ -215,6 +216,12 @@ export const AppRouter = () => {
                         isAuthenticated={isLoggedIn}
                         path="/plan"
                         component={planCompany}
+                    />
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/checkout"
+                        component={Checkout}
                     />
 
 
