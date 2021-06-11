@@ -37,23 +37,24 @@ export const CompanyOffers = () => {
     }, [data])
 
     return (
-        <div>
-            <hr />
-            <h5>Ofertas de la empresa</h5>
-            <hr />
+        <>
             { loading ? <p>cargando...</p> :
-                (<div id="jobFs" className="col-md-4">
+                (<div id="jobFs" className="row">
                     {objJob &&
                         objJob.map(iterador => (
-                            <div key={iterador.uid} className="card">
-                                <p>{iterador.cargo}</p>
-                                <DatosCompany companyId={iterador.companyId} />
-                                <p>{iterador.salario}</p>
-                                <p>{iterador.localidad}</p>
-                                <p>
-                                    <Link className="btn btn-primary" to={`/getApplication/${iterador.uid}`}
-                                    >Ver</Link>
-                                </p>
+                            <div key={iterador.uid} className="col-xl-4 col-md-6 mb-4 job_offers">
+                                <div className="card shadow h-100">
+                                    <div className="card-body">
+                                        <h5 className="mb-0"><strong>{iterador.cargo}</strong></h5>
+                                        <DatosCompany companyId={iterador.companyId} />
+                                        <p className="d-inline-flex"><span className="salario">{iterador.salario}</span></p>
+                                        <p className="fs-6 text-secondary">{iterador.localidad}</p>
+                                        <p className="mb-0">
+                                            <Link className="btn btn_ver_oferta btn-sm" to={`/getApplication/${iterador.uid}`}
+                                            >Ver</Link>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         ))
                     }
@@ -61,6 +62,6 @@ export const CompanyOffers = () => {
                 )
             }
             
-        </div>
+        </>
     )
 }

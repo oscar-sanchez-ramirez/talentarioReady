@@ -176,7 +176,7 @@ export const Getapplication = () => {
                                         (
                                             <div className="text-center">
                                                 <p><button onClick={handleFav}className="btn agregar_fav align-items-center">Agregar a favoritos<span className="ico-favoritos"></span></button></p>
-                                                <p><button onClick={handleApli} className="btn btn_login w-100 mt-0">Aplicar</button></p>
+                                                <p><button onClick={handleApli} className="btn btn_login btn-aplicar w-100 mt-0">Aplicar</button></p>
                                             </div>
                                         )
                                     }
@@ -186,18 +186,20 @@ export const Getapplication = () => {
                         <div className="col-lg-8 order-lg-1">
                             <div className="card shadow ">
                                 <div className="card-body">
+                                    <h2>Descripción</h2>
+                                    <div className="w-100 mb-3">{description}</div>
+                                    <h2 className="mb-2">Salario</h2>                        
+                                    <p>{salary}</p>
+                                    <h2 className="mb-2">Horario</h2>
+                                    <p>{scheduleStart} a {scheduleEnd}</p>
+                                    <h2 className="mb-2">Jornada laboral</h2>
+                                    <p>{weekSchedule}</p>
+                                    <h2 className="mb-2">Dirección</h2>
+                                    <p>{location}</p>
                             
-                            
-                            <p>Descripción: {description}</p>
-                            <p>Salario: {salary}</p>
-                            <p>Horario: {scheduleStart} a {scheduleEnd}</p>
-                            <p>Jornada laboral: {weekSchedule}</p>
-                            <p>Dirección: {location}</p>
-                            
-                        </div>
-                        </div>
-                        </div>
-                        
+                                </div>
+                            </div>
+                        </div>                        
                     </div>
                 </div>
             </div>

@@ -223,7 +223,7 @@ body {
 .hd_menu{
       background: #001e5cc4;
       padding: 5px 0;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;
@@ -287,7 +287,7 @@ body {
       box-shadow: none;
 }
 .titulo_principal{
-      padding-top: 100px;
+      padding-top: 105px;
       padding-bottom: 20px;
       background:  url('../image/rombo_titulo-principal.png') no-repeat 10% center, url('../image/rombo_titulo-principal.png') no-repeat 90% center, #767676;
       background-attachment: scroll, scroll, scroll;
@@ -580,11 +580,30 @@ body {
       color: #d63384;
       border-bottom: 1px solid #d63384;
 }
-
+.btn-aplicar:hover{
+      border-color: #5243a2;
+      color: #5243a2;
+}
+.nav-job{
+      background: transparent;
+      color: #5243a2;
+      border: 1px solid #5243a2;
+      margin: 0 10px;
+      padding: 4px 10px;
+      border-radius: 25px;
+      width: 205px;
+}
+.nav-job.active{
+      background: #5243a2;
+      color: #fff;
+}
 
 @media(max-width:1200px){
       .oferta_aplicar{
             width: 300px;
+      }
+      .navbar-expand-lg .navbar-nav .nav-link{
+            padding: 5px 0;
       }
 }
 @media(max-width:991px){
