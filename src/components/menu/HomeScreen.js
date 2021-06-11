@@ -55,39 +55,47 @@ export const HomeScreen = () => {
 
 
     return (
-        <div>
+        <>
 
             <Sidebar />
             {
                 !isCompany ? (
-                    <div>
-                        <hr />
-
-                        <h1>Ofertas de trabajo</h1>
-
-                        <input
-                            type='text'
-                            name="search"
-                            placeholder="Buscador..."
-                            onChange={handleInputChange}
-                            style={{ marginBottom: '20px' }}
-                        />
+                    <div className="contenido">
+                        <div className="titulo_principal">
+                            <div className="container">
+                                <div className="row">
+                                   <h1>Ofertas de trabajo</h1>
+                                </div>
+                            </div>
+                        </div>
                         <div className="container">
+                            <div className="row my-4 align-items-end">
+                                <div className="input_search">
+                                    <div className="input-group">
+                                        <input
+                                            type='text'
+                                            name="search"
+                                            placeholder="Buscador..."
+                                            className="form-control"
+                                            onChange={handleInputChange}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                             {loading ? <p>cargando...</p> :
                                 (<div id="jobFs" className="row">
                                     {objJob &&
                                         objJob.map(iterador => (
-                                            <div key={iterador.uid} className="col-md-4 mb-4">
+                                            <div key={iterador.uid} className="col-xl-4 col-md-6 mb-4 job_offers">
                                                 <div className="card shadow h-100">
                                                     <div className="card-body">
-                                                        <p>{iterador.cargo}</p>
+                                                        <h5 className="mb-0"><strong>{iterador.cargo}</strong></h5>
                                                         <Datosjob companyId={iterador.companyId} />
-                                                        <p>{iterador.salario}</p>
-                                                        <p>{iterador.localidad}</p>
+                                                        <p className="d-inline-flex"><span className="salario">{iterador.salario}</span></p>
+                                                        <p className="fs-6 text-secondary">{iterador.localidad}</p>
+                                                        <p className="mb-0"><Link className="btn btn_ver_oferta btn-sm" to={`/getApplication/${iterador.uid}`}
+                                                        >Ver oferta</Link></p>
                                                     </div>
-
-                                                    <p><Link className="btn btn-primary btn-small" to={`/getApplication/${iterador.uid}`}
-                                                    >Ver</Link></p>
                                                 </div>
                                             </div>
                                         ))
@@ -141,6 +149,6 @@ export const HomeScreen = () => {
                 )
             }
 
-        </div>
+        </>
     )
 }

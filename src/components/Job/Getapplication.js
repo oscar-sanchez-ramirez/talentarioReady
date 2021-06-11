@@ -151,31 +151,55 @@ export const Getapplication = () => {
     return (
         <>
             <Sidebar />
-            <br />
-            <br />
-            <br />
-            <br />
-            <Link to="/favorite" id="favorite"></Link>
-            <div>
-
-                <img src={imageUrll} alt="imagen" width="70" />
-                <p>Empresa: {name}</p>
-                <p>Puesto: {positionName}</p>
-                <p>Descripción: {description}</p>
-                <p>Salario: {salary}</p>
-                <p>Horario: {scheduleStart} a {scheduleEnd}</p>
-                <p>Jornada laboral: {weekSchedule}</p>
-                <p>Dirección: {location}</p>
-                {
-                    (isCompany === false) &&
-
-                    (
-                        <div>
-                            <button onClick={handleApli}>Aplicar</button>
-                            <button onClick={handleFav}>Agregar a favoritos</button>
+            <div className="contenido">
+                <div className="titulo_principal">
+                    <div className="container">
+                        <div className="row">
+                            <h1>{positionName}</h1>
                         </div>
-                    )
-                }
+                    </div>
+                </div>
+                <div className="container">
+                    <div className="row my-5">
+                        <Link to="/favorite" id="favorite"></Link>
+                        <div className="col-lg-4 order-lg-2">
+                            <div className="card shadow oferta_aplicar p-4">
+                                <div className="card-body">
+                                    <div className="oferta_imagen">
+                                        <img src={imageUrll} alt="imagen" className="img-fluid" />
+                                    </div>
+                                    <h5><small>{name}</small></h5>
+                                    <h3><strong>{positionName}</strong></h3>
+                                    {
+                                        (isCompany === false) &&
+
+                                        (
+                                            <div className="text-center">
+                                                <p><button onClick={handleFav}className="btn agregar_fav align-items-center">Agregar a favoritos<span className="ico-favoritos"></span></button></p>
+                                                <p><button onClick={handleApli} className="btn btn_login w-100 mt-0">Aplicar</button></p>
+                                            </div>
+                                        )
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-8 order-lg-1">
+                            <div className="card shadow ">
+                                <div className="card-body">
+                            
+                            
+                            <p>Descripción: {description}</p>
+                            <p>Salario: {salary}</p>
+                            <p>Horario: {scheduleStart} a {scheduleEnd}</p>
+                            <p>Jornada laboral: {weekSchedule}</p>
+                            <p>Dirección: {location}</p>
+                            
+                        </div>
+                        </div>
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
         </>
     )
