@@ -14,7 +14,7 @@ export const planCompany = () => {
                     </div>
                 </div>
                 <div className="container planes">
-                    <div className="row">
+                    <div className="row mb-5">
                         <div className="col-md-4">
                             <div className="card shadow h-100">
                                 <div className="card-header py-3">
