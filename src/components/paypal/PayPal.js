@@ -1,8 +1,12 @@
 import React, { useEffect, useRef } from 'react'
+import { useState } from 'react';
 
 export const PayPal = () => {
 
     const paypal = useRef();
+
+   const [state, setState] = useState({});
+    
 
     useEffect(() => {
         window.paypal
@@ -23,6 +27,8 @@ export const PayPal = () => {
           },
           onApprove: async (data, actions) => {
             const order = await actions.order.capture();
+            console.log('pay');
+            setState(order);
             console.log(order);
           },
           onError: (err) => {
@@ -35,6 +41,7 @@ export const PayPal = () => {
     return (
         <div>
             <div ref={paypal}></div>
+            <p>{JSON.stringify(state)}</p>
         </div>
     )
 }
