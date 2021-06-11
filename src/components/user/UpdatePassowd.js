@@ -50,6 +50,7 @@ export const UpdatePassowd = () => {
                             placeholder="Nueva contraseña"
                             name="password"
                             className="form-control p-0 mx-2"
+                            autoComplete="off"
                             value={password}
                             onChange={handleInputchange}
                             disabled={show}

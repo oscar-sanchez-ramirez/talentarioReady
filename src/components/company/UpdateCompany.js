@@ -66,7 +66,10 @@ export const UpdateCompany = () => {
         if (e.target.files[0]) {
             setImagen(e.target.files[0]);
             const imgCodified = URL.createObjectURL(e.target.files[0]);
-            document.getElementById('imgCompany').src = imgCodified;
+            const imgBox = document.getElementById('imgCompany');
+            imgBox.src = imgCodified;
+            imgBox.classList.add('animate__animated', 'animate__pulse');
+            
         }
     }
 
@@ -76,8 +79,8 @@ export const UpdateCompany = () => {
 
         if (imagen) {
             Swal.fire({
-                title: 'Uploading...',
-                text: 'Please wait...',
+                title: 'Subiendo...',
+                text: 'Por favor espere...',
                 allowOutsideClick: false,
                 onBeforeOpen: () => {
                     Swal.showLoading();
@@ -96,9 +99,9 @@ export const UpdateCompany = () => {
                             Swal.close();
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Data saved',
+                                title: 'Imagen subida con éxito',
                                 showConfirmButton: true,
-                                timer: 2000,
+                                timer: 1500,
                                 timerProgressBar: true
                             });
 

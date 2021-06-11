@@ -68,6 +68,21 @@ export const RepresentativeData = () => {
 
     }, [formValues])
 
+    const getPlan = () => {
+        let newPlan = '';
+        if (plan === 0) {
+            newPlan = 'Plan Basico';
+        } else if (plan === 2) {
+            newPlan = 'Plan por evento';
+        } else {
+            newPlan = 'Plan por tiempo';
+        }
+
+        return newPlan;
+    }
+
+     console.log(getPlan())
+
 
 
 
@@ -81,15 +96,15 @@ export const RepresentativeData = () => {
                             to="/perfil"
                             className="btn btn-edit"
                         >
-                        <span className="ico-recargar"></span> Recargar datos
+                            <span className="ico-recargar"></span> Recargar datos
                         </Link>
                     </p>
-                    
+
                     <h2>Datos del <strong>representante</strong></h2>
                     <form onSubmit={handleSubmit}>
 
                         <div className="row">
-                            
+
                             <div className="col-lg-4 py-2">
                                 <div className="input-group">
                                     <label>Nombre(s):</label>
@@ -106,7 +121,7 @@ export const RepresentativeData = () => {
                                 </div>
                             </div>
                             <div className="col-lg-4 py-2">
-                                <div className="input-group">                            
+                                <div className="input-group">
                                     <label>Apellido Paterno:</label>
                                     <input
                                         type="text"
@@ -118,7 +133,7 @@ export const RepresentativeData = () => {
                                         disabled={show}
 
                                     />
-                                    
+
                                 </div>
                             </div>
                             <div className="col-lg-4 py-2">
@@ -153,7 +168,7 @@ export const RepresentativeData = () => {
                                     />
                                 </div>
                             </div>
-                        </div>                
+                        </div>
 
                         {
                             !show &&
@@ -192,7 +207,7 @@ export const RepresentativeData = () => {
             </div>
             <div className="card shadow perfil_input my-5 py-4">
                 <div className="card-body text-center">
-                    <h2 className="mb-4"><label>Plan:</label> {plan}</h2>
+                    <h2 className="mb-4"><label>Plan:</label> {getPlan()}</h2>
                     <Link to="/plan" className="btn btn-azul mx-3">Mejorar plan</Link>
                 </div>
             </div>
