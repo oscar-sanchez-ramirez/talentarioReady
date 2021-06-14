@@ -41,7 +41,7 @@ export const planCompany = () => {
                                 </div>
                                 <div className="card-body">
                                     <h3 className="text-center">$800 / vacante</h3>
-                                    <ul>
+                                    <ul style={{ marginBottom: '117px' }}>
                                         <li>Vacantes publicables: 10</li>
                                         <li>Duración de la vacante: 10 días</li>
                                         <li>Posibles candidatos: 10</li>
@@ -51,9 +51,7 @@ export const planCompany = () => {
                                         <li>Gestión calendario</li>
                                         <li>Usuarios R. H: 1</li>
                                     </ul>
-                                    <p style={{ marginTop: '117px' }}>
-                                        <Checkout PEvent={800.00} />
-                                    </p>
+                                    <Checkout PEvent={800.00} />
                                 </div>
                             </div>
                         </div>
