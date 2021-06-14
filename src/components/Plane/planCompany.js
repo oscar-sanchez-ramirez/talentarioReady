@@ -1,7 +1,10 @@
 import React from 'react'
 import { Sidebar } from '../menu/SideBar'
+import { Checkout } from '../paypal/Checkout'
 
 export const planCompany = () => {
+
+
     return (
         <div>
             <Sidebar />
@@ -48,6 +51,9 @@ export const planCompany = () => {
                                         <li>Gestión calendario</li>
                                         <li>Usuarios R. H: 1</li>
                                     </ul>
+                                    <p style={{ marginTop: '117px' }}>
+                                        <Checkout PEvent={800.00} />
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -70,13 +76,14 @@ export const planCompany = () => {
                                         <li>Duración del plan: 1 año</li>
                                         <li>Usuarios R. H: 5</li>
                                     </ul>
+                                    <Checkout PEvent={2000.00} />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     )
 }
