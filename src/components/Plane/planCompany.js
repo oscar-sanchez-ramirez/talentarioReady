@@ -4,6 +4,14 @@ import { Checkout } from '../paypal/Checkout'
 
 export const planCompany = () => {
 
+    const handlePayment = () => {
+        console.log('handlePayment');
+    }
+
+    const descriptionPlanEvent = 'Plan por evento';
+
+    const descriptionPlanTiempo = 'Plan por tiempo';
+
 
     return (
         <div>
@@ -25,12 +33,13 @@ export const planCompany = () => {
                                 </div>
                                 <div className="card-body">
                                     <h3 className="text-center">Gratuito</h3>
-                                    <ul>
+                                    <ul style={{ marginBottom: '375px' }}>
                                         <li>Vacantes publicables: 1</li>
                                         <li>Duración de la vacante: 5 días</li>
                                         <li>Posibles candidatos: 10</li>
                                         <li>Usuarios R. H: 1</li>
                                     </ul>
+                                    <button onClick={handlePayment} className="btn btn-azul">Pagar</button>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +60,7 @@ export const planCompany = () => {
                                         <li>Gestión calendario</li>
                                         <li>Usuarios R. H: 1</li>
                                     </ul>
-                                    <Checkout PEvent={800.00} />
+                                    <Checkout PEvent={800.00} description={descriptionPlanEvent} plan={1}/>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +83,7 @@ export const planCompany = () => {
                                         <li>Duración del plan: 1 año</li>
                                         <li>Usuarios R. H: 5</li>
                                     </ul>
-                                    <Checkout PEvent={2000.00} />
+                                    <Checkout PEvent={2000.00} description={descriptionPlanTiempo} plan={2}/>
                                 </div>
                             </div>
                         </div>

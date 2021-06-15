@@ -50,7 +50,7 @@ export const CompanyOffers = () => {
                                         <p className="d-inline-flex"><span className="salario">{iterador.salario}</span></p>
                                         <p className="fs-6 text-secondary">{iterador.localidad}</p>
                                         <p className="mb-0">
-                                            <Link className="btn btn_ver_oferta btn-sm" to={`/getApplication/${iterador.uid}`}
+                                            <Link className="btn btn_ver_oferta btn-sm" to={`/getApplicationCompany/${iterador.uid}`}
                                             >Ver</Link>
                                         </p>
                                     </div>

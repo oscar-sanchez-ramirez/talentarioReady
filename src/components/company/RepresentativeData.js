@@ -72,7 +72,7 @@ export const RepresentativeData = () => {
         let newPlan = '';
         if (plan === 0) {
             newPlan = 'Plan Basico';
-        } else if (plan === 2) {
+        } else if (plan === 1) {
             newPlan = 'Plan por evento';
         } else {
             newPlan = 'Plan por tiempo';
@@ -81,7 +81,6 @@ export const RepresentativeData = () => {
         return newPlan;
     }
 
-     console.log(getPlan())
 
 
 

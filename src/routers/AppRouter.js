@@ -27,6 +27,7 @@ import { Test } from '../components/test/Test';
 import { Getapplication } from '../components/Job/Getapplication';
 import { planCompany } from '../components/Plane/planCompany';
 import { Checkout } from '../components/paypal/Checkout';
+import { GetapplicationCompany } from '../components/Job/GetApplicationCompany';
 
 export const AppRouter = () => {
 
@@ -211,6 +212,13 @@ export const AppRouter = () => {
                         path="/getApplication/:uid"
                         component={Getapplication}
                     />
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/getApplicationCompany/:uid"
+                        component={GetapplicationCompany}
+                    />
+
 
                     <PrivateRoute
                         isAuthenticated={isLoggedIn}

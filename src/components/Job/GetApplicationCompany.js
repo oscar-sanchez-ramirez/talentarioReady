@@ -6,9 +6,11 @@ import Swal from 'sweetalert2';
 import { db } from '../../firebase/firebase-config';
 import { Sidebar } from '../menu/SideBar';
 
-export const Getapplication = () => {
+export const GetapplicationCompany = () => {
 
     const { uid } = useParams();
+
+    console.log(uid);
 
     const { uid: userId } = useSelector(state => state.auth)
     const { isCompany } = useSelector(state => state.user)
@@ -31,6 +33,8 @@ export const Getapplication = () => {
         const starCountRef = db.ref('jobOffers/' + uid);
         starCountRef.on('value', (snapshot) => {
             const datos = snapshot.val();
+
+            console.log(datos.applicants);
 
             setCompanyId(datos.companyId)
             setIdJob(datos.id)
@@ -57,8 +61,6 @@ export const Getapplication = () => {
         });
 
     }
-
-   
 
 
 
@@ -156,7 +158,7 @@ export const Getapplication = () => {
 
                                         (
                                             <div className="text-center">
-                                                <p><button onClick={handleFav}className="btn agregar_fav align-items-center">Agregar a favoritos<span className="ico-favoritos"></span></button></p>
+                                                <p><button onClick={handleFav} className="btn agregar_fav align-items-center">Agregar a favoritos<span className="ico-favoritos"></span></button></p>
                                                 <p><button onClick={handleApli} className="btn btn_login btn-aplicar w-100 mt-0">Aplicar</button></p>
                                             </div>
                                         )
@@ -169,7 +171,7 @@ export const Getapplication = () => {
                                 <div className="card-body">
                                     <h2>Descripción</h2>
                                     <div className="w-100 mb-3">{description}</div>
-                                    <h2 className="mb-2">Salario</h2>                        
+                                    <h2 className="mb-2">Salario</h2>
                                     <p>{salary}</p>
                                     <h2 className="mb-2">Horario</h2>
                                     <p>{scheduleStart} a {scheduleEnd}</p>
@@ -177,10 +179,9 @@ export const Getapplication = () => {
                                     <p>{weekSchedule}</p>
                                     <h2 className="mb-2">Dirección</h2>
                                     <p>{location}</p>
-                            
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
             </div>

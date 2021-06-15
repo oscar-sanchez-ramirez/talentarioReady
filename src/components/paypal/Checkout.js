@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { PayPal } from './PayPal';
 
 
-export const Checkout = ({ PEvent }) => {
+export const Checkout = ({ PEvent, description, plan }) => {
 
     const [checkout, setCheckout] = useState(false);
 
@@ -11,7 +11,7 @@ export const Checkout = ({ PEvent }) => {
         <div className="text-center">
             {/* <Sidebar /> */}
             {checkout ? (
-                <PayPal PEvent={PEvent} />
+                <PayPal PEvent={PEvent} description={description} plan={plan}/>
             ) : (
                     <button
                         className="btn btn-azul"
