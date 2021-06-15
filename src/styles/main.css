@@ -227,7 +227,7 @@ body {
       top: 0;
       left: 0;
       right: 0;
-      z-index: 1;
+      z-index: 1000;
 }
 .hd_menu .nav-link{
       color: #fff;
@@ -478,8 +478,13 @@ body {
 .planes .card-header{
       background-color: #5243a2;
 }
-.planes .card-body{
+.planes .card-body,
+.planes .card-footer{
       background: #ededed;
+}
+.planes .card-footer{
+      border-top: none;
+      padding-bottom: 20px;
 }
 .planes .card-header h2{
       color: #fff;

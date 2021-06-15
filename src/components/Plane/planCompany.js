@@ -17,8 +17,8 @@ export const planCompany = () => {
                     </div>
                 </div>
                 <div className="container planes">
-                    <div className="row mb-5">
-                        <div className="col-md-4">
+                    <div className="row">
+                        <div className="col-lg-4 mb-5">
                             <div className="card shadow h-100">
                                 <div className="card-header py-3">
                                     <h2 className="text-center">Plan Básico</h2>
@@ -34,14 +34,14 @@ export const planCompany = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-lg-4 mb-5">
                             <div className="card shadow h-100">
                                 <div className="card-header py-3">
-                                    <h2 className="text-center">Plan por evento</h2>
+                                    <h2 className="text-center">Plan Por Evento</h2>
                                 </div>
                                 <div className="card-body">
                                     <h3 className="text-center">$800 / vacante</h3>
-                                    <ul style={{ marginBottom: '117px' }}>
+                                    <ul>
                                         <li>Vacantes publicables: 10</li>
                                         <li>Duración de la vacante: 10 días</li>
                                         <li>Posibles candidatos: 10</li>
@@ -51,14 +51,16 @@ export const planCompany = () => {
                                         <li>Gestión calendario</li>
                                         <li>Usuarios R. H: 1</li>
                                     </ul>
+                                </div>
+                                <div className="card-footer">
                                     <Checkout PEvent={800.00} />
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-lg-4 mb-5">
                             <div className="card shadow h-100">
                                 <div className="card-header py-3">
-                                    <h2 className="text-center">Plan por tiempo</h2>
+                                    <h2 className="text-center">Plan Por Tiempo</h2>
                                 </div>
                                 <div className="card-body">
                                     <h3 className="text-center">$2,000 / mes</h3>
@@ -74,6 +76,8 @@ export const planCompany = () => {
                                         <li>Duración del plan: 1 año</li>
                                         <li>Usuarios R. H: 5</li>
                                     </ul>
+                                </div>
+                                <div className="card-footer">
                                     <Checkout PEvent={2000.00} />
                                 </div>
                             </div>
