@@ -11,7 +11,7 @@ export const DatosCompany = ({ companyId }) => {
         <>
             {
                 loading ? (<p>cargando...</p>) :
-                    (<div className="position-relative">
+                    (<div className="position-relative empresa_logo">
                         <div className="job_img  top-50 translate-middle rounded">
                             <img src={data.imageUrl} alt="Imagen de perfil" className="img-fluid" />
                         </div>                        

@@ -10,15 +10,15 @@ export const AppInfo = ({ idJob }) => {
     const { data, loading } = state;
 
     return (
-        <div>
+        <>
             { loading ? (<p>cargando...</p>) :
                 (<div key={data.id}>
-                    <p>{data.positionName}</p>
-                    <p>{data.salary}</p>
-                    <p>{data.location}</p>
+                    <p className="mb-0">{data.positionName}</p>
+                    <p className="d-inline-flex"><span className="salario">{data.salary}</span></p>
+                    <p className="fs-6 text-secondary mb-0">{data.location}</p>
                 </div>
                 )
             }
-        </div>
+        </>
     )
 }

@@ -41,30 +41,50 @@ export const FavoriteScreen = () => {
 
 
     return (
-        <div>
+        <>
             <Sidebar />
-            <hr />
-            <h2 className="text-primary">Favoritos</h2>
-            <hr />
-            <div>
-                <h5>Recientemente aplicados</h5>
-                <hr />
+            <div className="contenido favoritos">
+                <div className="titulo_principal">
+                    <div className="container">
+                        <div className="row">
+                            <h1>Favoritos</h1>
+                        </div>
+                    </div>
+                </div>
+                <div className="container">
+                    <div className="row py-4">
+                        <ul className="nav justify-content-center mb-4" id="pills-tab" role="tablist">
+                            <li className="nav-item" role="presentation">
+                                <button className="nav-job active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#aplicados" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Recientemente aplicados</button>
+                            </li>
+                            <li className="nav-item" role="presentation">
+                                <button className="nav-job" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#favoritos" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Todos los favoritos</button>
+                            </li>
+                        </ul>
+                        
+                        <div className="tab-content" id="pills-tabContent">
+                            <div className="tab-pane fade show active" id="aplicados" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div className="row">
+                                    {error ? (<h2 className="text-center">No hay recientemente aplicados</h2>) :
+                                        (
+                                            !cargando &&
+                                            jobA.map(item => (
+                                                <div key={item.idJob} className="col-xl-4 col-md-6 mb-4 job_offers">
+                                                    <ApplicationJobs companyID={item.uidCompany} idJob={item.idJob} />
+                                                </div>
+                                            ))
+                                        )
 
-                {error ? (<p>No hay recientemente aplicados</p>) :
-                    (
-                        !cargando &&
-                        jobA.map(item => (
-                            <div key={item.idJob}>
-                                <ApplicationJobs companyID={item.uidCompany} idJob={item.idJob} />
+                                    }
+                                </div>
                             </div>
-                        ))
-                    )
-
-                }
+                            <div className="tab-pane fade" id="favoritos" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <FavJob />
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
             </div>
-            <div>
-                <FavJob />
-            </div>
-        </div>
+        </>
     )
 }

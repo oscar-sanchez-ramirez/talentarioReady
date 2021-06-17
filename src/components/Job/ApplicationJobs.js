@@ -15,18 +15,23 @@ export const ApplicationJobs = ({ companyID, idJob }) => {
 
     return (
 
-        <div>
+        <div className="card shadow h-100">
+            <div className="card-body">
             {
                 loading ? (<p>Cargando...</p>) : (
-                    <div>
-                        <p>{data.name}</p>
-                        <img src={data.imageUrl} alt="imagen" width={ 50 }/> 
-                        <AppInfo idJob={idJob}/>
-                        <hr />
-                    </div>
+                    <>
+                        <h5 className="mb-0"><strong>{data.name}</strong></h5>
+                        <div className="position-relative empresa_logo">
+                            <div className="job_img  top-0 translate-middle rounded">
+                                <img src={data.imageUrl} alt="Imagen Company" className="img-fluid" />
+                            </div>
+                            <AppInfo idJob={idJob}/>
+                        </div>
+                    </>
                 )
             }
             
+            </div>
         </div>
 
     )

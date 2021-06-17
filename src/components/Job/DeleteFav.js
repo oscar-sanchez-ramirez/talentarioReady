@@ -43,7 +43,7 @@ export const DeleteFav = ({ company, job }) => {
     return (
         <div>
             <Link to="/favorite" id="favoriteID"></Link>
-            <button className="btn btn-danger" onClick={handleDeleteFav}>Borrar</button>
+            <button className="btn btn-borrar btn-sm" onClick={handleDeleteFav}>Borrar</button>
         </div>
     )
 }

@@ -117,7 +117,7 @@ export const HomeScreen = () => {
                         </div>
                         <div className="container">
                             <div className="row py-4">
-                                <ul className="nav justify-content-center mb-3" id="pills-tab" role="tablist">
+                                <ul className="nav justify-content-center mb-4" id="pills-tab" role="tablist">
                                     <li className="nav-item" role="presentation">
                                         <button className="nav-job active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#ofertas-empresa" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Ofertas de la empresa</button>
                                     </li>

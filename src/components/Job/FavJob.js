@@ -40,15 +40,15 @@ export const FavJob = () => {
 
 
     return (
-        <div>
-            <h5>Todos los favoritos</h5>
-            <hr />
-            {error ? (<p>No hay favoritos</p>) :
+        <div className="row">
+            {error ? (<h2 className="text-center">No hay favoritos</h2>) :
                 (
                     !cargando &&
                     jobF.map((item, index) => (
-                        <div key={index}>
-                            <FavoritesJob companyID={item.uidCompany} idFav={item.idFav} />
+                        <div key={index} className="col-xl-4 col-md-6 mb-4 job_offers">
+                            <div className="card shadow h-100">
+                                <FavoritesJob companyID={item.uidCompany} idFav={item.idFav} />
+                            </div>
                         </div>
                     ))
                 )

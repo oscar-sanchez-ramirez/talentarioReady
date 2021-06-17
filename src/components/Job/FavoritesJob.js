@@ -10,15 +10,19 @@ export const FavoritesJob = ({ companyID, idFav }) => {
     const { data, loading } = state;
 
     return (
-        <div>
+        <div className="card-body">
             {
                 loading ? (<p>Cargando...</p>) : (
-                    <div>
+                    <>
+                        <h5 className="mb-0"><strong>{data.name}</strong></h5>
+                        <div className="position-relative empresa_logo">
+                            <div className="job_img  top-0 translate-middle rounded">
+                                <img src={data.imageUrl} alt="Imagen Company" className="img-fluid" />
+                            </div>
+                            <FavInfo idFav={idFav} />
+                        </div>
                         <DeleteFav company={companyID} job={idFav} />
-                        <p>{data.name}</p>
-                        <img src={data.imageUrl} alt="imagen" width={50} />
-                        <FavInfo idFav={idFav} />
-                    </div>
+                    </>
                 )
             }
         </div>
