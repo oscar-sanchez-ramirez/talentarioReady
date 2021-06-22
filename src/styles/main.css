@@ -61,7 +61,7 @@ body {
       margin: 0px;
       min-height: 100vh;
       width: 100vw;
-      padding: 40px 20px;
+      padding:20px;
 }
 
 .form_login{
@@ -84,7 +84,7 @@ body {
 }
 .logo{
       width: 100%;
-      height: 320px;
+      height: 280px;
       align-items: end;
       display: grid;
       text-align: center;
@@ -97,7 +97,7 @@ body {
       margin-bottom: 15px;
 }
 .form_content{
-      padding: 30px;
+      padding: 15px 30px;
       background: url('../image/bg-form_body.png') center bottom;
       background-size: cover;
 }
@@ -151,7 +151,7 @@ body {
       color: #fff;
       border: 1px solid #5243a2;
       transition: 250ms;
-      margin-top: 30px;
+      margin-top: 20px;
       margin-bottom: 20px;
       cursor:pointer;
 }

@@ -103,6 +103,7 @@ export const LoginScreen = () => {
                                     id="aplicante"
                                     type="radio"
                                     name="empresa"
+                                    className="mx-2"
                                     value="false"                                    
                                     onChange={handleInputChange}
                                 />
@@ -113,6 +114,7 @@ export const LoginScreen = () => {
                                     id="empresa"
                                     type="radio"
                                     name="empresa"
+                                    className="mx-2"
                                     value="true"
                                     onChange={handleInputChange}
 
@@ -120,7 +122,7 @@ export const LoginScreen = () => {
                              </div>
                         </div>
 
-                        <div className="form-group text-center">
+                        <div className="form-group text-center mb-0">
                             <button
                                 type="submit"
                                 className="btn btn-primary btn-block btn_login"
@@ -148,7 +150,7 @@ export const LoginScreen = () => {
                             </div>
                         </div>
 
-                        <div className="form-group text-center">
+                        <div className="form-group text-center mb-0">
                             <p>¿No tienes una cuenta? &nbsp;
                             <Link
                                 to="/auth/register"
