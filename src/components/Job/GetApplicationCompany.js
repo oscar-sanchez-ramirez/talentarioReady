@@ -169,6 +169,7 @@ export const GetapplicationCompany = () => {
                         <div className="col-lg-8 order-lg-1">
                             <div className="card shadow ">
                                 <div className="card-body">
+                                    <h1 className="text-center">Nuestra Oferta</h1>
                                     <h2>Descripción</h2>
                                     <div className="w-100 mb-3">{description}</div>
                                     <h2 className="mb-2">Salario</h2>
