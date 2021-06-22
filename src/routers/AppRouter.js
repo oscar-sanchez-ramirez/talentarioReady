@@ -28,6 +28,7 @@ import { Getapplication } from '../components/Job/Getapplication';
 import { planCompany } from '../components/Plane/planCompany';
 import { Checkout } from '../components/paypal/Checkout';
 import { GetapplicationCompany } from '../components/Job/GetApplicationCompany';
+import { Loading } from '../components/Loading/Loading';
 
 export const AppRouter = () => {
 
@@ -138,7 +139,7 @@ export const AppRouter = () => {
 
     if (checking) {
         return (
-            <h1>Espere...</h1>
+            <Loading />
         )
     }
     return (
