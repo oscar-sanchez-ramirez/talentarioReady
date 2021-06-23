@@ -18,7 +18,7 @@ export const ApplicationJobs = ({ companyID, idJob }) => {
         <div className="card shadow h-100">
             <div className="card-body">
             {
-                loading ? (<p>Cargando...</p>) : (
+                loading ? (<p className="aparece">Cargando...</p>) : (
                     <>
                         <h5 className="mb-0"><strong>{data.name}</strong></h5>
                         <div className="position-relative empresa_logo">

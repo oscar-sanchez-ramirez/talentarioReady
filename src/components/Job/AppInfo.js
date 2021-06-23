@@ -11,7 +11,7 @@ export const AppInfo = ({ idJob }) => {
 
     return (
         <>
-            { loading ? (<p>cargando...</p>) :
+            { loading ? (<p className="aparece">cargando...</p>) :
                 (<div key={data.id}>
                     <p className="mb-0">{data.positionName}</p>
                     <p className="d-inline-flex"><span className="salario">{data.salary}</span></p>

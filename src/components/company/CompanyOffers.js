@@ -38,11 +38,11 @@ export const CompanyOffers = () => {
 
     return (
         <>
-            { loading ? <p>cargando...</p> :
+            { loading ? <p className="aparece">cargando...</p> :
                 (<div id="jobFs" className="row">
                     {objJob &&
                         objJob.map(iterador => (
-                            <div key={iterador.uid} className="col-xl-4 col-md-6 mb-4 job_offers">
+                            <div key={iterador.uid} className="col-xl-4 col-md-6 mb-4 job_offers aparece">
                                 <div className="card shadow h-100">
                                     <div className="card-body">
                                         <h5 className="mb-0"><strong>{iterador.cargo}</strong></h5>

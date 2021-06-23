@@ -143,7 +143,7 @@ export const GetapplicationCompany = () => {
                     </div>
                 </div>
                 <div className="container">
-                    <div className="row my-5">
+                    <div className="row py-5">
                         <Link to="/favorite" id="favorite"></Link>
                         <div className="col-lg-4 order-lg-2">
                             <div className="card shadow oferta_aplicar p-4">
@@ -154,7 +154,7 @@ export const GetapplicationCompany = () => {
                                     <h5><small>{name}</small></h5>
                                     <h3><strong>{positionName}</strong></h3>
                                     <p>
-                                        <Link to={`/applicanFavo/${uid}`} className="btn btn-primary">Aplicantes favoritos</Link>
+                                        <Link to={`/applicanFavo/${uid}`} className="btn btn_login btn-aplicar w-100 mt-0">Aplicantes favoritos</Link>
                                     </p>
                                     {
                                         (isCompany === false) &&

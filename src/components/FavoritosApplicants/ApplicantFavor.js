@@ -38,18 +38,30 @@ export const ApplicantFavor = () => {
 
 
     return (
-        <div>
+        <>
             <Sidebar />
-            <h1>Aplicante favorito</h1>
-            {
-                (job !== '') ? (
-                    job.map(item => (
-                        <Applican key={item.userId} uid={item.userId} status={item.status} />
-                    ))
-                )
-                    : (<p>No hay favoritos</p>)
-            }
-        </div>
+            <div className="contenido">
+                <div className="titulo_principal">
+                    <div className="container">
+                        <div className="row">
+                            <h1>Aplicante favorito</h1>
+                        </div>
+                    </div>
+                </div>
+                <div className="container">
+                    <div className="row py-5">
+                        {
+                            (job !== '') ? (
+                                job.map(item => (
+                                    <Applican key={item.userId} uid={item.userId} status={item.status} />
+                                ))
+                            )
+                                : (<h2 className="text-center">No hay favoritos</h2>)
+                        }
+                    </div>
+                </div>
+            </div>
+        </>
     )
 }
 
