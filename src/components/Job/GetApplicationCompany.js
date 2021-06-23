@@ -10,7 +10,7 @@ export const GetapplicationCompany = () => {
 
     const { uid } = useParams();
 
-    console.log(uid);
+    // console.log(uid);
 
     const { uid: userId } = useSelector(state => state.auth)
     const { isCompany } = useSelector(state => state.user)
@@ -34,7 +34,7 @@ export const GetapplicationCompany = () => {
         starCountRef.on('value', (snapshot) => {
             const datos = snapshot.val();
 
-            console.log(datos.applicants);
+            // console.log(datos.applicants);
 
             setCompanyId(datos.companyId)
             setIdJob(datos.id)
@@ -153,6 +153,9 @@ export const GetapplicationCompany = () => {
                                     </div>
                                     <h5><small>{name}</small></h5>
                                     <h3><strong>{positionName}</strong></h3>
+                                    <p>
+                                        <Link to={`/applicanFavo/${uid}`} className="btn btn-primary">Aplicantes favoritos</Link>
+                                    </p>
                                     {
                                         (isCompany === false) &&
 

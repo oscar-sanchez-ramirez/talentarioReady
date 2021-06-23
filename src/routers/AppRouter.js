@@ -29,6 +29,7 @@ import { planCompany } from '../components/Plane/planCompany';
 import { Checkout } from '../components/paypal/Checkout';
 import { GetapplicationCompany } from '../components/Job/GetApplicationCompany';
 import { Loading } from '../components/Loading/Loading';
+import { ApplicantFavor } from '../components/FavoritosApplicants/ApplicantFavor';
 
 export const AppRouter = () => {
 
@@ -231,6 +232,12 @@ export const AppRouter = () => {
                         isAuthenticated={isLoggedIn}
                         path="/checkout"
                         component={Checkout}
+                    />
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/applicanFavo/:uid"
+                        component={ApplicantFavor}
                     />
 
 
