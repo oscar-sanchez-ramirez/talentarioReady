@@ -69,7 +69,7 @@ export const FavoriteScreen = () => {
                                         (
                                             !cargando &&
                                             jobA.map(item => (
-                                                <div key={item.idJob} className="col-xl-4 col-md-6 mb-4 job_offers">
+                                                <div key={item.idJob} className="col-xl-4 col-md-6 mb-4 job_offers aparece">
                                                     <ApplicationJobs companyID={item.uidCompany} idJob={item.idJob} />
                                                 </div>
                                             ))

@@ -45,7 +45,7 @@ export const FavJob = () => {
                 (
                     !cargando &&
                     jobF.map((item, index) => (
-                        <div key={index} className="col-xl-4 col-md-6 mb-4 job_offers">
+                        <div key={index} className="col-xl-4 col-md-6 mb-4 job_offers aparece">
                             <div className="card shadow h-100">
                                 <FavoritesJob companyID={item.uidCompany} idFav={item.idFav} />
                             </div>

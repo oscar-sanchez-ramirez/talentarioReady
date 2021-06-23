@@ -730,6 +730,10 @@ body {
       color: #cf0045;
       box-shadow: none;
 }
+.aparece{
+      animation: 500ms ease-in-out 200ms normal both 1 running fadeIn;
+}
+
 
 @media(max-width:1200px){
       .oferta_aplicar{

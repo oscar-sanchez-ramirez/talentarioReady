@@ -36,19 +36,27 @@ export const Applican = ({ uid, status }) => {
 
 
     return (
-        <div>
+        <>
             {
                 (status === 0) && (
-                    <div>
-                        <img src={image}  alt={name} width="100px"/>
-                        <p>{name}</p>
-                        <p>{fullName}</p>
-                        <p>{age}</p>
-                        <p>{email}</p>
+                    <div className="col-xl-4 col-md-6 mb-4 job_offers aparece">
+                        <div className="card shadow h-100">
+                            <div className="card-body">
+                                <h5 className="mb-0"><strong>{name}</strong></h5>
+                                <div className="position-relative empresa_logo">
+                                    <div className="job_img  top-50 translate-middle rounded">
+                                        <img src={image}  alt={name}  className="img-fluid" />
+                                    </div>
+                                    <p className="mb-0">{fullName}</p>
+                                </div>
+                                <p><strong>{age} años</strong></p>
+                                <p className="fs-6 text-secondary mb-0">{email}</p>
+                            </div>
+                        </div>
                     </div>
                 )
             }
 
-        </div>
+        </>
     )
 }
