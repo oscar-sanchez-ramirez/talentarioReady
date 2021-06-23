@@ -5,6 +5,7 @@ import { useFetch } from '../../hooks/useFetch'
 import { CompanyOffers } from '../company/CompanyOffers';
 import { Datosjob } from '../Job/Datosjob';
 import { Sidebar } from './SideBar'
+import { Loading } from '../Loading/Loading';
 
 export const HomeScreen = () => {
 
@@ -82,7 +83,7 @@ export const HomeScreen = () => {
                                     </div>
                                 </div>
                             </div>
-                            {loading ? <p>cargando...</p> :
+                            {loading ? <Loading /> :
                                 (<div id="jobFs" className="row">
                                     {objJob &&
                                         objJob.map(iterador => (
@@ -142,7 +143,7 @@ export const HomeScreen = () => {
                                                 />
                                             </div>
                                         </div>
-                                        {loading ? <p>cargando...</p> :
+                                        {loading ? <Loading /> :
                                             (<div id="jobFs" className="row">
                                                 {objJob &&
                                                     objJob.map(iterador => (
