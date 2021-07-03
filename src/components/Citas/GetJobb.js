@@ -10,7 +10,7 @@ export const GetJobb = ({ user, jobb }) => {
     // console.log(data && data)
 
     const [inforJob, setInforjob] = useState({ dataJob: null, carga: true });
-    const { dataJob, carga } = inforJob;
+    const { dataJob } = inforJob;
     // console.log(dataJob && dataJob)
 
 
@@ -51,7 +51,7 @@ export const GetJobb = ({ user, jobb }) => {
             </div>
             <div>
                 {
-                    !carga && (
+                    dataJob && (
                         <div>
                             <p>{dataJob.positionName}</p>
                             <p>Sueldo: {dataJob.salary}</p>

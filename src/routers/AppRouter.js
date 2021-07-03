@@ -30,6 +30,7 @@ import { Checkout } from '../components/paypal/Checkout';
 import { GetapplicationCompany } from '../components/Job/GetApplicationCompany';
 import { Loading } from '../components/Loading/Loading';
 import { ApplicantFavor } from '../components/FavoritosApplicants/ApplicantFavor';
+import { CreateOrder } from '../components/paypal/CreateOrder';
 
 export const AppRouter = () => {
 
@@ -239,6 +240,14 @@ export const AppRouter = () => {
                         path="/applicanFavo/:uid"
                         component={ApplicantFavor}
                     />
+
+                    <PrivateRoute
+                        isAuthenticated={isLoggedIn}
+                        path="/createOrder"
+                        component={CreateOrder}
+                    />
+
+
 
 
 

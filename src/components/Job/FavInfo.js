@@ -5,11 +5,11 @@ export const FavInfo = ({ idFav }) => {
 
     const url = `https://us-central1-talentario-a3d9a.cloudfunctions.net/api/jobOffer/${idFav}`;
     const state = useFetch(url);
-    const { data, loading } = state;
+    const { data } = state;
 
     return (
         <>
-            { loading ? (<p className="aparece">cargando...</p>) :
+            { !data ? (<p className="aparece">cargando...</p>) :
                 (<div key={data.id}>
                     <p className="mb-0">{data.positionName}</p>
                     <p className="d-inline-flex"><span className="salario">{data.salary}</span></p>
