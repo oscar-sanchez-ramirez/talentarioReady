@@ -55,8 +55,8 @@ export const CalendarScreen = () => {
                         (
                             Object.keys(data).map(item => (
                                 <div key={data[item].id}>
-                                    <p><b>Fecha de la cita: {data[item].date}</b></p>
-                                    <GetJobb user={data[item].applicantId} jobb={data[item].companyId + '§' + data[item].jobId} />
+                                    {/* <p><b>Fecha de la cita: {data[item].date}</b></p> */}
+                                    <GetJobb fecha={data[item].date} user={data[item].applicantId} jobb={data[item].companyId + '§' + data[item].jobId} />
                                 </div>
                             ))
                         ) :

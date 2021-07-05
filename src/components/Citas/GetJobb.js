@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { db } from '../../firebase/firebase-config';
 
-export const GetJobb = ({ user, jobb }) => {
+export const GetJobb = ({ user, jobb, fecha }) => {
 
 
 
     const [infor, setInfor] = useState({ data: null, loading: true });
-    const { data, loading } = infor;
+    const { data } = infor;
     // console.log(data && data)
 
     const [inforJob, setInforjob] = useState({ dataJob: null, carga: true });
@@ -41,8 +41,9 @@ export const GetJobb = ({ user, jobb }) => {
         <div>
             <div>
                 {
-                    !loading && (
+                    dataJob && (
                         <div>
+                            <p><b>Fecha de la cita: {fecha}</b></p>
                             <p>{data.name} {data.fullName.replace('+', '')}</p>
                             <img src={data.imageUrl} alt={data.name} width="60" />
                         </div>
@@ -58,7 +59,7 @@ export const GetJobb = ({ user, jobb }) => {
                             <p>Descripción: {dataJob.description}</p>
                             <p>Dirección: {dataJob.location}</p>
 
-                            
+
                             <hr />
                         </div>
                     )
