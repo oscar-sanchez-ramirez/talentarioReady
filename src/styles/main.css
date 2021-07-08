@@ -51,6 +51,13 @@
       background: linear-gradient(177deg, rgba(0,30,92,1) 0%, rgba(82,67,162,1) 100%);
       overflow: hidden;
 }
+.body-load-int{
+      padding:0;
+      margin:0;
+      width:100%;
+      height:100vh;
+      overflow: hidden;
+}
 .wrapper{
       width:200px;
       height:60px;
@@ -68,6 +75,9 @@
       left:15%;
       transform-origin: 50%;
       animation: circle .5s alternate infinite ease;
+  }
+  .body-load-int .circle{
+      background: linear-gradient(177deg, rgba(0,30,92,1) 0%, rgba(82,67,162,1) 100%);
   }
   
   @keyframes circle{
@@ -139,6 +149,9 @@
       letter-spacing: 12px;
       color: #fff;
       left:15%;
+  }
+  .body-load-int .wrapper span{
+        color: #001e5c;
   }
 
 /*Animacion de carga*/
