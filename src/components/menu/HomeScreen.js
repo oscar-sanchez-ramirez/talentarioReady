@@ -5,17 +5,39 @@ import { useFetch } from '../../hooks/useFetch'
 import { CompanyOffers } from '../company/CompanyOffers';
 import { Datosjob } from '../Job/Datosjob';
 import { Sidebar } from './SideBar'
-import { Loading } from '../Loading/Loading';
+// import { Loading } from '../Loading/Loading';
+import { LoadingInterno } from '../Loading/LoadingInterno'
 
 export const HomeScreen = () => {
 
 
-    const state = useFetch(`https://us-central1-talentario-a3d9a.cloudfunctions.net/api/jobOffers`);
+    const [siguiente, setSiguiente] = useState('');
+
+
+    const handleGetLastJob = () => {
+
+        (!!data && lastJob[4]) && console.log(lastJob[4].uid)
+        if (!!data && lastJob[4] && lastJob[4].uid) {
+
+            setSiguiente(lastJob[4].uid);
+        }
+
+    }
+
+
+    let url = `https://us-central1-talentario-a3d9a.cloudfunctions.net/api/jobOffers/`;
+    const state = useFetch(url + siguiente);
     const { data, loading } = state;
     // console.log(data)
 
+
+
     const [objJob, setobjJob] = useState(data);
-    // console.log(objJob)
+    // console.log(objJob);
+
+
+    const [lastJob, setLastJob] = useState(null);
+
 
     const ofertas = (data) => {
         const offf = [];
@@ -25,6 +47,8 @@ export const HomeScreen = () => {
                 return offf.push({ uid: iterador, companyId: data[iterador].companyId, cargo: data[iterador].positionName, salario: data[iterador].salary, localidad: data[iterador].location })
             })
         setobjJob(offf)
+        setLastJob(offf)
+
 
         return offf;
 
@@ -40,7 +64,6 @@ export const HomeScreen = () => {
         const getOffersByPositionName = (positionName) => offer.filter(jobPosition => eliminarDiacriticos(jobPosition.cargo.toLowerCase()).includes(eliminarDiacriticos(positionName.toLowerCase())));
         setobjJob(getOffersByPositionName(search));
     }
-
 
 
 
@@ -65,7 +88,7 @@ export const HomeScreen = () => {
                         <div className="titulo_principal">
                             <div className="container">
                                 <div className="row">
-                                   <h1>Ofertas de trabajo</h1>
+                                    <h1>Ofertas de trabajo</h1>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +106,7 @@ export const HomeScreen = () => {
                                     </div>
                                 </div>
                             </div>
-                            {loading ? <Loading /> :
+                            {loading ? <LoadingInterno /> :
                                 (<div id="jobFs" className="row">
                                     {objJob &&
                                         objJob.map(iterador => (
@@ -105,6 +128,11 @@ export const HomeScreen = () => {
                                 )
                             }
                         </div>
+                        <div className="container">
+                            <div className="row my-4 align-items-end">
+                                {(!loading && objJob) && <button className="btn btn-azul" onClick={handleGetLastJob}>Siguiente</button>}
+                            </div>
+                        </div>
                     </div>
                 ) : (
 
@@ -112,7 +140,7 @@ export const HomeScreen = () => {
                         <div className="titulo_principal">
                             <div className="container">
                                 <div className="row">
-                                   <h1>Ofertas de trabajo</h1>
+                                    <h1>Ofertas de trabajo</h1>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +171,7 @@ export const HomeScreen = () => {
                                                 />
                                             </div>
                                         </div>
-                                        {loading ? <Loading /> :
+                                        {loading ? <LoadingInterno /> :
                                             (<div id="jobFs" className="row">
                                                 {objJob &&
                                                     objJob.map(iterador => (
@@ -167,6 +195,11 @@ export const HomeScreen = () => {
                                         }
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div className="container">
+                            <div className="row my-4 align-items-end">
+                                {(!loading && objJob) && <button className="btn btn-azul" onClick={handleGetLastJob}>Siguiente</button>}
                             </div>
                         </div>
                     </div>

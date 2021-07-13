@@ -7,17 +7,19 @@ export const Datosjob = ({ companyId }) => {
 
     const { data, loading } = state;
 
+
+
     // console.log(!loading && data)
 
     return (
         <>
             {
                 loading ? (<p>cargando...</p>) :
-                    (<div className="position-relative empresa_logo">                        
+                    (<div className="position-relative empresa_logo">
                         <div className="job_img  top-50 translate-middle rounded">
-                            <img src={data.imageUrl} alt="Imagen de perfil" className="img-fluid" />
+                            {data && <img src={data.imageUrl} alt="Imagen de perfil" className="img-fluid" />}
                         </div>
-                        <p className="mb-0">{data.name}</p>
+                        {data && <p className="mb-0">{data.name}</p>}
                     </div>)
             }
         </>

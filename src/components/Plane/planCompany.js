@@ -1,6 +1,6 @@
 import React from 'react';
 import { Sidebar } from '../menu/SideBar';
-// import { Checkout } from '../paypal/Checkout';
+import { Checkout } from '../paypal/Checkout';
 import { CreateOrder } from '../paypal/CreateOrder';
 
 export const planCompany = () => {
@@ -9,7 +9,7 @@ export const planCompany = () => {
     //     console.log('handlePayment');
     // }
 
-    // const descriptionPlanEvent = 'Plan por evento';
+    const descriptionPlanEvent = 'Plan por evento';
 
     // const descriptionPlanTiempo = 'Plan por tiempo';
 
@@ -63,8 +63,7 @@ export const planCompany = () => {
                                     </ul>
                                 </div>
                                 <div className="card-footer">
-                                    {/* <Checkout PEvent={800.00} description={descriptionPlanEvent} plan={1}/> */}
-                                    <CreateOrder />
+                                    <Checkout PEvent={800.00} description={descriptionPlanEvent} plan={1}/>
                                 </div>
                             </div>
                         </div>
