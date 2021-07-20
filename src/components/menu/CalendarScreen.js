@@ -11,6 +11,9 @@ import { GetJobb } from '../Citas/GetJobb';
 export const CalendarScreen = () => {
 
     const { uid } = useSelector(state => state.auth);
+    const { isCompany } = useSelector(state => state.user);
+    // console.log(isCompany)
+
 
 
 
@@ -55,8 +58,7 @@ export const CalendarScreen = () => {
                         (
                             Object.keys(data).map(item => (
                                 <div key={data[item].id}>
-                                    {/* <p><b>Fecha de la cita: {data[item].date}</b></p> */}
-                                    <GetJobb fecha={data[item].date} user={data[item].applicantId} jobb={data[item].companyId + '§' + data[item].jobId} />
+                                  { (isCompany === false) && <GetJobb fecha={data[item].date} user={data[item].applicantId} jobb={data[item].companyId + '§' + data[item].jobId} company={data[item].companyId} /> }
                                 </div>
                             ))
                         ) :

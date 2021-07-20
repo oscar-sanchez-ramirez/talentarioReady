@@ -1,24 +1,37 @@
 import React, { useEffect, useState } from 'react'
 import { db } from '../../firebase/firebase-config';
+import { handleContactPrefer } from '../helpers/ContactPrefer';
 
-export const GetJobb = ({ user, jobb, fecha }) => {
+export const GetJobb = ({ user, jobb, fecha, company }) => {
+
 
 
 
     const [infor, setInfor] = useState({ data: null, loading: true });
     const { data } = infor;
-    // console.log(data && data)
+    console.log(data && data)
 
     const [inforJob, setInforjob] = useState({ dataJob: null, carga: true });
     const { dataJob } = inforJob;
     // console.log(dataJob && dataJob)
 
+    const [infoCompany, setInfoCompany] = useState({ dataCompany: null, termino: true });
+    const { dataCompany } = infoCompany;
+    console.log(dataCompany && dataCompany);
 
     const getUser = (user) => {
         const starCountRef = db.ref('users/' + user);
         starCountRef.on('value', (snapshot) => {
             const info = snapshot.val();
             setInfor({ data: info, loading: false })
+        });
+    }
+
+    const getCompany = (company) => {
+        const starCountRef = db.ref('users/' + company);
+        starCountRef.on('value', (snapshot) => {
+            const info = snapshot.val();
+            setInfoCompany({ dataCompany: info, termino: false })
         });
     }
 
@@ -30,22 +43,36 @@ export const GetJobb = ({ user, jobb, fecha }) => {
         });
     }
 
+    
+
     useEffect(() => {
         getUser(user)
         getJobb(jobb)
-    }, [user, jobb])
+        getCompany(company)
+    }, [user, jobb, company])
 
 
 
     return (
         <div>
-            <div>
+            {/* <div>
                 {
                     dataJob && (
                         <div>
-                            <p><b>Fecha de la cita: {fecha}</b></p>
-                            <p>{data.name} {data.fullName.replace('+', '')}</p>
+                            <p>Nombre del aplicante: {data.name} {data.fullName.replace('+', '')}</p>
                             <img src={data.imageUrl} alt={data.name} width="60" />
+                            <p>Fecha de la cita: {fecha}</p>
+                        </div>
+                    )
+                }
+            </div> */}
+            <div>
+                {
+                    dataCompany && (
+                        <div>
+                            <p>Nombre de la empresa: {dataCompany.name}</p>
+                            <p>{dataCompany.email}</p>
+                            <p>Fecha de la cita: {fecha}</p>
                         </div>
                     )
                 }
@@ -58,8 +85,18 @@ export const GetJobb = ({ user, jobb, fecha }) => {
                             <p>Sueldo: {dataJob.salary}</p>
                             <p>Descripción: {dataJob.description}</p>
                             <p>Dirección: {dataJob.location}</p>
-
-
+                        </div>
+                    )
+                }
+            </div>
+            <div>
+                {
+                    dataCompany && (
+                        <div>
+                            <p>{dataCompany.phone1}</p>
+                            <p>{dataCompany.phone2}</p>
+                            <p>{handleContactPrefer(dataCompany.contactPref)}</p>
+                            <p>{dataCompany.fullName.replace('+', ' ')}</p>
                             <hr />
                         </div>
                     )
