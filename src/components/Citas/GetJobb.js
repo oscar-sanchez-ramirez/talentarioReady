@@ -7,9 +7,9 @@ export const GetJobb = ({ user, jobb, fecha, company }) => {
 
 
 
-    const [infor, setInfor] = useState({ data: null, loading: true });
-    const { data } = infor;
-    console.log(data && data)
+    // const [infor, setInfor] = useState({ data: null, loading: true });
+    // const { data } = infor;
+    // console.log(data && data)
 
     const [inforJob, setInforjob] = useState({ dataJob: null, carga: true });
     const { dataJob } = inforJob;
@@ -17,15 +17,15 @@ export const GetJobb = ({ user, jobb, fecha, company }) => {
 
     const [infoCompany, setInfoCompany] = useState({ dataCompany: null, termino: true });
     const { dataCompany } = infoCompany;
-    console.log(dataCompany && dataCompany);
+    // console.log(dataCompany && dataCompany);
 
-    const getUser = (user) => {
-        const starCountRef = db.ref('users/' + user);
-        starCountRef.on('value', (snapshot) => {
-            const info = snapshot.val();
-            setInfor({ data: info, loading: false })
-        });
-    }
+    // const getUser = (user) => {
+    //     const starCountRef = db.ref('users/' + user);
+    //     starCountRef.on('value', (snapshot) => {
+    //         const info = snapshot.val();
+    //         setInfor({ data: info, loading: false })
+    //     });
+    // }
 
     const getCompany = (company) => {
         const starCountRef = db.ref('users/' + company);
@@ -43,65 +43,66 @@ export const GetJobb = ({ user, jobb, fecha, company }) => {
         });
     }
 
-    
+
+
+    // useEffect(() => {
+    //     getUser(user)
+    // }, [user])
 
     useEffect(() => {
-        getUser(user)
         getJobb(jobb)
+    }, [jobb])
+
+    useEffect(() => {
         getCompany(company)
-    }, [user, jobb, company])
+    }, [company])
+
 
 
 
     return (
-        <div>
-            {/* <div>
-                {
-                    dataJob && (
-                        <div>
-                            <p>Nombre del aplicante: {data.name} {data.fullName.replace('+', '')}</p>
-                            <img src={data.imageUrl} alt={data.name} width="60" />
-                            <p>Fecha de la cita: {fecha}</p>
-                        </div>
-                    )
-                }
-            </div> */}
-            <div>
-                {
-                    dataCompany && (
-                        <div>
-                            <p>Nombre de la empresa: {dataCompany.name}</p>
-                            <p>{dataCompany.email}</p>
-                            <p>Fecha de la cita: {fecha}</p>
-                        </div>
-                    )
-                }
+        <>
+            <div className="col-md-3">
+                <div className="card">
+                    <div>
+                        {
+                            dataCompany && (
+                                <div>
+                                    <img src={dataCompany.imageUrl} alt={dataCompany.name} width="40"/>
+                                    <p>Nombre de la empresa: {dataCompany.name}</p>
+                                    <p>{dataCompany.email}</p>
+                                    <p>Fecha de la cita: {fecha}</p>
+                                </div>
+                            )
+                        }
+                    </div>
+                    <div>
+                        {
+                            dataJob && (
+                                <div>
+                                    <p>{dataJob.positionName}</p>
+                                    <p>Sueldo: {dataJob.salary}</p>
+                                    <p>Descripción: {dataJob.description}</p>
+                                    <p>Dirección: {dataJob.location}</p>
+                                </div>
+                            )
+                        }
+                    </div>
+                    <div>
+                        {
+                            dataCompany && (
+                                <div>
+                                    <p>{dataCompany.phone1}</p>
+                                    <p>{dataCompany.phone2}</p>
+                                    <p>{handleContactPrefer(dataCompany.contactPref)}</p>
+                                    <p>{dataCompany.fullName.replace('+', ' ')}</p>
+                                    <hr />
+                                </div>
+                            )
+                        }
+                    </div>
+                </div >
             </div>
-            <div>
-                {
-                    dataJob && (
-                        <div>
-                            <p>{dataJob.positionName}</p>
-                            <p>Sueldo: {dataJob.salary}</p>
-                            <p>Descripción: {dataJob.description}</p>
-                            <p>Dirección: {dataJob.location}</p>
-                        </div>
-                    )
-                }
-            </div>
-            <div>
-                {
-                    dataCompany && (
-                        <div>
-                            <p>{dataCompany.phone1}</p>
-                            <p>{dataCompany.phone2}</p>
-                            <p>{handleContactPrefer(dataCompany.contactPref)}</p>
-                            <p>{dataCompany.fullName.replace('+', ' ')}</p>
-                            <hr />
-                        </div>
-                    )
-                }
-            </div>
-        </div >
+        </>
     )
 }

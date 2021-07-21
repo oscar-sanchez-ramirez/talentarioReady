@@ -5,6 +5,7 @@ import { Sidebar } from '../menu/SideBar'
 import { db } from '../../firebase/firebase-config';
 import { useSelector } from 'react-redux';
 import { GetJobb } from '../Citas/GetJobb';
+import { CitasCompany } from '../Citas/CitasCompany';
 
 
 
@@ -49,16 +50,17 @@ export const CalendarScreen = () => {
     return (
         <div>
             <Sidebar />
-            <hr />
-            <h2>Citas</h2>
             <br />
+            <br />
+            <h2 className="text-center mt-5">Citas</h2>
+
             <div >
                 {
                     data ?
                         (
                             Object.keys(data).map(item => (
-                                <div key={data[item].id}>
-                                  { (isCompany === false) && <GetJobb fecha={data[item].date} user={data[item].applicantId} jobb={data[item].companyId + '§' + data[item].jobId} company={data[item].companyId} /> }
+                                <div key={data[item].id} className="container">
+                                  { (isCompany === false) ? <GetJobb fecha={data[item].date} user={data[item].applicantId} jobb={data[item].companyId + '§' + data[item].jobId} company={data[item].companyId} /> : <CitasCompany  fecha={data[item].date} jobb={data[item].companyId + '§' + data[item].jobId} /> }
                                 </div>
                             ))
                         ) :
