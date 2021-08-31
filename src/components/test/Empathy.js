@@ -129,8 +129,9 @@ export const Empathy = () => {
                     <div className="card-body text-center"> 
                         <form onSubmit={handleSubmit}>
                             <Link to="/test" id="testt"></Link>
-
-                            <h2 className="mb-5">Trabajo en equipo (<strong>TE</strong>)</h2>
+                            <div className="card-title py-4 mb-5">
+                                <h2>Trabajo en equipo (<strong>TE</strong>)</h2>
+                            </div>
                             <label className="fs-3">Empatía</label>
                             <p className="auth__alert-error">{msjError}</p>
 

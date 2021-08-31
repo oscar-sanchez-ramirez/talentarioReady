@@ -144,12 +144,25 @@ export const Evaluation = () => {
 
     return (
         
-        <div className="test_resultados text-start mx-auto">
-            <h2><strong>PA: </strong>{ empathy && PA}</h2>
-            <h2><strong>PD: </strong>{ empathy && PD}</h2>
-            <h2><strong>TD: </strong>{ empathy && TD}</h2>
-            <h2><strong>DC: </strong>{ empathy && DC}</h2>
-            <h2><strong>TE: </strong>{ empathy && TE}</h2>
+        <div className="test_resultados d-flex justify-content-between flex-wrap">
+            <div className="flex-item py-3 px-4 my-3">
+                <h2 className="my-0"><strong>PA: </strong>{ empathy && PA}</h2>
+            </div>
+            <div className="flex-item py-3 px-4 my-3">
+                <h2 className="my-0"><strong>PD: </strong>{ empathy && PD}</h2>
+            </div>
+            <div className="flex-item py-3 px-4 my-3">
+                <h2 className="my-0"><strong>TD: </strong>{ empathy && TD}</h2>                
+            </div>
+            <div className="flex-item py-3 px-4 my-3">
+                <h2 className="my-0"><strong>DC: </strong>{ empathy && DC}</h2>
+            </div>
+            <div className="flex-item py-3 px-4 my-3">
+                <h2 className="my-0"><strong>TE: </strong>{ empathy && TE}</h2>
+            </div>
+            <div className="flex-item py-3 px-4 my-3 bg-transparent">
+                <h2 className="my-0">&nbsp;</h2>
+            </div>
         </div>
             
     )

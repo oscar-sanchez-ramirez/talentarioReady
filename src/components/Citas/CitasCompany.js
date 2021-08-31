@@ -61,24 +61,28 @@ export const CitasCompany = ({ fecha, jobb }) => {
 
     return (
         <>
-            <div className="col-md-3">
+            <div className="card shadow h-100">
                 {
                     !!datos ?
                         (
-                            <div className="card">
-                                {dataJob &&
+                            <div className="card-body">
+                               {/*  {dataJob &&
                                     (
                                         <div>
-                                            <p>{fecha}</p>
-                                            <p>{dataJob.positionName}</p>
+                                            <p>Fecha: {fecha}</p>
+                                            <p>Posicion: {dataJob.positionName}</p>
                                         </div>
                                     )
-                                }
+                                } */}
+                                <div>
+                                    <p>Fecha:</p>
+                                    <p>Posicion: </p>
+                                </div>
                                 <img src={datos.imageUrl} alt={datos.name} width="40" />
-                                <p>{datos.name}</p>
-                                <p>{datos.email}</p>
-                                <p>{datos.phone1}</p>
-                                <p>{datos.phone2}</p>
+                                <p>Nombre: {datos.name}</p>
+                                <p>Correo: {datos.email}</p>
+                                <p>Telefono 1: {datos.phone1}</p>
+                                <p>Telefono 2: {datos.phone2}</p>
                             </div>
                         )
                         :

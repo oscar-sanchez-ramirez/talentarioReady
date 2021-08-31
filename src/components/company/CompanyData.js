@@ -48,58 +48,61 @@ export const CompanyData = () => {
 
     return (
         <>
-            <h2>Datos de la <strong>empresa</strong></h2>
-            <form onSubmit={handleSubmit}>
-                <div className="row">
-                    <div className="col-md-4">
-                        <div className="input-group">
-                            <label>Teléfono Móvil:</label>
-                            <input
-                                type="text"
-                                name="phone1U"
-                                autoComplete="off"
-                                className="form-control p-0 mx-2"
-                                value={phone1U}
-                                onChange={handleInputChange}
-                                disabled={show}
-                            />
+            <div className="card-title mt-4">
+                <h2>Datos de la empresa</h2>
+            </div>
+            <div className="bloque_datos mb-4 mt-5">
+                <form onSubmit={handleSubmit}>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <div className="input-group">
+                                <label>Teléfono Móvil:</label>
+                                <input
+                                    type="text"
+                                    name="phone1U"
+                                    autoComplete="off"
+                                    className="form-control p-0 mx-2"
+                                    value={phone1U}
+                                    onChange={handleInputChange}
+                                    disabled={show}
+                                />
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="input-group">
+                                <label>Teléfono Fijo:</label>
+                                <input
+                                    type="text"
+                                    name="phone2U"
+                                    autoComplete="off"
+                                    className="form-control p-0 mx-2"
+                                    value={phone2U}
+                                    onChange={handleInputChange}
+                                    disabled={show}
+                                />
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="input-group">
+                                <label>Razón Social:</label>
+                                <input
+                                    type="text"
+                                    name="socialReasonU"
+                                    autoComplete="off"
+                                    className="form-control p-0 mx-2"
+                                    value={socialReasonU}
+                                    onChange={handleInputChange}
+                                    disabled={show}
+                                />
+                            </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
-                        <div className="input-group">
-                            <label>Teléfono Fijo:</label>
-                            <input
-                                type="text"
-                                name="phone2U"
-                                autoComplete="off"
-                                className="form-control p-0 mx-2"
-                                value={phone2U}
-                                onChange={handleInputChange}
-                                disabled={show}
-                            />
-                        </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="input-group">
-                            <label>Razón Social:</label>
-                            <input
-                                type="text"
-                                name="socialReasonU"
-                                autoComplete="off"
-                                className="form-control p-0 mx-2"
-                                value={socialReasonU}
-                                onChange={handleInputChange}
-                                disabled={show}
-                            />
-                        </div>
-                    </div>
-                </div>
-                    {
-                        !show &&
-                        <button type="submit" className="btn btn_login">Guardar</button>
-                    }
-            </form>
-
+                        {
+                            !show &&
+                            <button type="submit" className="btn btn_login">Guardar</button>
+                        }
+                </form>
+            </div>
             {
                 show &&
                 <button onClick={handleShow} className="btn btn_login">Editar</button>

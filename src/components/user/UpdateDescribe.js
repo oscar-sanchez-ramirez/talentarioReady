@@ -149,9 +149,9 @@ export const UpdateDescribe = () => {
                             <Link
                                 id="reload"
                                 to="/describe"
-                                className="btn btn-edit"
+                                className="btn btn-recargar"
                             >
-                                <span className="ico-recargar"></span> Recargar datos
+                                Recargar datos
                             </Link>
                         </p>
                     </div>
@@ -159,7 +159,9 @@ export const UpdateDescribe = () => {
                         <div className="col-md-8">                        
                             <div className="card shadow perfil_input mb-5">
                                 <div className="card-body">
-                                    <h2>Video de introducción</h2>
+                                    <div className="card-title">
+                                        <h2>Video de introducción</h2>
+                                    </div>
                                     {
                                         edit &&
                                         <form onSubmit={handleSubmitInfo}>
@@ -192,10 +194,11 @@ export const UpdateDescribe = () => {
                                     }
                                     
                                     <p className="position-relative py-3">
-                                        <a href={urlVideo} target="_blanck" className="btn btn-edit"><span className="ico-video"></span> Ver video</a>
+                                        <a href={urlVideo} target="_blank" className="btn btn-edit"><span className="ico-video"></span> Ver video</a>
                                     </p>                                   
-                                    
-                                    <h2>Expericiencia y logros</h2>
+                                    <div className="card-title">
+                                        <h2>Expericiencia y logros</h2>
+                                    </div>
                                     <p>{experienceDescription}</p>
                                     {
                                         (!edit) &&
@@ -207,8 +210,9 @@ export const UpdateDescribe = () => {
                         <div className="col-md-4">
                             <div className="card shadow perfil_input">
                                 <div className="card-body">
-                                    <h2>Curriculum</h2>
-                                    
+                                    <div className="card-title">
+                                        <h2>Curriculum</h2>
+                                    </div>
                                     <div className="input-group">
                                         <input
                                             id="idFile"
@@ -220,7 +224,7 @@ export const UpdateDescribe = () => {
                                     </div>
                                     
                                     <p className="position-relative py-3">
-                                        <a href={urlCurriculum} target="_blanck" className="btn btn-edit"><span className="ico-documento"></span> PDF</a>
+                                        <a href={urlCurriculum} target="_blanck" className="btn btn-edit"><span className="ico-documento"></span> Ver curriculum</a>
                                     </p>
                                     {
                                         active &&

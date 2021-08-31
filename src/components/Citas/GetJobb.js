@@ -61,48 +61,85 @@ export const GetJobb = ({ user, jobb, fecha, company }) => {
 
 
     return (
-        <>
-            <div className="col-md-3">
-                <div className="card">
-                    <div>
-                        {
-                            dataCompany && (
-                                <div>
-                                    <img src={dataCompany.imageUrl} alt={dataCompany.name} width="40"/>
-                                    <p>Nombre de la empresa: {dataCompany.name}</p>
-                                    <p>{dataCompany.email}</p>
-                                    <p>Fecha de la cita: {fecha}</p>
+        <div className="card shadow h-100">
+            <div className="card-body">
+                <div className="row">
+                    {
+                        dataCompany && (
+                            <>
+                                <div className="col-md-12">
+                                    <p><strong>{dataCompany.name}</strong></p>
+                                    <p className="text-secondary">{dataCompany.email}</p>
+                                    
                                 </div>
-                            )
-                        }
-                    </div>
-                    <div>
-                        {
-                            dataJob && (
-                                <div>
-                                    <p>{dataJob.positionName}</p>
-                                    <p>Sueldo: {dataJob.salary}</p>
-                                    <p>Descripción: {dataJob.description}</p>
-                                    <p>Dirección: {dataJob.location}</p>
+                                <hr/>
+                                <div className="col-md-3 col-lg-2">
+                                    <p><img src={dataCompany.imageUrl} alt={dataCompany.name} className="img-fluid"/></p>
                                 </div>
-                            )
-                        }
+                            </>
+                        )
+                    }
+                    <div className="col-md-9 col-lg-10">
+                        <div className="bloque_datos">
+                            {/*  {
+                                    dataJob && (
+                                        <>
+                                            <p>Posicion: {dataJob.positionName}</p>
+                                            <p>Sueldo: {dataJob.salary}</p>
+                                            <p>Descripción: {dataJob.description}</p>
+                                            <p>Dirección: {dataJob.location}</p>
+                                        </>
+                                    )
+                                } */}
+                                {
+                                    dataJob && (
+                                        <>
+                                            <p><strong>Descripción</strong></p>
+                                            <p>{dataJob.description}</p>
+                                            <p><strong>Dirección</strong></p>
+                                            <p>{dataJob.location}</p>
+                                        </>
+                                    )
+                                }
+                                
+
+                                {
+                                    dataCompany && (
+                                        <>
+                                            
+                                            <p>Modo de contacto: <strong>{handleContactPrefer(dataCompany.contactPref)}</strong></p>
+                                            <div className="d-flex justify-content-between flex-column flex-xxl-row">
+                                                <div>
+                                                    <p>Fecha y hora de Cita: <strong>{fecha}</strong></p>
+                                                </div>
+                                                <div>
+                                                    <p>Empresa: <strong>{dataCompany.fullName.replace('+', ' ')}</strong></p>
+                                                </div>
+                                                <div>
+                                                    <p>Teléfonos: <strong>{dataCompany.phone1} / {dataCompany.phone2}</strong></p>
+                                                </div>
+                                            </div>
+                                        </>
+                                    )
+                                }
+                                {
+                                    dataJob && (
+                                        <>
+                                            <div className="d-flex  justify-content-start flex-column flex-xxl-row">
+                                                <div className="pe-4">
+                                                    <p>Posicion: <strong>{dataJob.positionName}</strong></p>
+                                                </div>
+                                                <div>
+                                                    <p>Sueldo: <strong>${dataJob.salary}</strong></p>
+                                                </div>
+                                            </div>
+                                        </>
+                                    )
+                                }
+                        </div>
                     </div>
-                    <div>
-                        {
-                            dataCompany && (
-                                <div>
-                                    <p>{dataCompany.phone1}</p>
-                                    <p>{dataCompany.phone2}</p>
-                                    <p>{handleContactPrefer(dataCompany.contactPref)}</p>
-                                    <p>{dataCompany.fullName.replace('+', ' ')}</p>
-                                    <hr />
-                                </div>
-                            )
-                        }
-                    </div>
-                </div >
+                </div>
             </div>
-        </>
+        </div>
     )
 }

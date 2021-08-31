@@ -106,8 +106,9 @@ export const EntrepreneurshipInitiative = () => {
                 <div className="card shadow perfil_input my-5 animate__animated animate__zoomIn">
                     <div className="card-body text-center">
                         <form onSubmit={handleSubmit}>
-                            
-                            <h2 className="mb-5">Pensamiento Divergente (<strong>PD</strong>)</h2>
+                            <div className="card-title py-4 mb-5">
+                                <h2>Pensamiento Divergente (<strong>PD</strong>)</h2>
+                            </div>
                             <label className="fs-3">Iniciativa y Emprendimiento</label>
                             <p className="auth__alert-error">{msjError}</p>
 
