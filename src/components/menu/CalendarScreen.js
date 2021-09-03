@@ -64,12 +64,12 @@ export const CalendarScreen = () => {
                             data ?
                                 (
                                     Object.keys(data).map(item => (
-                                        <div key={data[item].id} className="col-md-12 py-4">
+                                        <div key={data[item].id} className="col-lg-6 job_offers mb-4">
                                         { (isCompany === false) ? <GetJobb fecha={data[item].date} user={data[item].applicantId} jobb={data[item].companyId + '§' + data[item].jobId} company={data[item].companyId} /> : <CitasCompany  fecha={data[item].date} jobb={data[item].companyId + '§' + data[item].jobId} /> }
                                         </div>
                                     ))
                                 ) :
-                                (<p>No hay citas</p>)
+                                (<h2 className="text-center">No hay citas</h2>)
 
                         }
                     </div>

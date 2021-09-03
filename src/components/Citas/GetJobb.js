@@ -81,16 +81,7 @@ export const GetJobb = ({ user, jobb, fecha, company }) => {
                     }
                     <div className="col-md-9 col-lg-10">
                         <div className="bloque_datos">
-                            {/*  {
-                                    dataJob && (
-                                        <>
-                                            <p>Posicion: {dataJob.positionName}</p>
-                                            <p>Sueldo: {dataJob.salary}</p>
-                                            <p>Descripción: {dataJob.description}</p>
-                                            <p>Dirección: {dataJob.location}</p>
-                                        </>
-                                    )
-                                } */}
+                           
                                 {
                                     dataJob && (
                                         <>

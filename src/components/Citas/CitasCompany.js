@@ -66,28 +66,39 @@ export const CitasCompany = ({ fecha, jobb }) => {
                     !!datos ?
                         (
                             <div className="card-body">
-                               {/*  {dataJob &&
-                                    (
-                                        <div>
-                                            <p>Fecha: {fecha}</p>
-                                            <p>Posicion: {dataJob.positionName}</p>
-                                        </div>
-                                    )
-                                } */}
-                                <div>
-                                    <p>Fecha:</p>
-                                    <p>Posicion: </p>
+                                <div className="d-md-flex flex-md-row-reverse flex-lg-column flex-xl-row-reverse align-items-center bloque_datos px-0 bg-transparent">
+
+                                    <div className="flex-item col-4 align-items-center text-center mx-auto">
+                                        <img src={datos.imageUrl} alt={datos.name} className="img-fluid img-thumbnail" />
+                                    </div>
+                                    <div className="flex-item col-xl-8  mx-auto">
+                                        <p>Nombre: <strong>{datos.name}</strong></p>
+                                        {dataJob &&
+                                            (
+                                                <>
+                                                    <p>Posicion: <strong>{dataJob.positionName}</strong></p>
+                                                </>
+                                            )
+                                        }
+                                        
+                                        <p>Correo: <strong>{datos.email}</strong></p>
+                                        <p>Telefono 1: <strong>{datos.phone1}</strong></p>
+                                        <p>Telefono 2: <strong>{datos.phone2}</strong></p>
+                                        {dataJob &&
+                                            (
+                                                <>
+                                                    <p>Fecha: <strong>{fecha}</strong></p>
+                                                </>
+                                            )
+                                        }
+                                        
+                                    </div>                                
                                 </div>
-                                <img src={datos.imageUrl} alt={datos.name} width="40" />
-                                <p>Nombre: {datos.name}</p>
-                                <p>Correo: {datos.email}</p>
-                                <p>Telefono 1: {datos.phone1}</p>
-                                <p>Telefono 2: {datos.phone2}</p>
                             </div>
                         )
                         :
                         (
-                            <p>No hay citas</p>
+                            <h2 className="text-center">No hay citas</h2>
                         )
                 }
             </div>
