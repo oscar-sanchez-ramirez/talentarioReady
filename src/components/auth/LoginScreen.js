@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
-import { startLoginEmailPassword, startGoogleLogin } from '../../actions/auth';
+import { startLoginEmailPassword } from '../../actions/auth';
 import { setError, removeError } from '../../actions/ui';
 
 import logoTalentario from '../../image/logo_talentario.png';
@@ -31,10 +31,10 @@ export const LoginScreen = () => {
         }
     }
 
-    const handleGoogleLogin = () => {
+    // const handleGoogleLogin = () => {
         
-        dispatch(startGoogleLogin());
-    }
+    //     dispatch(startGoogleLogin());
+    // }
 
     const isFormValid = () => {
 
@@ -132,7 +132,7 @@ export const LoginScreen = () => {
                             </button>
                         </div>
 
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <div className="auth__social-networks">
                                 <p>Iniciar sesión con redes sociales</p>
 
@@ -148,7 +148,7 @@ export const LoginScreen = () => {
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="form-group text-center mb-0">
                             <p>¿No tienes una cuenta? &nbsp;
@@ -168,3 +168,13 @@ export const LoginScreen = () => {
         </div>
     )
 }
+
+
+
+
+// aplicante
+// truc@mail.com
+// contraseña: password
+// empresa
+// blerot@mail.com
+// contraseña: password
