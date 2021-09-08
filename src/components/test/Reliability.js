@@ -125,8 +125,9 @@ export const Reliability = () => {
                 <div className="card shadow perfil_input my-5 animate__animated animate__zoomIn">
                     <div className="card-body text-center"> 
                         <form onSubmit={handleSubmit}>
-                            
-                            <h2 className="mb-5">Trabajo en equipo (<strong>TE</strong>)</h2>
+                            <div className="card-title py-4 mb-5">
+                                <h2>Trabajo en equipo (<strong>TE</strong>)</h2>
+                            </div>
                             <label className="fs-3">Confiabilidad</label>
                             <p className="auth__alert-error">{msjError}</p>
 

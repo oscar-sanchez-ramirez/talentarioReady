@@ -56,7 +56,7 @@ export const CalculateTest = () => {
                     <div className="row justify-content-center">
                         <div className="col-md-7">
                             <div className="card shadow perfil_input my-5">
-                                <div className="card-body text-center">
+                                <div className="card-body text-center px-sm-3 px-md-5 py-5">
                                     <Evaluation />
                                     <p><Link to="/test-start" className="btn btn_login mt-3 mb-0">Editar</Link></p>
                                 </div>                                

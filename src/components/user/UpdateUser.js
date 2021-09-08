@@ -153,62 +153,64 @@ export const UpdateUser = () => {
     }
 
     return (
-        <div className="col-md-8 d-flex">
-            <div className="col-md-2">
-                <div className="bd-img_perfil img_perfil mx-auto" id="boxIMG">
-                    <img src={photoURL} width={"100%"} alt={name} className="img-fluid" id="imgUser" />
-                </div>
-                <div className="btn_editar_img text-center">
-                    {
-                        ocultar &&
-                        <form onSubmit={handleSubmitImagen}>
-                            <button type="submit" className="btn btn-edit"><span className="ico-guardar"></span> Guardar</button>
-                        </form>
-                    }
-
-                    <input
-                        id="imagenDocu"
-                        type="file"
-                        onChange={handleChangeImage}
-                        style={{ display: 'none' }}
-                    />
-                    {
-                        !ocultar &&
-                        <button onClick={handleOcultar} className="btn btn-edit"><span className="ico-editar"></span> Editar</button>
-                    }
-                </div>
-            </div>
-            <div className="col-md-8 pt-2">
-                <div className="hd_input d-flex align-items-center">
-                    <form onSubmit={handleSubmit} className="d-flex align-items-center">
-                        <div className="input-group">
-                            <input
-                                type="text"
-                                name="nameU"
-                                className="form-control lh-sm py-0 mb-2"
-                                value={nameU}
-                                onChange={handleInputchange}
-                                disabled={active}
-                            />
-                        </div>
+        <div className="col-lg-9">
+            <div className="row">
+                <div className="col-xl-2 col-md-3">
+                    <div className="bd-img_perfil img_perfil mx-auto" id="boxIMG">
+                        <img src={photoURL} width={"100%"} alt={name} className="img-fluid" id="imgUser" />
+                    </div>
+                    <div className="btn_editar_img text-center">
                         {
-                            button &&
-                            <button type="submit" className="btn btn-edit"><span className="ico-guardar"></span> Guardar</button>
+                            ocultar &&
+                            <form onSubmit={handleSubmitImagen}>
+                                <button type="submit" className="btn btn-edit">Guardar</button>
+                            </form>
                         }
 
-                    </form>
-
-                    {
-                        buttonU &&
-                        <button onClick={handleActive} className="btn btn-edit"><span className="ico-editar"></span> Editar</button>
-                    }
+                        <input
+                            id="imagenDocu"
+                            type="file"
+                            onChange={handleChangeImage}
+                            style={{ display: 'none' }}
+                        />
+                        {
+                            !ocultar &&
+                            <button onClick={handleOcultar} className="btn btn-edit">Editar Imágen</button>
+                        }
+                    </div>
                 </div>
-                <div className="perfil_correo mt-2">
-                    <p className="px-2">{email}</p>
+                <div className="col-xl-10 col-md-9 pt-2">
+                    <div className="hd_input d-flex align-items-center">
+                        <form onSubmit={handleSubmit} className="d-flex align-items-center">
+                            <div className="input-group">
+                                <input
+                                    type="text"
+                                    name="nameU"
+                                    className="form-control lh-sm py-0 mb-2"
+                                    value={nameU}
+                                    onChange={handleInputchange}
+                                    disabled={active}
+                                />
+                            </div>
+                            {
+                                button &&
+                                <button type="submit" className="btn btn-edit">Guardar</button>
+                            }
+
+                        </form>
+
+                        {
+                            buttonU &&
+                            <button onClick={handleActive} className="btn btn-edit">Editar Nombre</button>
+                        }
+                    </div>
+                    <div className="perfil_correo mt-2">
+                        <p className="px-2">{email}</p>
+                    </div>
+
+
+
                 </div>
-
-
-
             </div>
         </div>
     )

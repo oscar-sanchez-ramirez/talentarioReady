@@ -429,18 +429,28 @@ body {
       background: url('../image/bg_contenido-1.png') no-repeat left bottom, url('../image/bg_contenido-2.png') no-repeat right 200px;
 }
 .contenido h2{
-      font-family: 'Nunito-SemiBold';
+      font-family: 'Roboto-Regular';
       color: black;
+      font-size: 18px;
+      text-transform: uppercase;
+      margin-top: 25px;
 }
-.contenido h2 strong{
-      font-weight: normal;
-      color: #544690;
+.card-title{
+      border-bottom: 1px solid #c4c4c4;
+}
+.bloque_datos{
+      background-color: #f4f4f4;
+      padding: 15px 34px;
+      color: #767676;
+}
+.bloque_datos strong{
+      color: #000;
 }
 .hd_input input{
       background: transparent;
       border:none;
       color: #796dbc;
-      font-size: 30px;
+      font-size: 28px;
       font-family: 'Nunito-ExtraBold';
       outline: none;
       transition: 250ms;
@@ -456,13 +466,25 @@ body {
 	border-bottom: 2px solid transparent;
 	
 }
+.btn-recargar{
+      background-color: #5243a2;
+      border-radius: 10px;
+      border: 1px solid #5243a2;
+      padding: 3px 15px;
+      color: #fff;
+      box-shadow: none;
+      transition: 250ms;
+}
+.btn-recargar:hover, .btn-recargar:focus{
+      background-color: transparent;
+      color: #5243a2;
+}
 .btn-edit{
       color: #544690;
-      border-bottom: 1px solid #544690;
+      /* border-bottom: 1px solid #544690; */
       border-radius: 0;
       padding: 0;
       position: relative;
-      margin-left: 32px;
 }
 .btn-edit:hover{
       color: #544690;
@@ -495,22 +517,24 @@ body {
       top:3px;
 }
 .ico-video{
-      position: absolute;
+      position: relative;
       background: url('../image/ico_video.png') no-repeat center;
       width: 20px;
       height: 20px;
-      right: 103%;
       background-size: contain;
-      top:3px;
+      /* right: 103%;*/
+      top:5px; 
+      display: inline-block;
 }
 .ico-documento{
-      position: absolute;
-      background: url('../image/ico_pdf.png') no-repeat center;
+      position: relative;
+      background: url('../image/ico-documento.png') no-repeat center;
       width: 20px;
       height: 20px;
-      right: 103%;
       background-size: contain;
-      top:3px;
+      /* right: 103%;*/
+      top:5px; 
+      display: inline-block;
 }
 .ico-favoritos{
       position: absolute;
@@ -527,7 +551,8 @@ body {
 .perfil_input .form-control{
       color: #544690;
 	border-bottom: 2px solid #544690;
-	font-family: 'Nunito-SemiBold';
+	font-family: 'Roboto-Regular';
+      font-weight: 500;
 	font-size: 18px;
 }
 .perfil_input .form-control:disabled{
@@ -541,7 +566,8 @@ body {
 	font-size: 18px;
 }
 .perfil_input label{
-	color: #544690;
+	color: #767676;
+      font-family: 'Roboto-Regular';
 }
 .perfil_input .btn_login{
 	border:1px solid #5243a2;
@@ -549,6 +575,9 @@ body {
 .perfil_input .btn_login:focus,
 .perfil_input .btn_login:hover{
 	color: #5243a2;
+}
+.perfil_correo{
+      color: #90959B;
 }
 .label-radio{
 	color: #000 !important;
@@ -570,7 +599,11 @@ body {
       color: #001e5c;
 }
 .test_resultados{
-      width: max-content;
+      max-width: 640px;
+}
+.test_resultados .flex-item{
+      background: #f4f4f4;
+      width: calc(100% / 3.5);
 }
 .evaluacion td{
       background: url('../image/bg_resultados.png') no-repeat center;
@@ -619,6 +652,8 @@ body {
 }
 .input_search input{
       padding-right: 30px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border: 0.5px solid #C4C4C4;
 }
 .input_search input,
 .input_search input:focus{
@@ -773,5 +808,8 @@ body {
       .titulo_principal{
             padding-top: 170px;
             background:  url('../image/rombo_titulo-principal.png') no-repeat -10% bottom, url('../image/rombo_titulo-principal.png') no-repeat 110% bottom, #767676;
+      }
+      .test_resultados .flex-item {
+            width: calc(100% / 2.3);
       }
 }

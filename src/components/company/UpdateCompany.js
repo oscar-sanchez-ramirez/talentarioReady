@@ -121,7 +121,7 @@ export const UpdateCompany = () => {
 
     return (
         <>
-            <div className="col-lg-8 d-flex mb-4">            
+            <div className="col-lg-8 d-flex">            
                 <div className="col-md-2">
                     <div className="bd-img_perfil img_perfil mx-auto">
                         <img src={photoURL} width={"100%"} alt={name} className="img-fluid" id="imgCompany" />
@@ -130,7 +130,7 @@ export const UpdateCompany = () => {
                         {
                             ocultar &&
                             <form onSubmit={handleSubmitImagen}>
-                                <button type="submit" className="btn btn-edit"><span className="ico-guardar"></span> Guardar</button>
+                                <button type="submit" className="btn btn-edit">Guardar</button>
                             </form>
                         }
 
@@ -142,7 +142,7 @@ export const UpdateCompany = () => {
                         />
                         {
                             !ocultar &&
-                            <button onClick={handleOcultar} className="btn btn-edit"><span className="ico-editar"></span>Editar</button>
+                            <button onClick={handleOcultar} className="btn btn-edit">Editar</button>
                         }
                     </div>
                 </div>
@@ -161,12 +161,12 @@ export const UpdateCompany = () => {
                             </div>
                             {
                                 button &&
-                                <button type="submit" className="btn btn-edit"><span className="ico-guardar"></span> Guardar</button>
+                                <button type="submit" className="btn btn-edit">{/* <span className="ico-guardar"></span> */} Guardar</button>
                             }
                         </form>
                         {
-                            buttonU &&
-                            <button onClick={handleActive} className="btn btn-edit"><span className="ico-editar"></span> Editar</button>
+                            buttonU &&/*  */
+                            <button onClick={handleActive} className="btn btn-edit">{/* <span className="ico-editar"></span> */} Editar</button>
                         }
                     </div>
                     <div className="perfil_correo mt-2">

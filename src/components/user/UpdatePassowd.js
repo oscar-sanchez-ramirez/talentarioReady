@@ -41,7 +41,7 @@ export const UpdatePassowd = () => {
     }
    
     return (
-        <div className="perfil_input">
+        <div className="perfil_input pt-4">
             <div className="hd_input d-flex align-items-center">
                 <form onSubmit={hanldeSubmitPassword} className="d-flex align-items-center">
                     <div className="input-group">
@@ -58,17 +58,17 @@ export const UpdatePassowd = () => {
                     </div>                    
                         {
                             !show &&
-                            <button type="submit" className="btn btn-edit"><span className="ico-guardar"></span> Guardar</button>
+                            <button type="submit" className="btn btn-edit">Guardar</button>
                         }
                     
                 </form>
                 
                 {
                     show &&
-                    <button onClick={handleShow}  className="btn btn-edit"><span className="ico-editar"></span> Editar</button>
+                    <button onClick={handleShow}  className="btn btn-edit">Editar</button>
                 }
             </div>
-            <p className="fs-6 text"><small>La contraseña debe ser mayor a 5 caracteres</small></p>
+            <p className="fs-6 text mt-3"><small>La contraseña debe ser mayor a 5 caracteres</small></p>
         </div>
     )
 }

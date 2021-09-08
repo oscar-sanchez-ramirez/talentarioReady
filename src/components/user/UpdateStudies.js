@@ -118,7 +118,9 @@ export const UpdateStudies = () => {
 
     return (
         <div className="card-body">
-            <h2>Nivel de <strong>estudios</strong></h2>
+            <div className="card-title">
+                <h2>Nivel de <strong>estudios</strong></h2>                
+            </div>
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col-lg-12">
@@ -133,8 +135,8 @@ export const UpdateStudies = () => {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <label>Mi trabajo no necesita estudio a nivel profesional</label>
+                                        <td className="py-3">
+                                            Mi trabajo no necesita estudio a nivel profesional
                                         </td>
                                         <td>
                                             <input
@@ -160,8 +162,8 @@ export const UpdateStudies = () => {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <label>Secundaria</label>
+                                        <td className="py-3">
+                                            Secundaria
                                         </td>
                                         <td>
                                             <input
@@ -187,8 +189,8 @@ export const UpdateStudies = () => {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <label>Bachillerato</label>
+                                        <td className="py-3">
+                                            Bachillerato
                                         </td>
                                         <td>
                                             <input
@@ -214,8 +216,8 @@ export const UpdateStudies = () => {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <label>Licenciatura</label> 
+                                        <td className="py-3">
+                                            Licenciatura 
                                         </td>
                                         <td>
                                             <input
@@ -241,8 +243,8 @@ export const UpdateStudies = () => {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <label>Maestria</label>
+                                        <td className="py-3">
+                                            Maestria
                                         </td>
                                         <td>
                                             <input
@@ -268,8 +270,8 @@ export const UpdateStudies = () => {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <label>Doctorado</label>
+                                        <td className="py-3">
+                                            Doctorado
                                         </td>
                                         <td>
                                             <input
@@ -299,86 +301,88 @@ export const UpdateStudies = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-lg-12 py-2">
-                        <div className="input-group">
-                        <label>Carrera:&nbsp;</label>
-                            <select
-                                name="licStatusU"
-                                className="form-control p-0 mx-2"
-                                value={licStatusU}
-                                onChange={handleInputchange}
-                                disabled={active}
-                            >
-                                <option value="1">Titulado</option>
-                                <option value="2">Pasante</option>
-                                <option value="3">Solo Kardex</option>
-                                <option value="4">Trunca</option>
-                            </select>
+                <div className="bloque_datos my-5">
+                    <div className="row">
+                        <div className="col-lg-12 py-2">
+                            <div className="input-group">
+                            <label>Carrera:&nbsp;</label>
+                                <select
+                                    name="licStatusU"
+                                    className="form-control p-0 mx-2"
+                                    value={licStatusU}
+                                    onChange={handleInputchange}
+                                    disabled={active}
+                                >
+                                    <option value="1">Titulado</option>
+                                    <option value="2">Pasante</option>
+                                    <option value="3">Solo Kardex</option>
+                                    <option value="4">Trunca</option>
+                                </select>
+                            </div>
                         </div>
+                        <div className="col-lg-12 py-2">
+                            <div className="input-group">
+                                <label>Licenciatura profesional en:&nbsp;</label>
+                                <input
+                                    type="text"
+                                    name="licCareerU"
+                                    className="form-control p-0 mx-2"
+                                    value={licCareerU}
+                                    onChange={handleInputchange}
+                                    disabled={active}
+                                />
+                            </div>
+                        </div>
+                        <div className="col-lg-12 py-2">
+                            <div className="input-group">
+                                <label>Industria:&nbsp;</label>
+                                <select
+                                    name="licIndustryU"
+                                    className="form-control p-0 mx-2"
+                                    value={licIndustryU}
+                                    onChange={handleInputchange}
+                                    disabled={active}
+                                >
+                                    <option value="1">Agropecuario</option>
+                                    <option value="2">Industrial</option>
+                                    <option value="3">Servicios</option>
+                                </select>
+                            </div>
+                        </div>        
+                        <div className="col-lg-12 py-2">
+                            <div className="input-group">
+                                <label>Maestría en:&nbsp;</label>
+                                <input
+                                    type="text"
+                                    name="maesDropdownU"
+                                    className="form-control p-0 mx-2"
+                                    value={maesDropdownU}
+                                    onChange={handleInputchange}
+                                    disabled={active}
+                                />
+                            </div>
+                        </div>
+                        <div className="col-lg-12 py-2">
+                            <div className="input-group">
+                                <label>Doctorado en:&nbsp;</label>
+                                <input
+                                    type="text"
+                                    name="docDropdownU"
+                                    className="form-control p-0 mx-2"
+                                    value={docDropdownU}
+                                    onChange={handleInputchange}
+                                    disabled={active}
+                                />
+                            </div>
+                        </div>
+                        
+                        {
+                            button &&
+                            <p>
+                                <button type="submit" className="btn btn_login">Guardar</button>
+                            </p>
+                        }
                     </div>
-                    <div className="col-lg-12 py-2">
-                        <div className="input-group">
-                            <label>Licenciatura profesional en:&nbsp;</label>
-                            <input
-                                type="text"
-                                name="licCareerU"
-                                className="form-control p-0 mx-2"
-                                value={licCareerU}
-                                onChange={handleInputchange}
-                                disabled={active}
-                            />
-                        </div>
-                    </div>
-                    <div className="col-lg-12 py-2">
-                        <div className="input-group">
-                            <label>Industria:&nbsp;</label>
-                            <select
-                                name="licIndustryU"
-                                className="form-control p-0 mx-2"
-                                value={licIndustryU}
-                                onChange={handleInputchange}
-                                disabled={active}
-                            >
-                                <option value="1">Agropecuario</option>
-                                <option value="2">Industrial</option>
-                                <option value="3">Servicios</option>
-                            </select>
-                        </div>
-                    </div>        
-                    <div className="col-lg-12 py-2">
-                        <div className="input-group">
-                            <label>Maestría en:&nbsp;</label>
-                            <input
-                                type="text"
-                                name="maesDropdownU"
-                                className="form-control p-0 mx-2"
-                                value={maesDropdownU}
-                                onChange={handleInputchange}
-                                disabled={active}
-                            />
-                        </div>
-                    </div>
-                    <div className="col-lg-12 py-2">
-                        <div className="input-group">
-                            <label>Doctorado en:&nbsp;</label>
-                            <input
-                                type="text"
-                                name="docDropdownU"
-                                className="form-control p-0 mx-2"
-                                value={docDropdownU}
-                                onChange={handleInputchange}
-                                disabled={active}
-                            />
-                        </div>
-                    </div>
-                    
-                    {
-                        button &&
-                        <p>
-                            <button type="submit" className="btn btn_login">Guardar</button>
-                        </p>
-                    }
                 </div>
                 
 

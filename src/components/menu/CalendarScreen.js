@@ -48,29 +48,33 @@ export const CalendarScreen = () => {
 
 
     return (
-        <div>
+        <>
             <Sidebar />
-            <br />
-            <br />
-            <h2 className="text-center mt-5">Citas</h2>
+            <div className="contenido">
+                <div className="titulo_principal mb-4">
+                    <div className="container">
+                        <div className="row">
+                            <h1>Citas</h1>
+                        </div>
+                    </div>
+                </div>
+                <div className="container">
+                    <div className="row">                   
+                        {
+                            data ?
+                                (
+                                    Object.keys(data).map(item => (
+                                        <div key={data[item].id} className="col-lg-6 job_offers mb-4">
+                                        { (isCompany === false) ? <GetJobb fecha={data[item].date} user={data[item].applicantId} jobb={data[item].companyId + '§' + data[item].jobId} company={data[item].companyId} /> : <CitasCompany  fecha={data[item].date} jobb={data[item].companyId + '§' + data[item].jobId} /> }
+                                        </div>
+                                    ))
+                                ) :
+                                (<h2 className="text-center">No hay citas</h2>)
 
-            <div >
-                {
-                    data ?
-                        (
-                            Object.keys(data).map(item => (
-                                <div key={data[item].id} className="container">
-                                  { (isCompany === false) ? <GetJobb fecha={data[item].date} user={data[item].applicantId} jobb={data[item].companyId + '§' + data[item].jobId} company={data[item].companyId} /> : <CitasCompany  fecha={data[item].date} jobb={data[item].companyId + '§' + data[item].jobId} /> }
-                                </div>
-                            ))
-                        ) :
-                        (<p>No hay citas</p>)
-
-                }
+                        }
+                    </div>
+                </div>
             </div>
-            <br />
-            <br />
-
-        </div>
+        </>
     )
 }
