@@ -88,6 +88,8 @@ export const SelfRecognition = () => {
                                 <h2>Asumir la responsabilidad propia (<strong>PA</strong>)</h2>
                             </div>
                             <label className="fs-3">Auto Reconocimiento</label>
+                            <p>Elaborar descripción de la identidad del si mismo a travez de los conceptos de 
+                                Autopercepcion, Autobservación y Memoria autobiográfia</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

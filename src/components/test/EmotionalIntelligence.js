@@ -114,6 +114,7 @@ export const EmotionalIntelligence = () => {
                                 <h2>Toma de decisiones (<strong>TD</strong>)</h2>
                             </div>
                             <label className="fs-3">Inteligencia emocional</label>
+                            <p>Entender el rol de las emociones para la toma de decisiones y el control de los impulsos</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

@@ -129,6 +129,7 @@ export const Reliability = () => {
                                 <h2>Trabajo en equipo (<strong>TE</strong>)</h2>
                             </div>
                             <label className="fs-3">Confiabilidad</label>
+                            <p>Garantizar a travéz de las acciones propias resultados satisfactorios para el equipo</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

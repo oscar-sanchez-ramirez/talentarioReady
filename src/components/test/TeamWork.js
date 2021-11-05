@@ -129,6 +129,7 @@ export const TeamWork = () => {
                         <form onSubmit={handleSubmit}>
                             <div className="card-title py-4 mb-5">
                                 <h2>Trabajo en equipo (<strong>TE</strong>)</h2>
+                                <p>Reconocer entre el equipo que no existe YO sino NOSOTROS, trabajando sobre el reloj y resultados</p>
                             </div>
                             <label className="fs-3">Trabajo en equipo</label>
                             <p className="auth__alert-error">{msjError}</p>

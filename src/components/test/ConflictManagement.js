@@ -125,6 +125,7 @@ export const ConflictManagement = () => {
                                 <h2>Desarollo del carácter (<strong>DC</strong>)</h2>
                             </div>
                             <label className="fs-3">Manejo de conflictos</label>
+                            <p>Identificar los pasos para resolver: identificar-describir-buscar-opciones-tomar-acción</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

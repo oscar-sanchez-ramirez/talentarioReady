@@ -120,6 +120,7 @@ export const Negotiation = () => {
                                 <h2>Toma de decisiones (<strong>TD</strong>)</h2>
                             </div>
                             <label className="fs-3">Negociación</label>
+                                <p>Encontrar el punto medio ante un desacuerdo que busque el "ganar-ganar"</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

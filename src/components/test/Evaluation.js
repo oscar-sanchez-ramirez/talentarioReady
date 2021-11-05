@@ -144,25 +144,27 @@ export const Evaluation = () => {
 
     return (
         
-        <div className="test_resultados d-flex justify-content-between flex-wrap">
-            <div className="flex-item py-3 px-4 my-3">
-                <h2 className="my-0"><strong>PA: </strong>{ empathy && PA}</h2>
+        <div className="container">
+            <div className="row">
+                <h2 className="my-3"><strong>Asumir la Responsalibilidad Propia (PA) </strong></h2> 
+                <p className="text-center text-info">{ empathy && PA}</p>
             </div>
-            <div className="flex-item py-3 px-4 my-3">
-                <h2 className="my-0"><strong>PD: </strong>{ empathy && PD}</h2>
+            <div className="row">
+                <h2 className="my-3"><strong>Pensamiento Divergente (PD) </strong></h2>
+                <p className="text-center text-info">{ empathy && PD}</p>
             </div>
-            <div className="flex-item py-3 px-4 my-3">
-                <h2 className="my-0"><strong>TD: </strong>{ empathy && TD}</h2>                
+            <div className="row">
+                <h2 className="my-3"><strong>Toma de Desiciones (TD) </strong></h2>  
+                <p className="text-center text-info">{ empathy && TD}</p>             
             </div>
-            <div className="flex-item py-3 px-4 my-3">
-                <h2 className="my-0"><strong>DC: </strong>{ empathy && DC}</h2>
+            <div className="row">
+                <h2 className="my-3"><strong>Desarollo de Carácter (DC) </strong></h2>
+                <p className="text-center text-info">{ empathy && DC}</p>
             </div>
-            <div className="flex-item py-3 px-4 my-3">
-                <h2 className="my-0"><strong>TE: </strong>{ empathy && TE}</h2>
-            </div>
-            <div className="flex-item py-3 px-4 my-3 bg-transparent">
-                <h2 className="my-0">&nbsp;</h2>
-            </div>
+            <div className="row">
+                <h2 className="my-3"><strong>Trabajo en Equipo (TE) </strong></h2>
+                <p className="text-center text-info">{ empathy && TE}</p>
+            </div>  
         </div>
             
     )

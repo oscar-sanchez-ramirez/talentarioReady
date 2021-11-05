@@ -120,6 +120,7 @@ export const SelfConfidence = () => {
                                 <h2>Desarollo del carácter (<strong>DC</strong>)</h2>
                             </div>
                             <label className="fs-3">Confianza en si mismo</label>
+                            <p>Reconocer las habilidades y limitaciones propias dirigidas a alcanzar el éxito</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

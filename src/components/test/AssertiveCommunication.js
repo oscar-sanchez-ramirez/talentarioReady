@@ -125,6 +125,7 @@ export const AssertiveCommunication = () => {
                                 <h2>Desarollo del carácter (<strong>DC</strong>)</h2>
                             </div>
                             <label className="fs-3">Comunicación asertiva</label>
+                            <p>Externar de forma simple, clara y oportuna lo que sentimos, queremos o pensamos</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

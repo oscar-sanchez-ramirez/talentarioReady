@@ -38,13 +38,32 @@ export const CalculateTest = () => {
     //     empathy: 7
     // };
 
-    
 
+    const handleShow = () => {
+        const divP = document.querySelector('#principal');
+        const divS = document.querySelector('#secundario');
+        divP.classList.add('animate__bounceOutLeft');
+        divP.addEventListener('animationend', () => {
+            divP.style.display = 'none';
+            divS.style.display = 'block';
+            divS.classList.add('animate__bounceInRight');
+        });
+    }
+
+    const handleHiden = () => {
+        const divP = document.querySelector('#principal');
+        const divS = document.querySelector('#secundario');
+        divP.classList.remove('animate__bounceOutLeft');
+        divS.classList.remove('animate__bounceInRight');
+        divP.style.display = 'block';
+        divS.style.display = 'none';
+
+    }
 
     return (
         <>
             <Sidebar />
-            <div className="contenido">            
+            <div className="contenido">
                 <div className="titulo_principal">
                     <div className="container">
                         <div className="row">
@@ -55,18 +74,34 @@ export const CalculateTest = () => {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-md-7">
-                            <div className="card shadow perfil_input my-5">
+                            <div className="card shadow perfil_input my-5 animate__animated" id="principal">
                                 <div className="card-body text-center px-sm-3 px-md-5 py-5">
                                     <Evaluation />
-                                    <p><Link to="/test-start" className="btn btn_login mt-3 mb-0">Editar</Link></p>
-                                </div>                                
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-6 text-center">
+                                        <Link to="/test-start" className="btn btn_login">Editar</Link>
+                                    </div>
+                                    <div className="col-md-6 text-center">
+                                        <button onClick={handleShow} className="btn btn_login">Instrucciones</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>                        
+                            <div className="card shadow perfil_input my-5 animate__animated" id="secundario" style={{ display: 'none' }}>
+                                <div className="card-body text-center px-sm-3 px-md-5 py-5">
+                                    <h5>Define la destreza de tus habilidades eliguiendo los valores en cada evaluación</h5>
+                                    <hr />
+                                    <h5>Ten en mente que cuentas con una cantidad limitada de cada valor, toma decisiones sabias al momento de tu evaluación</h5>
+                                    <Link to="/test-start" className="btn btn_login">Editar</Link>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-                
+
             </div>
-            
+
         </>
     )
 }

@@ -104,7 +104,8 @@ export const ProcrastinationControl = () => {
                             <div className="card-title py-4 mb-5">
                                 <h2>Asumir la responsabilidad propia (<strong>PA</strong>)</h2>
                             </div>
-                            <label className="fs-3">Procrastinación</label>
+                            <label className="fs-3">Evitar la Procrastinación</label>
+                            <p>Reconocer el impacto negativo al postergar o demorar situciones y las opciones para evitarlo</p>
                             <p className="auth__alert-error">{msjError}</p>
                             <div className="input-group text-center">
                                 <div className="mx-auto d-sm-flex">

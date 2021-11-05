@@ -123,6 +123,7 @@ export const FrustrationTolerance = () => {
                                 <h2>Desarollo del carácter (<strong>DC</strong>)</h2>
                             </div>
                             <label className="fs-3">Autorregulación y Tolerancia a la frustación</label>
+                            <p>Reflexionar sobre las posibles consecuencias a mis actos propios y anticipar escenarios no deseados para evitarlos</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

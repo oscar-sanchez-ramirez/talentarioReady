@@ -117,6 +117,7 @@ export const RationalIntelligence = () => {
                                 <h2>Toma de decisiones (<strong>TD</strong>)</h2>
                             </div>
                             <label className="fs-3">Inteligencia racional(cognición)</label>
+                            <p>Entender el rol de la razón para la toma de decisiones y la conexión de lógica de causa y efecto</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

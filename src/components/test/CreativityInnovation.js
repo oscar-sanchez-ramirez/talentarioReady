@@ -109,6 +109,7 @@ export const CreativityInnovation = () => {
                                 <h2>Pensamiento Divergente (<strong>PD</strong>)</h2>
                             </div>
                             <label className="fs-3">Creatividad e Innovación</label>
+                            <p>Poner en práctica nuevas perspectivas para idear, crear, mejorar y transformar sin miedo</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

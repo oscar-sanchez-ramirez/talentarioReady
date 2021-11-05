@@ -114,6 +114,7 @@ export const ProblemSolving = () => {
                                 <h2>Pensamiento Divergente (<strong>PD</strong>)</h2>
                             </div>
                             <label className="fs-3">Resolución de problemas</label>
+                            <p>Conocer herramientas como el análisis, la síntesis, el razonamiento deductivo, inductivo y cómo usarlas</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

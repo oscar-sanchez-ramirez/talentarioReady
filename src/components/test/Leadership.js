@@ -126,6 +126,7 @@ export const Leadership = () => {
                                 <h2>Trabajo en equipo (<strong>TE</strong>)</h2>
                             </div>
                             <label className="fs-3">Liderazgo</label>
+                            <p>Reconocer en sus relaciones con los demás las caracteristicas propias del Liderazgo que permitan influir en su equipo</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

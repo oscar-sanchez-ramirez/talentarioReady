@@ -133,6 +133,7 @@ export const Empathy = () => {
                                 <h2>Trabajo en equipo (<strong>TE</strong>)</h2>
                             </div>
                             <label className="fs-3">Empatía</label>
+                            <p>Enterder las necesidades, sentimientos y problemas de los demás, para ponerse en su lugar y responder correctamente ante sus reacciones emociales</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

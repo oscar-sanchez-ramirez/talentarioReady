@@ -131,6 +131,7 @@ export const BelongingSense = () => {
                                 <h2>Trabajo en equipo (<strong>TE</strong>)</h2>
                             </div>
                             <label className="fs-3">Sentido de pertenencia</label>
+                            <p>Comprender cuando y cómo el interés perosnal conecta con el interés general de un ente mayor (organización, comunidad, otros)</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

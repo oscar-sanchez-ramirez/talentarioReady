@@ -114,6 +114,7 @@ export const Improvisation = () => {
                                 <h2>Pensamiento Divergente (<strong>PD</strong>)</h2>
                             </div>
                             <label className="fs-3">Improvisación</label>
+                            <p>Desarollar habilidades que permitan conectar con los demás y fomentar la empatía</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

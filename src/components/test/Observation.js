@@ -110,6 +110,7 @@ export const Observation = () => {
                                 <h2>Pensamiento Divergente (<strong>PD</strong>)</h2>
                             </div>
                             <label className="fs-3">Observación</label>
+                            <p>Mejorar compresión del entorno a través de atención individida de sus componentes</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

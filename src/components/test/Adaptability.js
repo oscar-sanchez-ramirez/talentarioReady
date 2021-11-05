@@ -103,6 +103,7 @@ export const Adaptability = () => {
                                 <h2>Asumir la responsabilidad propia (<strong>PA</strong>)</h2>
                             </div>
                             <label className="fs-3">Adaptabilidad</label>
+                            <p>Enterder los pasos de la resistencia, negación aceptación y exploración dentro de cualquier procesos de adaptación</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

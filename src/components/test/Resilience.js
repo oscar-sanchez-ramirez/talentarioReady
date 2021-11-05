@@ -126,6 +126,7 @@ export const Resilience = () => {
                                 <h2>Desarollo del carácter (<strong>DC</strong>)</h2>
                             </div>
                             <label className="fs-3">Resilencia</label>
+                            <p>Identificar los elementos que impiden afrontar la adversidad de manera exitosa y restan sensación de control</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

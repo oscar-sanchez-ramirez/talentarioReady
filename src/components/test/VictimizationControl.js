@@ -105,6 +105,7 @@ export const VictimizationControl = () => {
                                 <h2>Asumir la responsabilidad propia (<strong>PA</strong>)</h2>
                             </div>
                             <label className="fs-3">Ciclo de la victimización</label>
+                            <p>Reconocerse asi mismo como responsable por los resultados en su vida personal y evitar culpar a los demás</p>
                             <p className="auth__alert-error">{msjError}</p>
                             
                             <div className="input-group text-center">

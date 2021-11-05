@@ -110,6 +110,7 @@ export const EntrepreneurshipInitiative = () => {
                                 <h2>Pensamiento Divergente (<strong>PD</strong>)</h2>
                             </div>
                             <label className="fs-3">Iniciativa y Emprendimiento</label>
+                            <p>Iniciativa: actitud positiva + superar miedo + comenzar + imaginar + disfrutar</p>
                             <p className="auth__alert-error">{msjError}</p>
 
                             <div className="input-group text-center">

@@ -109,6 +109,7 @@ export const SelfEsteem = () => {
                                     <h2>Asumir la responsabilidad propia (<strong>PA</strong>)</h2>
                                 </div>
                                 <label className="fs-3">Autoestima</label>
+                                <p>Valorar el concepto de la autoimagen apreciando los jucios tanto positivos como negativos de si mismo</p>
                                 <p className="auth__alert-error">{msjError}</p>
                                 
                                 <div className="input-group text-center">
